@@ -1,0 +1,86 @@
+html,
+body,
+#root {
+  height: 100%;
+  /* padding-top: 25px; */
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.lending {
+    background-image: url(../../image/background.svg);
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #1F201C;
+    opacity: 0.6;
+    /* margin-top: 25px; */
+  }
+
+.main_header,
+.category_header,
+.about_header {
+margin: 0 100px;
+padding: 17px 0 22px 0;
+}
+
+.main_header_link,
+.category_header_link,
+.about_header_link {
+    color: white;
+}
+
+@media (max-width: 618px) {
+    .header {
+      display: block;
+      text-align: center;
+      margin: 0 10px;
+      background: #1F201C;
+      opacity: 0.6;
+    }
+  }
+
+
+/* Территория недвижимости */
+.body_main_page {
+    margin-top: 120px;
+    margin-left: 50px;
+}
+
+
+.text_realty {
+    font-family: 'Montserrat', 'sans-serif';
+    color: white;
+    font-weight: 700;
+    font-size: 100px;
+    margin-bottom: 0px;
+}
+
+.text_realty_low {
+    font-family: 'Montserrat', 'sans-serif';
+    color: white;
+    font-weight: 300;
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.btn_saw_catalog {
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 24px;
+    margin-bottom: 170px;
+    /* transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; */
+}
