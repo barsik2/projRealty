@@ -1,79 +1,127 @@
 html,
 body,
 #root {
+  width: 100%;
   height: 100%;
-  /* padding-top: 25px; */
   font-family: 'Montserrat', 'sans-serif';
 }
 
 .lending {
-    background-image: url(../../image/background.svg);
-    height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
+  background-image: url(../../image/background.svg);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: #1F201C;
-    opacity: 0.6;
-    /* margin-top: 25px; */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1F201C;
+  opacity: 0.6;
+}
 
 .main_header,
 .category_header,
 .about_header {
-margin: 0 100px;
-padding: 17px 0 22px 0;
+  margin: 0 100px;
+  padding: 17px 0 22px 0;
 }
 
-.main_header_link,
-.category_header_link,
+.main_header_link {
+  color: white;
+}
+
+.category_header_link {
+  color: white;
+  text-decoration: none;
+}
+
 .about_header_link {
-    color: white;
+  color: white;
+  text-decoration: none;
 }
 
-@media (max-width: 618px) {
-    .header {
-      display: block;
-      text-align: center;
-      margin: 0 10px;
-      background: #1F201C;
-      opacity: 0.6;
-    }
-  }
-
-
-/* Территория недвижимости */
 .body_main_page {
-    margin-top: 120px;
-    margin-left: 50px;
+  margin-top: 120px;
+  margin-left: 50px;
 }
-
 
 .text_realty {
-    font-family: 'Montserrat', 'sans-serif';
-    color: white;
-    font-weight: 700;
-    font-size: 100px;
-    margin-bottom: 0px;
+  font-family: 'Montserrat', 'sans-serif';
+  color: white;
+  font-weight: 700;
+  font-size: 100px;
+  margin-bottom: 0px;
+  white-space: nowrap;
 }
 
 .text_realty_low {
-    font-family: 'Montserrat', 'sans-serif';
-    color: white;
-    font-weight: 300;
-    font-size: 30px;
-    margin-top: 0px;
+  font-family: 'Montserrat', 'sans-serif';
+  color: white;
+  font-weight: 300;
+  font-size: 30px;
+  margin-top: 0px;
 }
 
 .btn_saw_catalog {
+  background-color: transparent;
+  border: 3px solid white;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 24px;
+  margin-bottom: 210px;
+}
+
+@media (max-width: 1150px) {
+  .header {
+    display: block;
+    text-align: center;
+    margin: 0;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 1730px) {
+  .body_main_page {
+    margin-top: 80px;
+    margin-left: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .text_realty {
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 1113px) {
+  .body_main_page {
+    margin-top: 80px;
+    margin-left: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .text_realty {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 911px) {
+  .body_main_page {
+    margin-top: 80px;
+    margin-left: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .text_realty {
+    font-size: 50px;
+  }
+  .btn_saw_catalog {
     background-color: transparent;
     border: 3px solid white;
     color: white;
@@ -81,6 +129,32 @@ padding: 17px 0 22px 0;
     font-size: 16px;
     cursor: pointer;
     border-radius: 24px;
-    margin-bottom: 170px;
-    /* transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; */
+    margin-bottom: 222px;
+  }
+}
+
+@media (max-width: 506px) {
+  .body_main_page {
+    margin-top: 80px;
+    margin-left: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .text_realty {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 370px) {
+  .body_main_page {
+    margin-top: 80px;
+    margin-left: 20px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .text_realty {
+    font-size: 20px;
+  }
 }

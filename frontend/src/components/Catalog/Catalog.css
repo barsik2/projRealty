@@ -1,0 +1,430 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', 'sans-serif';
+  overflow-x:hidden;
+}
+
+.catalog_block {
+  background-image: url(../../../image/back_category.svg);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 60px;
+}
+
+.text_catalog {
+    display: inline-block;
+    padding-top: 85px;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 64px;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 816px) {
+  .text_catalog {
+    display: inline-block;
+    padding-top: 85px;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown_menu_block {
+    display: inline-block;
+    padding: 30px;
+}
+
+.dropdown-button {
+    width: 168px;
+    height: 40px;
+    background: #FFFFFF;
+    opacity: 0.7;
+    border-radius: 24px;
+    margin: 20px 95px 20px 0px;
+}
+
+.text_dropdown {
+    display: inline;
+    font-style: normal;
+    font-weight: 300;
+    text-align: center;
+    color: #000000;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 12px 23px 12px 23px;
+}
+
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px;
+    z-index: 10;
+    background: #FFFFFF;
+    opacity: 0.7;
+    border-radius: 24px;
+  }
+
+  .btn_search {
+    width: 111px;
+    height: 44px;
+    background: #3D7716;
+    border-radius: 24px;
+
+  }
+
+  .text_btn_search {
+    font-weight: 300;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .block_btn_sees {
+    text-align: center;
+  }
+
+  .btn_sees {
+    text-align: center;
+    background-color: transparent;
+    border: 3px solid white;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 24px;
+    margin-top: 60px;
+  }
+
+  .main_main_con {
+    position: relative;
+    text-align: center;
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+
+  .card_allProject {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .img_card_allProject {
+    width: 100%;
+    height: auto;
+  }
+
+  .card_comfort {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .img_card_comfort {
+    width: 100%;
+    height: 380px;
+  }
+
+  .card_compact {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .img_card_compact {
+    width: 100%;
+    height: 380px;
+  }
+
+  .card_bernhouse {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .img_card_bernhouse {
+    width: 100%;
+    height: 380px;
+  }
+
+  .card_mansard {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .card_brick {
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .card_modern {
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .card_classic {
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .card_two {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    padding: 0px 30px 30px 0px;
+  }
+
+  .card_one {
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    padding: 0px 30px 30px 0px;
+  }
+
+
+  @media screen and (max-width: 1455px) {
+    .card_allProject {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_comfort {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_compact {
+      display: grid;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_bernhouse {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_mansard {
+      display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_brick {
+      display: grid;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_modern {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_classic {
+      display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_two {
+      display: grid;
+      grid-column-start: 3;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_one {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+  }
+
+  @media screen and (max-width: 1105px) {
+    .card_allProject {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_comfort {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_compact {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_bernhouse {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_mansard {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_brick {
+      display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_modern {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_classic {
+      display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_two {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_one {
+      display: grid;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      padding: 0px 30px 30px 0px;
+    }
+  }
+
+
+  @media screen and (max-width: 764px) {
+    .card_allProject {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_comfort {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_compact {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_bernhouse {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 5;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_mansard {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_brick {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_modern {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_classic {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_two {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+
+    .card_one {
+      display: grid;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding: 0px 30px 30px 0px;
+    }
+  }

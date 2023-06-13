@@ -1,0 +1,142 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.main_container {
+  background-image: url(../../../image/backgroundSubmit.png);
+  height: 100%;
+  padding-left: 20px;
+}
+
+.content {
+    display: flex;
+}
+
+.btn_content {
+    display: flex;
+    position: relative;
+    left: 20%;
+}
+
+.text_submit {
+    padding-top: 80px;
+}
+
+.btn_zayzvka {
+    border: 1px solid #000000;
+    border-radius: 24px;
+    color: #000000;
+    opacity: 1;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.img_submit {
+    padding-left: 350px;
+    padding-bottom: 100px;
+}
+
+.img_submit_img {
+    height: 518px;
+}
+
+@media screen and (max-width: 1330px) {
+    .img_submit_img {
+        height: 530px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .img_submit_img {
+        display: none;
+    }
+    .content {
+        margin-bottom: 300px;
+    }
+}
+
+.plus {
+    padding-bottom: 20px;
+    /* background-image: url(../../../image/image-bg-footer.png); */
+}
+
+.plus_text {
+    position: relative;
+    font-weight: 400;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.text_plus_h2 {
+    font-weight: 300;
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 50px;
+}
+
+.img_plus1 {
+    padding-top: 50px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+.img_plus2 {
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+}
+
+.plus_image {
+    /* display: flex; */
+    border: 1px solid #FFFFFF;
+    border-radius: 24px;
+    margin-right: 20px;
+}
+
+.first_plus {
+    position: relative;
+    text-align: center;
+    padding: 40px 40px 40px 40px;
+}
+
+.second_plus {
+    position: relative;
+    text-align: center;
+    padding: 40px 40px 40px 40px;
+}
+
+@media screen and (max-width: 1400px) {
+    .plus_image {
+        display: flex;
+        border: 1px solid #FFFFFF;
+        border-radius: 24px;
+        margin-right: 20px;
+    }
+    .img_plus {
+        width: 310px;
+        height: 70px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+.img_plus {
+    width: 210px;
+    height: 50px;
+}
+}
+
+@media screen and (max-width: 589px) {
+    .img_plus {
+        width: 150px;
+        height: 40px;
+    }
+    }
+
+
