@@ -10,15 +10,15 @@ class HouseController{
             const {name, short_description, full_description, size, floors, rooms, garage, lenght, width, material, price, style} = req.body;
             const {img_title, img_1, img_2, img_3, img_plan} = req.files;
             let fileNameTitle = `title name:${name}` + uuid.v4() + ".jpg";
-            img_title.mv(path.resolve(__dirname, '..', 'static', fileNameTitle));
+            img_title.mv(path.resolve(__dirname, '..', 'static/img/db', fileNameTitle));
             let fileName1 = `img1 name:${name}` + uuid.v4() + ".jpg";
-            img_1.mv(path.resolve(__dirname, '..', 'static', fileName1));
+            img_1.mv(path.resolve(__dirname, '..', 'static/img/db', fileName1));
             let fileName2 = `img2 name:${name}` + uuid.v4() + ".jpg";
-            img_2.mv(path.resolve(__dirname, '..', 'static', fileName2));
+            img_2.mv(path.resolve(__dirname, '..', 'static/img/db', fileName2));
             let fileName3 = `img3 name:${name}` + uuid.v4() + ".jpg";
-            img_3.mv(path.resolve(__dirname, '..', 'static', fileName3));
+            img_3.mv(path.resolve(__dirname, '..', 'static/img/db', fileName3));
             let fileNamePlan = `plan name:${name}` + uuid.v4() + ".jpg";
-            img_plan.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
+            img_plan.mv(path.resolve(__dirname, '..', 'static/img/db', fileNamePlan));
             const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, lenght, width, material, price, style, img_title: fileNameTitle, img_plan: fileNamePlan, img_1: fileName1, img_2: fileName2, img_3: fileName3});
             return res.json(house);
         } catch(e){
