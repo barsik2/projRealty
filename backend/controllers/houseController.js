@@ -23,10 +23,10 @@ class HouseController{
             img_3.mv(path.resolve(__dirname, '..', 'static', fileName3));
             */
             let fileNamePlan1 = `plan1_name:${name}` + uuid.v4() + ".jpg";
-            img_plan1.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
+            img_plan1.mv(path.resolve(__dirname, '..', 'static', fileNamePlan1));
 
             let fileNamePlan2 = `plan2_name:${name}` + uuid.v4() + ".jpg";
-            img_plan2.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
+            img_plan2.mv(path.resolve(__dirname, '..', 'static', fileNamePlan2));
 
         const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, img_title: fileNameTitle, img_plan1: fileNamePlan1, img_plan2: fileNamePlan2/*, img_1: fileName1, img_2: fileName2, img_3: fileName3*/});
             return res.json(house);
