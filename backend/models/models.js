@@ -30,6 +30,7 @@ const House = sequelize.define('house', {
     price: {type: DataTypes.REAL},
     style: {type: DataTypes.STRING},
     type: {type: DataTypes.STRING},
+    additional: {type: DataTypes.STRING, defaultValue: null},
     img_title: {type: DataTypes.STRING},
     img_1: {type: DataTypes.STRING, defaultValue: null},
     img_2: {type: DataTypes.STRING, defaultValue: null},
