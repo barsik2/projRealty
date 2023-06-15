@@ -8,7 +8,7 @@ class HouseController{
     async create(req, res, next) {
         try{
             const {name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type} = req.body;
-            const {img_title, img_plan/*, img_1, img_2, img_3*/} = req.files;
+            const {img_title, img_plan1, img_plan2/*, img_1, img_2, img_3*/} = req.files;
 
             let fileNameTitle = `title_name:${name}` + uuid.v4() + ".jpg";
             img_title.mv(path.resolve(__dirname, '..', 'static', fileNameTitle));
@@ -22,10 +22,13 @@ class HouseController{
             let fileName3 = `img3_name:${name}` + uuid.v4() + ".jpg";
             img_3.mv(path.resolve(__dirname, '..', 'static', fileName3));
             */
-            let fileNamePlan = `plan_name:${name}` + uuid.v4() + ".jpg";
-            img_plan.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
+            let fileNamePlan1 = `plan1_name:${name}` + uuid.v4() + ".jpg";
+            img_plan1.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
 
-        const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, img_title: fileNameTitle, img_plan: fileNamePlan/*, img_1: fileName1, img_2: fileName2, img_3: fileName3*/});
+            let fileNamePlan2 = `plan2_name:${name}` + uuid.v4() + ".jpg";
+            img_plan2.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
+
+        const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, img_title: fileNameTitle, img_plan1: fileNamePlan1, img_plan2: fileNamePlan2/*, img_1: fileName1, img_2: fileName2, img_3: fileName3*/});
             return res.json(house);
         } catch(e){
             next(ApiError.badRequest(e.message))

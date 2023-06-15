@@ -34,7 +34,9 @@ const House = sequelize.define('house', {
     img_1: {type: DataTypes.STRING, defaultValue: null},
     img_2: {type: DataTypes.STRING, defaultValue: null},
     img_3: {type: DataTypes.STRING, defaultValue: null},
-    img_plan: {type: DataTypes.STRING}
+    img_plan1: {type: DataTypes.STRING},
+    img_plan2: {type: DataTypes.STRING, defaultValue: null},
+    img_plan3: {type: DataTypes.STRING, defaultValue: null}
 })
 
 module.exports = {
