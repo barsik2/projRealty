@@ -7,7 +7,7 @@ const {Op} = require('sequelize');
 class HouseController{
     async create(req, res, next) {
         try{
-            const {name, short_description, full_description, size, floors, rooms, garage, lenght, width, material, price, style} = req.body;
+            const {name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type} = req.body;
             const {img_title, img_plan/*, img_1, img_2, img_3*/} = req.files;
 
             let fileNameTitle = `title_name:${name}` + uuid.v4() + ".jpg";
@@ -25,7 +25,7 @@ class HouseController{
             let fileNamePlan = `plan_name:${name}` + uuid.v4() + ".jpg";
             img_plan.mv(path.resolve(__dirname, '..', 'static', fileNamePlan));
 
-        const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, lenght, width, material, price, style, img_title: fileNameTitle, img_plan: fileNamePlan/*, img_1: fileName1, img_2: fileName2, img_3: fileName3*/});
+        const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, img_title: fileNameTitle, img_plan: fileNamePlan/*, img_1: fileName1, img_2: fileName2, img_3: fileName3*/});
             return res.json(house);
         } catch(e){
             next(ApiError.badRequest(e.message))
