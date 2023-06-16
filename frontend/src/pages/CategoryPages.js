@@ -14,7 +14,7 @@ const fetchData = async () => {
     axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
     axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
     axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
-    const response = await axios.get('http://195.24.67.222:5000/api/house');
+    const response = await axios.get('http://localhost:5000/api/house');
     return response.data.rows;
   } catch (error) {
     console.error(error);
@@ -28,7 +28,7 @@ const CategoryPages = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://195.24.67.222:5000/api/house');
+        const response = await axios.get('http://localhost:5000/api/house');
         setData(response.data.rows);
       } catch (error) {
         console.error(error);
@@ -45,7 +45,7 @@ const CategoryPages = () => {
     axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
     axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
     axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
-    axios.get(`http://195.24.67.222:5000/api/house/filters?floors=${floorsParam}`)
+    axios.get(`http://localhost:5000/api/house/filters?floors=${floorsParam}`)
       .then(response => setData(response.data.rows))
       .catch(error => console.log(error));
   }
@@ -80,7 +80,7 @@ const CategoryPages = () => {
               <Link className="first_card_category" to={CARD_ROUTE}>
                 <img
                   className="img_img_title"
-                  src={`http://195.24.67.222:5000/${item.img_title}`}
+                  src={`http://localhost:5000/${item.img_title}`}
                   alt="a"
                 />
               </Link>
