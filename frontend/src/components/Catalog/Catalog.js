@@ -1,198 +1,217 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { ABOUTE_ROUTE, CATEGORY_ROUTE, HOME_ROUTE } from "../../constRoute/consts";
 import '../Catalog/Catalog.css';
-// import allProject from './image-allProject.png';
+import axios from "axios";
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 
-function DropdownButton() {
-    const [menuOpenSquare, setMenuOpenSquare] = useState(false);
-
-    const handleMenuToggle = () => {
-        setMenuOpenSquare(!menuOpenSquare);
-    };
-    ///////////
-
-    const [menuOpenRooms, setMenuOpenRooms] = useState(false);
-
-    const handleMenuToggleRooms = () => {
-        setMenuOpenRooms(!menuOpenRooms);
-    };
-    ////////
-
-    const [menuOpenFloors, setMenuOpenFloors] = useState(false);
-
-    const handleMenuToggleFloors = () => {
-        setMenuOpenFloors(!menuOpenFloors);
-    };
-    //////
-
-    const [menuOpenStyle, setMenuOpenStyle] = useState(false);
-
-    const handleMenuToggleStyle = () => {
-        setMenuOpenStyle(!menuOpenStyle);
-    };
-    /////
-
-    const [menuOpenPrice, setMenuOpenPrice] = useState(false);
-
-    const handleMenuTogglePrice = () => {
-        setMenuOpenPrice(!menuOpenPrice);
-    };
-
-    return (
-        <div className="dropdown_menu_block">
-           <div className="dropdown">
-                <button className="dropdown-button" onClick={handleMenuToggle}>
-                    <p className="text_dropdown">Площадь</p>
-                    <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 0.961529L9.04163 8.27674C8.64746 8.69112 7.98668 8.69112 7.59252 8.27674L1 1.34614" stroke="black" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                {menuOpenSquare && (
-                    <div className="dropdown-menu">
-                        <p href="#item1">Малая</p>
-                        <p href="#item2">Средняя</p>
-                        <p href="#item3">Большая</p>
-                    </div>
-                )}
-            </div>
-
-            <div className="dropdown">
-            <button className="dropdown-button" onClick={handleMenuToggleRooms}>
-                <p className="text_dropdown">Комнаты</p>
-                <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0.961529L9.04163 8.27674C8.64746 8.69112 7.98668 8.69112 7.59252 8.27674L1 1.34614" stroke="black" stroke-linecap="round"/>
-                </svg>
-            </button>
-            {menuOpenRooms && (
-                <div className="dropdown-menu">
-                    <p href="#item1">Комната 1</p>
-                    <p href="#item2">Комната 2</p>
-                    <p href="#item3">Комната 3</p>
-                </div>
-            )}
-            </div>
-
-            <div className="dropdown">
-            <button className="dropdown-button" onClick={handleMenuToggleFloors}>
-                <p className="text_dropdown">Этажи</p>
-                <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0.961529L9.04163 8.27674C8.64746 8.69112 7.98668 8.69112 7.59252 8.27674L1 1.34614" stroke="black" stroke-linecap="round"/>
-                </svg>
-            </button>
-            {menuOpenFloors && (
-                <div className="dropdown-menu">
-                    <p href="#item1">Этаж 1</p>
-                    <p href="#item2">Этаж 2</p>
-                    <p href="#item3">Этаж 3</p>
-                </div>
-            )}
-            </div>
-
-            <div className="dropdown">
-            <button className="dropdown-button" onClick={handleMenuToggleStyle}>
-                <p className="text_dropdown">Стиль</p>
-                <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0.961529L9.04163 8.27674C8.64746 8.69112 7.98668 8.69112 7.59252 8.27674L1 1.34614" stroke="black" stroke-linecap="round"/>
-                </svg>
-            </button>
-            {menuOpenStyle && (
-                <div className="dropdown-menu">
-                    <p href="#item1">Стиль 1</p>
-                    <p href="#item2">Стиль 2</p>
-                    <p href="#item3">Стиль 3</p>
-                </div>
-            )}
-            </div>
-
-            <div className="dropdown">
-            <button className="dropdown-button" onClick={handleMenuTogglePrice}>
-                <p className="text_dropdown">Цена</p>
-                <svg width="17" height="10" viewBox="0 0 17 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 0.961529L9.04163 8.27674C8.64746 8.69112 7.98668 8.69112 7.59252 8.27674L1 1.34614" stroke="black" stroke-linecap="round"/>
-                </svg>
-            </button>
-            {menuOpenPrice && (
-                <div className="dropdown-menu">
-                    <p href="#item1">150000-300000</p>
-                    <p href="#item2">300000-450000</p>
-                    <p href="#item3">450000-600000</p>
-                </div>
-            )}
-            </div>
-
-            <button className="btn_search"><p className="text_btn_search">Найти</p></button>
-        </div>
-
-    );
-}
+const fetchData = async (filter) => {
+    try {
+      const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floor=${filter.floor}&tent=${filter.tent}&style=${filter.style}&room=${filter.rooms}`);
+      return response.data.rows;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 const images = [
-    { id:1, image: '/image-allProject.png', width: 700, height: 380 },
-    { id: 2, image: '/image-card-comfort.png', width: 400, height: 380 },
-    { id: 3, image: '/image-card-compact.png', width: 400, height: 380 },
-    { id:4, image: '/image-card-bernhouse.png', width: 400, height: 380 },
-    { id:5, image: '/image-card-mansard.png', width: 400, height: 380 },
-    { id:6, image: '/image-card-brick.png', width: 400, height: 380 },
-    { id:7, image: '/image-card-modern.png', width: 400, height: 380 },
-    { id:8, image: '/image-card-classic.png', width: 400, height: 380 },
-    { id:9, image: '/image-card-two.png', width: 400, height: 380 },
-    { id:10, image: '/image-card-one.png', width: 400, height: 380 },
+    { id:1, image: '/image-allProject-card.svg'},
+    { id: 2, image: '/image-card-comfort.png' },
+    { id: 3, image: '/image-card-compact.png'},
+    { id:4, image: '/image-card-bernhouse.png'},
+    { id:5, image: '/image-card-mansard.png'},
+    { id:6, image: '/image-card-brick.png'},
+    { id:7, image: '/image-card-modern.png'},
+    { id:8, image: '/image-card-classic.png'},
+    { id:9, image: '/image-card-two.png'},
+    { id:10, image: '/image-card-one.png'},
   ];
 
 
 const Catalog = () => {
 
+    const [data, setData] = useState([]);
+  const [filter, setFilter] = useState({
+    garage: '', // гараж
+    floor: '', // этажи
+    tent: '', // навес
+    style: '', // стиль
+    rooms: '', // комнаты
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFilter({ ...filter, [name]: value });
+  };
+
+  const handleSearch = async () => {
+    const newData = await fetchData(filter);
+    setData(newData);
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://195.24.67.222:5000/api/house');
+        setData(response.data.rows);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
     return (
         <div className="catalog_block">
             <h1 className="text_catalog">КАТАЛОГ НЕДВИЖИМОСТИ</h1>
 
-            <DropdownButton />
+            <div className="filter_container">
 
-                <div className="main_main_con">
-                    <div className="container">
-                        <Link to={CATEGORY_ROUTE} key={images[0].id} className="card_allProject">
+      <Form className="form_filter">
+          <Form.Group controlId="garage">
+            <Form.Control as="select" name="garage" value={filter.garage} onChange={handleChange}>
+              <option value="">Гараж</option>
+              <option value="1">Один</option>
+              <option value="2">Два</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId="floor">
+            <Form.Control as="select" name="floor" value={filter.floor} onChange={handleChange}>
+              <option value="">Этажи</option>
+              <option value="1">1 этаж</option>
+              <option value="2">2 этажа</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId="tent">
+            <Form.Control
+              as="select"
+              name="tent"
+              value={filter.tent}
+              onChange={handleChange}
+            >
+              <option value="">Навес</option>
+              <option value="true">Есть</option>
+              <option value="false">Нет</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId="style">
+            <Form.Control
+              as="select"
+              name="style"
+              value={filter.style}
+              onChange={handleChange}
+            >
+              <option value="">Стиль</option>
+              <option value="Барнхаус">Барнхаус</option>
+              <option value="Классический">Классический</option>
+              <option value="Европейский">Европейский</option>
+              <option value="Модерн">Модерн</option>
+              <option value="Современные">Современный</option>
+              <option value="Хай-тек">Хай-тек</option>
+              <option value="Кубизм">Кубизм</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group controlId="rooms">
+            <Form.Control
+              as="select"
+              name="rooms"
+              value={filter.rooms}
+              onChange={handleChange}
+            >
+              <option value="">Комнаты</option>
+              <option value='4'>Четыре</option>
+              <option value='5'>Пять</option>
+              <option value='6'>Шесть</option>
+              <option value='7'>Семь</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Link to={CATEGORY_ROUTE}>
+            <Button variant="primary" onClick={handleSearch}>
+                Найти
+            </Button>
+          </Link>
+
+        </Form>
+      </div>
+
+                    <div className="container_cat_card">
+                        <div className="div_card_allProject">
+                            <Link to='/category' key={images[0].id} className="card_allProject">
                                 <img className="img_card_allProject" src={images[0].image} alt="Card" />
-                        </Link>
+                            </Link>
+                        </div>
 
-                        <Link to={CATEGORY_ROUTE} key={images[1].id} className="card_comfort">
-                            <img className="img_card_comfort" src={images[1].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[2].id} className="card_compact">
-                            <img className="img_card_compact" src={images[2].image} alt="Card" />
-                        </Link>
+                        <div className="two_str" >
+                            <div className="div_card_comfort">
+                                <Link to='/category' key={images[1].id} className="card_comfort">
+                                <img className="img_card_comfort" src={images[1].image} alt="Card" />
+                            </Link>
+                            </div>
+                            <div className="div_card_compact">
+                                <Link to='/category' key={images[2].id} className="card_compact">
+                                    <img className="img_card_compact" src={images[2].image} alt="Card" />
+                                </Link>
+                            </div>
+                        </div>
 
-                        <Link to={CATEGORY_ROUTE} key={images[3].id} className="card_bernhouse">
-                            <img className="img_card_bernhouse" src={images[3].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[4].id} className="card_mansard">
-                            <img className="img_card_mansard" src={images[4].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[5].id} className="card_brick">
-                            <img className="img_card_brick" src={images[5].image} alt="Card" />
-                        </Link>
 
-                        <Link to={CATEGORY_ROUTE} key={images[6].id} className="card_modern">
-                            <img className="img_card_modern" src={images[6].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[7].id} className="card_classic">
-                            <img className="img_card_classic" src={images[7].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[8].id} className="card_two">
-                            <img className="img_card_two" src={images[8].image} alt="Card" />
-                        </Link>
-                        <Link to={CATEGORY_ROUTE} key={images[9].id} className="card_one">
-                            <img className="img_card_one" src={images[9].image} alt="Card" />
-                        </Link>
+                        <div className="three_str">
+                            <div className="div_card_bernhouse">
+                                <Link to='/category' key={images[3].id} className="card_bernhouse">
+                                    <img className="img_card_bernhouse" src={images[3].image} alt="Card" />
+                                </Link>
+                            </div>
+                            <div className="div_card_mansard">
+                                <Link to='/category' key={images[4].id} className="card_mansard">
+                                <img className="img_card_mansard" src={images[4].image} alt="Card" />
+                            </Link>
+                            </div>
+                            <div className="div_card_brick">
+                                <Link to='/category' key={images[5].id} className="card_brick">
+                                    <img className="img_card_brick" src={images[5].image} alt="Card" />
+                                </Link>
+                            </div>
+                        </div>
 
+
+                        <div className="four_str">
+                           <div className="div_card_modern">
+                                <Link to='/category' key={images[6].id} className="card_modern">
+                                    <img className="img_card_modern" src={images[6].image} alt="Card" />
+                                </Link>
+                            </div>
+                            <div className="div_card_classic">
+                                <Link to='/category' key={images[7].id} className="card_classic">
+                                    <img className="img_card_classic" src={images[7].image} alt="Card" />
+                                </Link>
+                            </div>
+                            <div className="div_card_two">
+                                <Link to='/category' key={images[8].id} className="card_two">
+                                    <img className="img_card_two" src={images[8].image} alt="Card" />
+                                </Link>
+                            </div>
+                            <div className="div_card_one">
+                                <Link to='/category' key={images[9].id} className="card_one">
+                                    <img className="img_card_one" src={images[9].image} alt="Card" />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
+                <Link to={CATEGORY_ROUTE}>
+                  <div className="block_btn_sees">
+                      <button className="btn_sees">Смотреть еще</button>
+                  </div>
+                </Link>
 
-                <div className="block_btn_sees">
-                    <button className="btn_sees">Смотреть еще</button>
-                </div>
 
         </div>
     );

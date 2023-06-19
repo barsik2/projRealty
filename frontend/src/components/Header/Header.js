@@ -18,7 +18,7 @@ const Header = () => {
             <Link className="main_header_link" to={HOME_ROUTE}>Главная</Link>
           </div>
           <div className="category_header">
-            <Link className="category_header_link" to={CATEGORY_ROUTE}>Категории</Link>
+            <Link className="category_header_link" to={CATEGORY_ROUTE}>Каталог</Link>
           </div>
           <div className="about_header">
             <Link className="about_header_link" to={ABOUTE_ROUTE}>Оставить заявку</Link>

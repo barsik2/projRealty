@@ -1,25 +1,51 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Header from "../components/Header/Header";
-import '../components/Header/Header.css';
 import '../components/Header/Header.css';
 import './CategoryPages.css';
 import Footer from "../components/Footer/Footer";
 import Carousel from 'react-bootstrap/Carousel';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { CATEGORY_ROUTE } from "../constRoute/consts";
 import './CardPages.css';
 import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
 
 function ModalShow() {
     const [showModal, setShowModal] = useState(false);
+    const [formData, setFormData] = useState({
+        fullname: '',
+        number: '',
+        email: '',
+        house_id: 0
+    });
 
     const handleShowModal = () => {
-      setShowModal(true);
+        setShowModal(true);
     };
 
     const handleCloseModal = () => {
-      setShowModal(false);
+        setShowModal(false);
     };
+
+    const handleChange = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://195.24.67.222:5000/api/order', formData)
+            .then(response => {
+                console.log(response);
+                handleCloseModal();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
     return (
         <div>
           <button onClick={handleShowModal} className="btn_sees_card">Оставить заявку</button>
@@ -29,22 +55,14 @@ function ModalShow() {
             </Modal.Header>
             <Modal.Body>
                 <div className="modal_form">
-                    <h2 className="modal_name">ФИО</h2>
-                    <input className="input_name" type="text" placeholder="Введите ФИО" />
-                    <h2 className="modal_name">Номер телефона</h2>
-                    <input className="input_name" type="text" placeholder="Введите номер телефона" />
-                    <h2 className="modal_name">Почта</h2>
-                    <input className="input_name" type="email" placeholder="Введите адрес электронной почты" />
+                    <form onSubmit={handleSubmit}>
+                            <input name="name" value={formData.name} onChange={handleChange} className="input_name" type="text" placeholder="Введите ФИО" />
+                            <input name="phone" value={formData.phone} onChange={handleChange} className="input_name" type="text" placeholder="Введите номер телефона" />
+                            <input name="email" value={formData.email} onChange={handleChange} className="input_name" type="email" placeholder="Введите адрес электронной почты" />
+                            <button className="btn_card_data" type="submit">Отправить заявку</button>
+                        </form>
                 </div>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Закрыть
-              </Button>
-              <Button variant="primary" onClick={handleCloseModal}>
-                Отправить заявку
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
       );
@@ -53,6 +71,20 @@ function ModalShow() {
 
 const CardPages = () => {
 
+    const { id } = useParams(); // Получение значения id из URL
+    const [cardData, setCardData] = useState(null);
+
+    useEffect(() => {
+      const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://195.24.67.222:5000/api/house/${id}`);
+            setCardData(response.data);
+          } catch (error) {
+              console.error(error);
+          }
+      };
+      fetchData();
+  }, [id]);
 
     const handleClick = () => {
         const content = document.querySelector('.txt_haracteristic_h1'); // находим контент на странице
@@ -65,104 +97,117 @@ const CardPages = () => {
       };
 
     return (
-        <div className="main_body">
-            <div className="main_container_card_pages">
-                <Header />
-                <div className="div_container">
-                            <div className="header_card">
-                                <Link className="btn_back" to={CATEGORY_ROUTE}>
-                                    <img className="img_back" src="/image-btn-back.png" alt="back" />
-                                    <p className="btn_text_catalog">Каталог</p>
-                                </Link>
-                                <div className="category_header_card">
-                                    <p>T128</p>
-                                </div>
-                                <div className="about_header">
-                                    <button className="about_header_link_har" onClick={handleClick}>
-                                        <p className="btn_text_catalog">Характеристика</p>
-                                    </button>
-                                </div>
-                                <div className="about_header">
-                                    <button className="about_header_link_har" onClick={handleClickTwo}>
-                                        <p className="btn_text_catalog">Планировка</p>
-                                    </button>
-                                </div>
+      <div className="main_body">
+        <div className="main_container_card_pages">
+            <Header />
+            <div className="div_container">
+                        <div className="header_card">
+                            <Link className="btn_back" to={CATEGORY_ROUTE}>
+                                <img className="img_back" src="/image-btn-back.png" alt="back" />
+                                <p className="btn_text_catalog">Каталог</p>
+                            </Link>
+                            {cardData && (
+                              <div className="category_header_card">
+                                  <p>{cardData.name}</p>
+                              </div>
+                            )}
+                            <div className="about_header">
+                                <button className="about_header_link_har" onClick={handleClick}>
+                                    <p className="btn_text_catalog">Характеристика</p>
+                                </button>
                             </div>
-                    <Carousel className="carousel_block">
-                        <Carousel.Item>
-                            <img src="/image-slider-one.png" alt="home1" />
-                            <Carousel.Caption className="bg_txt">
-                                <p className="txt_slider">
-                                    T128,
-                                    127м2
-                                </p>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                </Carousel>
-                </div>
-
-                <div className="haracteristic">
-                    <div className="block_one">
-                        <h1 className="txt_haracteristic_h1">
-                            Проект красивого одноэтажного дома с террасой
-                        </h1>
-                        <p className="txt_haracteristic_p">Задайте вопрос об этом проекте +7-800-35-35 или отправьте заявку</p>
-                        <h1 className="txt_opis">Описание</h1>
-                        <p className="txt_haracteristic_p">
-                            Самый популярный проект дома в каталоге Территории Недвжимости.
-                            Этот загородный коттедж обладает элегантным дизайном, сочетающим в экстерьере контрастную отделку светлым и темным кирпичом и большие окна, что в целом придает строению очень уютный вид. Изюминкой проекта является большая крытая терраса, на которой хозяева могут обустроить летнюю столовую или место для комфортного послеобеденного отдыха.
-
-                            Жилая честь дома условно разделена на обеденную и спальную зоны. Первая, включает в себя просторный гостиный зал, соединенный с террасой и по-современному объединенный со столовой и кухней. Зал оборудован внутренним камином, который создает в помещении особую атмосферу домашнего очага, уюта и спокойствия.В спальной зоне, находящейся в левой половине коттеджа, архитекторы распланировали ванную комнату и четыре комфортабельные спальни, выходящие в общий холл, соединенный с прихожей.
-
-                            Благодаря удачной планировке, включающей, в том числе, и помещение автономной котельной, этот дом пригоден для всесезонной эксплуатации и круглогодичного проживания семьи из четырех – пяти человек.
-
-                            Если вы подыскиваете себе проект красивого дома с террасой, предлагаем Вам обратить внимание на эксклюзивный проект красивого одноэтажного дома с навесом для автомобиля и с большой крытой террасой T127 – авторскую работу архитекторов студии
-                        </p>
-                    </div>
-
-                    <div className="block_two">
-                        <img src="/image-count.png" alt="count"/>
-                        <h1 className="txt_opis">Характеристики</h1>
-                        <p className="txt_haracteristic_p">
-                            Площадь дома: 127 м2
-                        </p>
-                        <p className="txt_haracteristic_p">
-                            Количество комнат: 4
-                        </p>
-                        <p className="txt_haracteristic_p">
-                            Гараж: 2 места
-                        </p>
-                        <p className="txt_haracteristic_p">
-                            Длина: 12,4 м2
-                        </p>
-                        <p className="txt_haracteristic_p">
-                            Ширина: 22,7 м2
-                        </p>
-                        <p className="txt_haracteristic_p">
-                            Материалы стен: газобетон или пеноблов, кирпич, керамические блоки
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div className="plan">
-                    <h1 className="txt_opis">План помещений</h1>
-                    <div className="img_plan">
-                        <img src="/image-t128-plan.png" alt="plan" />
-                    </div>
-
-                </div>
-
-                <div className="block_btn_sees_card">
-                    <ModalShow />
-                </div>
-
-
-                <Footer />
+                            <div className="about_header">
+                                <button className="about_header_link_har" onClick={handleClickTwo}>
+                                    <p className="btn_text_catalog">Планировка</p>
+                                </button>
+                            </div>
+                        </div>
+                <Carousel className="carousel_block">
+                    <Carousel.Item>
+                        {cardData && (
+                          <img src={`http://195.24.67.222:5000/${cardData.img_title}`} alt="home1" />
+                        )}
+                        <Carousel.Caption className="bg_txt">
+                          {cardData && (
+                            <p className="txt_slider">
+                                {cardData.name},
+                                {cardData.size}м2
+                            </p>
+                          )}
+                        </Carousel.Caption>
+                    </Carousel.Item>
+            </Carousel>
             </div>
-        </div>
 
+            <div className="haracteristic">
+                <div className="block_one">
+                  {cardData && (
+                    <h1 className="txt_haracteristic_h1">
+                      {cardData.short_description}
+                    </h1>
+                  )}
+
+                    <p className="txt_haracteristic_p">Задайте вопрос об этом проекте +7-800-35-35 или отправьте заявку</p>
+                    <h1 className="txt_opis">Описание</h1>
+                    {cardData && (
+                      <p className="txt_haracteristic_p">
+                        {cardData.full_description}
+                      </p>
+                    )}
+                </div>
+
+                <div className="block_two">
+                  {cardData && (
+                      <div className="price_border">
+                        <p className="txt_price">{cardData.price}</p>
+                      </div>
+                  )}
+                    <h1 className="txt_opis">Характеристики</h1>
+                    {cardData && (
+                      <div>
+                        <p className="txt_haracteristic_p">
+                            {cardData.size} м2
+                        </p>
+                        <p className="txt_haracteristic_p">
+                            Количество комнат: {cardData.rooms}
+                        </p>
+                        <p className="txt_haracteristic_p">
+                            Гараж: {cardData.garage}
+                        </p>
+                        <p className="txt_haracteristic_p">
+                            Длина: {cardData.length} м2
+                        </p>
+                        <p className="txt_haracteristic_p">
+                            Ширина: {cardData.width} м2
+                        </p>
+                        <p className="txt_haracteristic_p">
+                            Материалы стен: {cardData.material}
+                        </p>
+                      </div>
+                    )
+                    }
+
+                </div>
+
+            </div>
+
+            <div className="plan">
+                <h1 className="txt_opis">План помещений</h1>
+                {cardData && (
+                  <div className="img_plan">
+                    <img className="img_img_plan" src={`http://195.24.67.222:5000/${cardData.img_plan1}`} alt="plan" />
+                </div>
+                )}
+            </div>
+
+            <div className="block_btn_sees_card">
+                <ModalShow />
+            </div>
+
+
+            <Footer />
+        </div>
+    </div>
     );
 };
 

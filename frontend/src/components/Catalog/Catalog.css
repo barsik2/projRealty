@@ -17,7 +17,7 @@ body,
 
 .text_catalog {
     display: inline-block;
-    padding-top: 85px;
+    padding-top: 45px;
     padding-left: 20px;
     font-weight: 500;
     font-size: 64px;
@@ -27,54 +27,13 @@ body,
 @media screen and (max-width: 816px) {
   .text_catalog {
     display: inline-block;
-    padding-top: 85px;
+    padding-top: 45px;
     padding-left: 20px;
     font-weight: 500;
     font-size: 40px;
     color: #FFFFFF;
 }
 }
-
-.dropdown {
-  display: inline-block;
-}
-
-.dropdown_menu_block {
-    display: inline-block;
-    padding: 30px;
-}
-
-.dropdown-button {
-    width: 168px;
-    height: 40px;
-    background: #FFFFFF;
-    opacity: 0.7;
-    border-radius: 24px;
-    margin: 20px 95px 20px 0px;
-}
-
-.text_dropdown {
-    display: inline;
-    font-style: normal;
-    font-weight: 300;
-    text-align: center;
-    color: #000000;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding: 12px 23px 12px 23px;
-}
-
-.dropdown-menu {
-    display: block;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    padding: 10px;
-    z-index: 10;
-    background: #FFFFFF;
-    opacity: 0.7;
-    border-radius: 24px;
-  }
 
   .btn_search {
     width: 111px;
@@ -106,325 +65,50 @@ body,
     margin-top: 60px;
   }
 
-  .main_main_con {
-    position: relative;
-    text-align: center;
-  }
-
-  .container {
-    position: relative;
-    text-align: center;
-    padding-top: 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .container_cat_card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 50px;
     margin-left: 20px;
-    margin-right: 0px;
+    margin-right: 20px;
   }
 
-  .card_allProject {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 5;
-    padding: 0px 30px 30px 0px;
+  .div_card_allProject {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
   }
 
-  .img_card_allProject {
+  .two_str {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+
+  .three_str {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+
+  .four_str {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .img_card_allProject,
+  .img_card_comfort,
+  .img_card_compact,
+  .img_card_bernhouse,
+  .img_card_mansard,
+  .img_card_brick,
+  .img_card_modern,
+  .img_card_classic,
+  .img_card_two,
+  .img_card_one {
+    object-fit: cover;
     width: 100%;
-    height: auto;
-  }
-
-  .card_comfort {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .img_card_comfort {
-    width: 100%;
-    height: 380px;
-  }
-
-  .card_compact {
-    display: grid;
-    grid-column-start: 3;
-    grid-column-end: 5;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .img_card_compact {
-    width: 100%;
-    height: 380px;
-  }
-
-  .card_bernhouse {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .img_card_bernhouse {
-    width: 100%;
-    height: 380px;
-  }
-
-  .card_mansard {
-    display: grid;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .card_brick {
-    display: grid;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .card_modern {
-    display: grid;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .card_classic {
-    display: grid;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .card_two {
-    display: grid;
-    grid-column-start: 3;
-    grid-column-end: 4;
-    padding: 0px 30px 30px 0px;
-  }
-
-  .card_one {
-    display: grid;
-    grid-column-start: 4;
-    grid-column-end: 5;
-    padding: 0px 30px 30px 0px;
-  }
-
-
-  @media screen and (max-width: 1455px) {
-    .card_allProject {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_comfort {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_compact {
-      display: grid;
-      grid-column-start: 3;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_bernhouse {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_mansard {
-      display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_brick {
-      display: grid;
-      grid-column-start: 3;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_modern {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_classic {
-      display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_two {
-      display: grid;
-      grid-column-start: 3;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_one {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-  }
-
-  @media screen and (max-width: 1105px) {
-    .card_allProject {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_comfort {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_compact {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_bernhouse {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_mansard {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_brick {
-      display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_modern {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_classic {
-      display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_two {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_one {
-      display: grid;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      padding: 0px 30px 30px 0px;
-    }
-  }
-
-
-  @media screen and (max-width: 764px) {
-    .card_allProject {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 5;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_comfort {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 5;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_compact {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 5;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_bernhouse {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 5;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_mansard {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_brick {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_modern {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_classic {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_two {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
-
-    .card_one {
-      display: grid;
-      grid-column-start: 1;
-      grid-column-end: 2;
-      padding: 0px 30px 30px 0px;
-    }
+    height: 100%;
+    transition: all 0.4s ease-in-out;
   }

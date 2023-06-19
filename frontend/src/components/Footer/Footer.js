@@ -41,17 +41,6 @@ const Footer = () => {
             <img src="/img-logo-site.svg" alt="logo" />
         </div>
 
-        <div className="social_network">
-            <Link to={HOME_ROUTE}>
-                <img src="/icon-vk.svg" alt="vk" />
-            </Link>
-            <Link to={HOME_ROUTE}>
-                <img src="/icon-inst.png" alt="inst" />
-            </Link>
-            <Link to={HOME_ROUTE}>
-                <img src="/icon-tg.png" alt="tg" />
-            </Link>
-        </div>
     </div>
   );
 };

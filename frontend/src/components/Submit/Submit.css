@@ -18,15 +18,35 @@ body,
 
 .btn_content {
     display: flex;
-    position: relative;
-    left: 20%;
+    justify-content: center;
 }
 
 .text_submit {
     padding-top: 80px;
+    padding-left: 10px;
+}
+
+.text_submit_two {
+    padding-left: 10px;
+}
+
+.text_submit_three {
+    padding-left: 10px;
 }
 
 .btn_zayzvka {
+    border: 1px solid #000000;
+    border-radius: 24px;
+    opacity: 1;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.btn_zayzvka :hover {
     border: 1px solid #000000;
     border-radius: 24px;
     color: #000000;
@@ -35,6 +55,7 @@ body,
     font-size: 16px;
     margin-top: 30px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .img_submit {
@@ -44,6 +65,25 @@ body,
 
 .img_submit_img {
     height: 518px;
+}
+
+.input_name {
+    width: 100%;
+    background: none;
+    border-radius: 24px;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.btn_submit_data {
+    background: #000000;
+    border: 1px solid #000000;
+    border-radius: 24px;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    margin-top: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
 }
 
 @media screen and (max-width: 1330px) {
@@ -95,7 +135,7 @@ body,
 }
 
 .plus_image {
-        display: flex;
+        text-align: center;
         border: 1px solid #FFFFFF;
         border-radius: 24px;
         margin-right: 20px;
@@ -103,13 +143,11 @@ body,
 
 .first_plus {
     position: relative;
-    text-align: center;
     padding: 40px 40px 40px 40px;
 }
 
 .second_plus {
     position: relative;
-    text-align: center;
     padding: 40px 40px 40px 40px;
 }
 
@@ -153,4 +191,15 @@ body,
             height: 70px;
         }
     }
+}
+
+.btn_sees_card_submit {
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 24px;
+    padding: 10px 20px 10px 20px;
+}
+
+.modal_div {
+    text-align: center;
 }

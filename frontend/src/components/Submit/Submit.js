@@ -1,11 +1,13 @@
 import React from "react";
 import './Submit.css';
+import { Link } from "react-router-dom";
+import { CATEGORY_ROUTE } from "../../constRoute/consts";
 
 const Submit = () => {
   return (
     <div className="main_container">
         <div className="content">
-            <div>
+            <div className="content_txt_btn">
                 <h1 className="text_submit">
                     ВЫБЕРИ ДОМ СВОЕЙ МЕЧТЫ
                 </h1>
@@ -16,9 +18,9 @@ const Submit = () => {
                     ЗАВТРА
                 </h1>
                 <div className="btn_content">
-                    <button className="btn_zayzvka">
+                    <Link to={CATEGORY_ROUTE} className="btn_zayzvka">
                         Оставить заявку
-                    </button>
+                    </Link>
                 </div>
             </div>
 
