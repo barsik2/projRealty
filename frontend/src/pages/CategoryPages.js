@@ -11,8 +11,16 @@ import Button from 'react-bootstrap/Button';
 
 const fetchData = async (filter) => {
   try {
-    const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floor=${filter.floor}&tent=${filter.tent}&style=${filter.style}&room=${filter.rooms}`);
-    return response.data.rows;
+    axios.defaults.headers.common['ngrok-skip-browser-warning'] = true;
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+    axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
+    axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
+    const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floor=${filter.floor}&tent=${filter.tent}&rooms=${filter.rooms}`);
+
+    const filteredData = response.data.rows.filter(item => item.style.includes(filter.style));
+
+    return filteredData;
   } catch (error) {
     console.error(error);
   }
@@ -42,6 +50,11 @@ const CategoryPages = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        axios.defaults.headers.common['ngrok-skip-browser-warning'] = true;
+        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+        axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
+        axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
         const response = await axios.get('http://195.24.67.222:5000/api/house');
         setData(response.data.rows);
       } catch (error) {

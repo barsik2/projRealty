@@ -70,8 +70,8 @@ const Catalog = () => {
 
             <div className="filter_container">
 
-      <Form className="form_filter">
-          <Form.Group controlId="garage">
+      <Form className="form_filter_cat">
+          <Form.Group className="filter_padding" controlId="garage">
             <Form.Control as="select" name="garage" value={filter.garage} onChange={handleChange}>
               <option value="">Гараж</option>
               <option value="1">Один</option>

@@ -56,8 +56,8 @@ function ModalShow() {
             <Modal.Body>
                 <div className="modal_form">
                     <form onSubmit={handleSubmit}>
-                            <input name="name" value={formData.name} onChange={handleChange} className="input_name" type="text" placeholder="Введите ФИО" />
-                            <input name="phone" value={formData.phone} onChange={handleChange} className="input_name" type="text" placeholder="Введите номер телефона" />
+                            <input name="fullname" value={formData.fullname} onChange={handleChange} className="input_name" type="text" placeholder="Введите ФИО" />
+                            <input name="number" value={formData.number} onChange={handleChange} className="input_name" type="text" placeholder="Введите номер телефона" />
                             <input name="email" value={formData.email} onChange={handleChange} className="input_name" type="email" placeholder="Введите адрес электронной почты" />
                             <button className="btn_card_data" type="submit">Отправить заявку</button>
                         </form>
@@ -125,7 +125,7 @@ const CardPages = () => {
                 <Carousel className="carousel_block">
                     <Carousel.Item>
                         {cardData && (
-                          <img src={`http://195.24.67.222:5000/${cardData.img_title}`} alt="home1" />
+                          <img className="img_slider" src={`http://195.24.67.222:5000/${cardData.img_title}`} alt="home1" />
                         )}
                         <Carousel.Caption className="bg_txt">
                           {cardData && (
