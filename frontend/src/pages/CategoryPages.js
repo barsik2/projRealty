@@ -142,23 +142,23 @@ const CategoryPages = () => {
       </div>
 
       <div className="m_c_container">
-        {data && data.map((item) => (
-          <div className="container_card_category" key={item.id}>
-            {item.img_title !== null && (
-              <Card className="img_img_title">
-                <Link to={`/category/${item.id}`}>
-                  <Card.Img variant="top" src={`http://195.24.67.222:5000/${item.img_title}`} alt="card" />
-                </Link>
-                <Card.Body className="background_card">
-                  <Card.Title className="text_card">{item.name}</Card.Title>
-                  <Card.Text className="text_card">
-                    {item.short_description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            )}
-          </div>
-        ))}
+          {data && data.map((item) => (
+            <div className="container_card_category" key={item.id}>
+              {item.img_title !== null && (
+                <Card className="img_img_title">
+                  <Link to={`/category/${item.id}`}>
+                    <Card.Img variant="top" src={`http://195.24.67.222:5000/${item.img_title}`} alt="card" />
+                  </Link>
+                  <Card.Body className="background_card">
+                    <Card.Title className="text_card">{item.name}</Card.Title>
+                    <Card.Text className="text_card">
+                      {item.short_description}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              )}
+            </div>
+          ))}
       </div>
 
       <Footer />

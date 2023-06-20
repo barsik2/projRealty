@@ -17,10 +17,28 @@ body,
 
 .m_c_container {
   display: flex;
-  justify-content: space-around;
-  /* justify-content: space-between; */
+  /* justify-content: space-around; */
+  justify-content: space-between;
   flex-wrap: wrap;
   background: #112205;
+}
+
+@media screen and (max-width: 1884px) {
+  .m_c_container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #112205;
+  }
+}
+
+@media screen and (max-width: 1267px) {
+  .m_c_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #112205;
+  }
 }
 
 

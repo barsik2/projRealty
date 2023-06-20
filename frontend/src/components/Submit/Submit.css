@@ -151,17 +151,21 @@ body,
     padding: 40px 40px 40px 40px;
 }
 
-@media screen and (max-width: 1400px) {
-    /* .plus_image {
-        display: flex;
-        border: 1px solid #FFFFFF;
-        border-radius: 24px;
-        margin-right: 20px;
-    } */
-    /* .img_plus {
-        width: 310px;
-        height: 70px;
-    } */
+@media screen and (max-width: 440px) {
+    .first_plus {
+        position: relative;
+        padding: 0px 40px 0px 40px;
+    }
+    .second_plus {
+        position: relative;
+        padding: 5px 40px 0px 40px;
+    }
+}
+
+@media screen and (max-width: 1603px) {
+    .img_plus {
+    height: 50px;
+}
 }
 
 @media screen and (max-width: 900px) {
