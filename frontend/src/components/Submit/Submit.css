@@ -162,9 +162,9 @@ body,
     }
 }
 
-@media screen and (max-width: 1603px) {
+@media screen and (max-width: 1024px) {
     .img_plus {
-    height: 50px;
+    height: 70px;
 }
 }
 

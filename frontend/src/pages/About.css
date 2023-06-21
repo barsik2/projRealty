@@ -15,11 +15,11 @@ body,
 }
 
 .txt_about {
-    padding-left: 10%;
+    padding-left: 5%;
     margin-top: 25px;
     background: #091203;
     font-weight: 800;
-    font-size: 48px;
+    font-size: 40px;
     color: #FFFFFF;
 }
 
@@ -31,13 +31,13 @@ body,
 .txt_about_h2 {
     margin-top: 25px;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 24px;
     color: #FFFFFF;
 }
 
 .txt_about_p {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 20px;
     color: #FFFFFF;
 }
 
