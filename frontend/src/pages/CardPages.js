@@ -159,7 +159,7 @@ const CardPages = () => {
                 <div className="block_two">
                   {cardData && (
                       <div className="price_border">
-                        <p className="txt_price">{cardData.price}</p>
+                        <p className="txt_price">{cardData.price}₽</p>
                       </div>
                   )}
                     <h1 className="txt_opis">Характеристики</h1>
