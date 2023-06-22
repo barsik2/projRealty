@@ -9,13 +9,21 @@ import Button from 'react-bootstrap/Button';
 
 
 const fetchData = async (filter) => {
-    try {
-      const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floor=${filter.floor}&tent=${filter.tent}&style=${filter.style}&room=${filter.rooms}`);
-      return response.data.rows;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    axios.defaults.headers.common['ngrok-skip-browser-warning'] = true;
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+    axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
+    axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
+    const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floors=${filter.floor}&tent=${filter.tent}&rooms=${filter.rooms}&price_min=${filter.priceFrom}&price_max=${filter.priceTo}&size_min=${filter.sizeFrom}&size_max=${filter.sizeTo}`);
+
+    const filteredData = response.data.rows.filter(item => item.style.includes(filter.style));
+
+    return filteredData;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const images = [
     { id:1, image: '/image-allProject-card.svg'},
@@ -40,11 +48,24 @@ const Catalog = () => {
     tent: '', // навес
     style: '', // стиль
     rooms: '', // комнаты
+    priceFrom: '', // минимальное значение цены
+    priceTo: '', // максимальное значение цены
+    sizeFrom: '', // минимальное значение площади
+    sizeTo: '', // максимальное значение площади
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFilter({ ...filter, [name]: value });
+
+    if (name === 'priceRange') {
+      const [priceFrom, priceTo] = value.split('-').map((str) => str.trim());
+      setFilter({ ...filter, priceFrom, priceTo });
+    } else if (name === 'sizeRange') {
+      const [sizeFrom, sizeTo] = value.split('-').map((str) => str.trim());
+      setFilter({ ...filter, sizeFrom, sizeTo });
+    } else {
+      setFilter({ ...filter, [name]: value });
+    }
   };
 
   const handleSearch = async () => {
@@ -71,15 +92,42 @@ const Catalog = () => {
             <div className="filter_container">
 
       <Form className="form_filter_cat">
-          <Form.Group className="filter_padding" controlId="garage">
+
+      <Form.Group controlId="priceRange">
+        <Form.Label>Цена</Form.Label>
+        <Form.Control
+          type="text"
+          name="priceRange"
+          placeholder="Цена"
+          value={`${filter.priceFrom} - ${filter.priceTo}`}
+          onChange={handleChange}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="sizeRange">
+      <Form.Label>Площадь</Form.Label>
+        <Form.Control
+          type="text"
+          name="sizeRange"
+          placeholder="Площадь"
+          value={`${filter.sizeFrom} - ${filter.sizeTo}`}
+          onChange={handleChange}
+
+        />
+      </Form.Group>
+
+        <Form.Group controlId="garage">
+            <Form.Label></Form.Label>
             <Form.Control as="select" name="garage" value={filter.garage} onChange={handleChange}>
               <option value="">Гараж</option>
+              <option value="0">Нет</option>
               <option value="1">Один</option>
               <option value="2">Два</option>
             </Form.Control>
           </Form.Group>
 
           <Form.Group controlId="floor">
+          <Form.Label></Form.Label>
             <Form.Control as="select" name="floor" value={filter.floor} onChange={handleChange}>
               <option value="">Этажи</option>
               <option value="1">1 этаж</option>
@@ -88,6 +136,7 @@ const Catalog = () => {
           </Form.Group>
 
           <Form.Group controlId="tent">
+          <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="tent"
@@ -101,6 +150,7 @@ const Catalog = () => {
           </Form.Group>
 
           <Form.Group controlId="style">
+          <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="style"
@@ -119,6 +169,7 @@ const Catalog = () => {
           </Form.Group>
 
           <Form.Group controlId="rooms">
+          <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="rooms"
@@ -133,11 +184,14 @@ const Catalog = () => {
             </Form.Control>
           </Form.Group>
 
-          <Link to={CATEGORY_ROUTE}>
-            <Button variant="primary" onClick={handleSearch}>
+
+          <Form.Group className="filter_btn">
+            <Link to={CATEGORY_ROUTE}>
+              <Button className="filter_one" variant="primary" onClick={handleSearch}>
                 Найти
-            </Button>
-          </Link>
+              </Button>
+            </Link>
+          </Form.Group>
 
         </Form>
       </div>
