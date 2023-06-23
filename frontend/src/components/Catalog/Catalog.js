@@ -89,7 +89,7 @@ const Catalog = () => {
         <div className="catalog_block">
             <h1 className="text_catalog">КАТАЛОГ НЕДВИЖИМОСТИ</h1>
 
-            <div className="filter_container">
+            <div className="filter_container_cat">
 
       <Form className="form_filter_cat">
 
