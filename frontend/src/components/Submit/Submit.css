@@ -7,33 +7,67 @@ body,
 }
 
 .main_container {
-  background-image: url(../../../image/backgroundSubmit.png);
   height: 100%;
-  /* padding-left: 20px; */
 }
 
-.content {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 20px;
+
+.content_txt_btn {
+    background-image: url(../../../image/img-bg-submit-b.png);
+    background-size: cover;
+    padding-bottom: 277px;
+}
+
+@media screen and (max-width: 1726px) {
+    .content_txt_btn {
+       padding-bottom: 269px;
+    }
+}
+
+@media screen and (max-width: 1468px) {
+    .content_txt_btn {
+        padding-bottom: 256px;
+     }
+}
+
+@media screen and (max-width: 1250px) {
+    .content_txt_btn {
+        padding-bottom: 50px;
+    }
+
+    .text_submit {
+        text-align: center;
+    }
+
+    .text_submit_two {
+        text-align: center;
+    }
+
+    .text_submit_three {
+        text-align: center;
+    }
+
+    .btn_content {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .btn_content {
     display: flex;
-    justify-content: center;
+    padding-left: 10%;
 }
 
 .text_submit {
     padding-top: 80px;
-    padding-left: 10px;
+    padding-left: 10%;
 }
 
 .text_submit_two {
-    padding-left: 10px;
+    padding-left: 10%;
 }
 
 .text_submit_three {
-    padding-left: 10px;
+    padding-left: 10%;
 }
 
 .btn_zayzvka {
@@ -105,19 +139,21 @@ body,
         display: none;
     }
     .content {
-        margin-bottom: 300px;
+        /* margin-bottom: 300px; */
     }
 }
 
 
 .plus {
     padding-bottom: 20px;
+    background: #112205;
     /* background-image: url(../../../image/image-bg-footer.png); */
 }
 
 .plus_text {
     position: relative;
     font-weight: 400;
+    padding-top: 20px;
     text-align: center;
     color: #FFFFFF;
 }
@@ -128,6 +164,10 @@ body,
     text-align: center;
     color: #FFFFFF;
     padding-bottom: 50px;
+}
+
+.img_plus {
+    padding: 10px;
 }
 
 .img_plus1 {
@@ -146,6 +186,7 @@ body,
         text-align: center;
         border: 1px solid #FFFFFF;
         border-radius: 24px;
+        margin-left: 20px;
         margin-right: 20px;
 }
 

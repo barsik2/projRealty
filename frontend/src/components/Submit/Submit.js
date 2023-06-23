@@ -24,9 +24,9 @@ const Submit = () => {
                 </div>
             </div>
 
-            <div className="img_submit">
+            {/* <div className="img_submit">
                 <img className="img_submit_img" src="/image-Submit.png" alt="img_submit"/>
-            </div>
+            </div> */}
         </div>
 
 
