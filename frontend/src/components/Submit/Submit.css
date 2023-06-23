@@ -30,10 +30,6 @@ body,
 }
 
 @media screen and (max-width: 1250px) {
-    .content_txt_btn {
-        padding-bottom: 50px;
-    }
-
     .text_submit {
         text-align: center;
     }
@@ -167,7 +163,7 @@ body,
 }
 
 .img_plus {
-    padding: 10px;
+    padding: 5px;
 }
 
 .img_plus1 {
@@ -219,17 +215,19 @@ body,
 
 @media screen and (max-width: 900px) {
 .img_plus {
+    padding: 0px;
     width: 210px;
     height: 50px;
 }
 }
 
-@media screen and (max-width: 589px) {
+/* @media screen and (max-width: 589px) {
     .img_plus {
         width: 150px;
         height: 40px;
+        padding: 0px;
     }
-    }
+} */
 
 @media screen and(max-widht: 466px) {
     .plus_image{
@@ -240,6 +238,7 @@ body,
             margin-right: 20px;
         }
         .img_plus {
+            padding: 0px;
             width: 310px;
             height: 70px;
         }
