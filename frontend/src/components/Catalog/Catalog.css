@@ -4,7 +4,7 @@ body,
   width: 100%;
   height: 100%;
   font-family: 'Montserrat', 'sans-serif';
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
 }
 
 .catalog_block {
@@ -24,16 +24,17 @@ body,
     color: #FFFFFF;
 }
 
-@media screen and (max-width: 816px) {
+@media screen and (max-width: 768px) {
   .text_catalog {
     display: inline-block;
     padding-top: 45px;
     padding-left: 20px;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     color: #FFFFFF;
 }
 }
+
 
   .btn_search {
     width: 111px;

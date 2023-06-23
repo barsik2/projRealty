@@ -17,7 +17,7 @@ body,
   .main_header,
   .category_header,
   .about_header {
-    margin: 0 100px;
+    /* margin: 0 100px; */
     padding: 17px 0 22px 0;
   }
 
@@ -29,6 +29,14 @@ body,
     color: white;
     text-decoration: none;
   }
+
+  @media screen and (max-width: 320px) {
+    .img_lologo {
+      width: 140px;
+      height: 46px;
+    }
+  }
+
 
   .about_header_link {
     color: white;

@@ -9,8 +9,6 @@ const MainPages = () => {
         <div>
             <MainPagesComponent />
         </div>
-
-
     );
 };
 

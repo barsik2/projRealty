@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer";
 
 const MainPagesComponent = () => {
   return (
-    <div>
+    <div className="main_main_comp">
       <Main />
       <Catalog />
       <Submit />

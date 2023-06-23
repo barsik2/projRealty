@@ -222,6 +222,13 @@ body,
 
 }
 
+@media screen and (max-width: 320px) {
+    .img_lologo {
+      width: 140px;
+      height: 46px;
+    }
+  }
+
 .img_slider {
     object-fit: cover;
     width: 100%;

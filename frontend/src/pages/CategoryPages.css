@@ -41,6 +41,13 @@ body,
   }
 }
 
+@media screen and (max-width: 320px) {
+  .img_lologo {
+    width: 140px;
+    height: 46px;
+  }
+}
+
 
 .txt_catalog {
     font-weight: 800;
@@ -238,5 +245,43 @@ option {
     display: flex;
     padding-top: 10px;
     align-items: end;
+  }
+}
+
+.header_cat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1F201C;
+  opacity: 0.6;
+}
+
+.main_header_cat,
+.category_header_cat,
+.about_header_cat {
+  margin: 0 100px;
+  padding: 17px 0 22px 0;
+}
+
+.main_header_link_cat {
+  color: white;
+  text-decoration: none;
+}
+
+.category_header_link_cat {
+  color: white;
+}
+
+.about_header_link_cat {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 1150px) {
+  .header_cat {
+    display: block;
+    text-align: center;
+    margin: 0;
+    opacity: 0.6;
   }
 }
