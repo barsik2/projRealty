@@ -7,6 +7,7 @@ body,
 }
 
 .main_container {
+  background: #112205;
   height: 100%;
 }
 
@@ -51,19 +52,23 @@ body,
 .btn_content {
     display: flex;
     padding-left: 10%;
+    padding-right: 10%;
 }
 
 .text_submit {
     padding-top: 80px;
     padding-left: 10%;
+    padding-right: 10%;
 }
 
 .text_submit_two {
     padding-left: 10%;
+    padding-right: 10%;
 }
 
 .text_submit_three {
     padding-left: 10%;
+    padding-right: 10%;
 }
 
 .btn_zayzvka {
