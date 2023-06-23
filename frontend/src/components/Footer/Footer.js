@@ -38,7 +38,7 @@ const Footer = () => {
         <p className="addr">Санкт-Петербург, ул. Романова 327, 3 этаж</p>
 
         <div className="img_logo">
-            <img src="/img-logo-site.svg" alt="logo" />
+            <img className="img_lologo" src="/img-logo-site.svg" alt="logo" />
         </div>
 
     </div>

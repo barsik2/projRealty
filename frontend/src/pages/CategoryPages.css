@@ -41,7 +41,7 @@ body,
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 344px) {
   .img_lologo {
     width: 140px;
     height: 46px;
@@ -55,6 +55,12 @@ body,
     color: #FFFFFF;
     padding-top: 100px;
     padding-left: 20px;
+}
+
+@media screen and (max-width: 506px) {
+  .txt_catalog {
+    font-size: 20px;
+  }
 }
 
 .container_card_category {

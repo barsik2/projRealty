@@ -56,3 +56,10 @@ body,
     text-align: center;
     padding-top: 30px;
 }
+
+@media screen and (max-width: 344px) {
+    .img_lologo {
+      width: 140px;
+      height: 46px;
+    }
+  }

@@ -222,7 +222,7 @@ body,
 
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 344px) {
     .img_lologo {
       width: 140px;
       height: 46px;
