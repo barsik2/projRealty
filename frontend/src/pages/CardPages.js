@@ -10,75 +10,88 @@ import './CardPages.css';
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
 
-function ModalShow() {
-    const [showModal, setShowModal] = useState(false);
-    const [formData, setFormData] = useState({
-        fullname: '',
-        number: '',
-        email: '',
-        house_id: 0
-    });
+function ModalShow({houseId}) {
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+      fullname: '',
+      number: '',
+      email: '',
+      house_id: houseId
+  });
 
-    const handleShowModal = () => {
-        setShowModal(true);
-    };
+  const handleShowModal = () => {
+      setShowModal(true);
+  };
 
-    const handleCloseModal = () => {
-        setShowModal(false);
-    };
+  const handleCloseModal = () => {
+      setShowModal(false);
+  };
 
-    const handleChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value
-        });
-    };
+  const handleChange = (event) => {
+      setFormData({
+          ...formData,
+          [event.target.name]: event.target.value
+      });
+  };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        axios.post('http://195.24.67.222:5000/api/order', formData)
-            .then(response => {
-                console.log(response);
-                handleCloseModal();
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    };
+  const handleSubmit = (event) => {
+      event.preventDefault();
+      axios.post('http://195.24.67.222:5000/api/order', {
+          ...formData,
+          house_id: houseId // использование значения houseId из props
+      })
+          .then(response => {
+              console.log(response);
+              handleCloseModal();
+          })
+          .catch(error => {
+              console.log(error);
+          });
+  };
 
-    return (
-        <div>
-          <button onClick={handleShowModal} className="btn_sees_card">Оставить заявку</button>
-          <Modal show={showModal} onHide={handleCloseModal}>
-            <Modal.Header closeButton>
-              <Modal.Title>Оставить заявку</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <div className="modal_form">
-                    <form onSubmit={handleSubmit}>
-                            <input name="fullname" value={formData.fullname} onChange={handleChange} className="input_name" type="text" placeholder="Введите ФИО" />
-                            <input name="number" value={formData.number} onChange={handleChange} className="input_name" type="text" placeholder="Введите номер телефона" />
-                            <input name="email" value={formData.email} onChange={handleChange} className="input_name" type="email" placeholder="Введите адрес электронной почты" />
-                            <button className="btn_card_data" type="submit">Отправить заявку</button>
-                        </form>
-                </div>
-            </Modal.Body>
-          </Modal>
-        </div>
-      );
-    }
+  return (
+      <div>
+        <button onClick={handleShowModal} className="btn_sees_card">Оставить заявку</button>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Оставить заявку</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+              <div className="modal_form">
+                  <form onSubmit={handleSubmit}>
+                          <input name="fullname" value={formData.fullname} onChange={handleChange} className="input_name" type="text" placeholder="Введите ФИО" />
+                          <input name="number" value={formData.number} onChange={handleChange} className="input_name" type="text" placeholder="Введите номер телефона" />
+                          <input name="email" value={formData.email} onChange={handleChange} className="input_name" type="email" placeholder="Введите адрес электронной почты" />
+                          <button className="btn_card_data" type="submit">Отправить заявку</button>
+                      </form>
+              </div>
+          </Modal.Body>
+        </Modal>
+      </div>
+    );
+  }
 
 
 const CardPages = () => {
 
     const { id } = useParams(); // Получение значения id из URL
     const [cardData, setCardData] = useState(null);
+    const [formData, setFormData] = useState({
+      fullname: '',
+      number: '',
+      email: '',
+      house_id: id // передача значения id в состояние formData
+    });
 
     useEffect(() => {
       const fetchData = async () => {
           try {
             const response = await axios.get(`http://195.24.67.222:5000/api/house/${id}`);
             setCardData(response.data);
+            setFormData({
+              ...formData,
+              house_id: response.data.id // обновление значения house_id при получении данных о доме
+            });
           } catch (error) {
               console.error(error);
           }
@@ -221,7 +234,10 @@ const CardPages = () => {
             </div>
 
             <div className="block_btn_sees_card">
-                <ModalShow />
+            {cardData && (
+              <ModalShow houseId={cardData.id} /> // передача значения id дома в компонент ModalShow
+            )}
+                {/* <ModalShow houseId={cardData.id} /> */}
             </div>
 
 
