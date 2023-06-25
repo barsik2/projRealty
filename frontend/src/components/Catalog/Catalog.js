@@ -31,7 +31,7 @@ const images = [
     { id: 3, image: '/image-card-compact.png'},
     { id:4, image: '/image-card-bernhouse.png'},
     { id:5, image: '/image-card-mansard.png'},
-    { id:6, image: '/image-card-brick.png'},
+    { id:6, image: '/image-card-bricka.png'},
     { id:7, image: '/image-card-modern.png'},
     { id:8, image: '/image-card-classic.png'},
     { id:9, image: '/image-card-two.png'},
