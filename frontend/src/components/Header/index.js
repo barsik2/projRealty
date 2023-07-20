@@ -26,7 +26,7 @@ const Header = () => {
           height="45"
           loading="lazy"
         />
-        <span>Территория{'\n'}недвижимости</span>
+        <span>Stroy-Dom</span>
       </Link>
 
       {LINKS.map((link) => (

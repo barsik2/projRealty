@@ -15,14 +15,12 @@
   &__logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
 
     span {
       font-size: 20px;
-      font-weight: 300;
-      line-height: 20px;
-      font-family: Montserrat Alternates, sans-serif;
-      white-space: break-spaces;
+      line-height: 100%;
+      text-transform: uppercase;
     }
   }
 

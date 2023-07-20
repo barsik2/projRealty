@@ -66,7 +66,7 @@ const Footer = () => {
             height="64"
             loading="lazy"
           />
-          <span>Территория{'\n'}недвижимости</span>
+          <span>Stroy-Dom</span>
         </div>
       </div>
       <div className="footer__socials">
@@ -74,10 +74,10 @@ const Footer = () => {
           <img src="/images/vk.webp" width="37" height="37" alt="vk" />
         </a>
         <a className="footer__socials_item" href="">
-          <img src="/images/vk.webp" width="37" height="37" alt="instagram" />
+          <img src="/images/instagram.webp" width="37" height="37" alt="instagram" />
         </a>
         <a className="footer__socials_item" href="">
-          <img src="/images/vk.webp" width="37" height="37" alt="telegram" />
+          <img src="/images/telegram.webp" width="37" height="37" alt="telegram" />
         </a>
       </div>
     </ContentLayout>

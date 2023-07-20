@@ -10,7 +10,7 @@ const MainSection = () => {
       rootClassName={styles.mainSectionWrapper}
     >
       <h1 className={styles.title}>
-        Территория{'\n'}недвижимости
+        Строй-Дом
       </h1>
 
       <p className={styles.description}>

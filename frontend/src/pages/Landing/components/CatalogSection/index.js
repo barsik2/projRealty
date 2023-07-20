@@ -5,10 +5,8 @@ import { CATEGORY_ROUTE } from 'src/constRoute/consts';
 import { cards } from './constants/catalogSection.constants';
 
 import CatalogCard from './components/CatalogCard';
-import CatalogFilter from './components/CatalogFilter';
 
 import './CatalogSection.scss';
-
 
 const CatalogSection = () => {
   return (
@@ -18,7 +16,6 @@ const CatalogSection = () => {
       rootClassName="catalog__wrapper"
     >
       <h2 className="catalog__title">Каталог недвижимости</h2>
-      <CatalogFilter />
       <div className="catalog__list">
         {cards.map((card) => (
           <CatalogCard
