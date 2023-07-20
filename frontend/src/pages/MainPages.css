@@ -11,21 +11,12 @@ body {
   font-family: 'Montserrat', 'sans-serif';
 }
 
-/* .main_main_comp {
-  width: 102.9%;
-} */
-
-/* @media screen and (max-width: 552px) {
-  .main_main_comp {
-    width: 105%;
-  }
-} */
-
-.lending {
-  background-image: url(../../image/background.svg);
+.landing {
+  /* background-image: url(/image/background.webp); */
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 .header {
@@ -58,7 +49,6 @@ body {
 }
 
 .body_main_page {
-  margin-top: 120px;
   padding-left: 50px;
 }
 
@@ -102,7 +92,6 @@ body {
 
 @media (max-width: 1730px) {
   .body_main_page {
-    margin-top: 80px;
     padding-left: 20px;
     height: 100%;
     overflow: hidden;
@@ -115,7 +104,6 @@ body {
 
 @media (max-width: 1113px) {
   .body_main_page {
-    margin-top: 80px;
     padding-left: 20px;
     height: 100%;
     overflow: hidden;
@@ -128,7 +116,6 @@ body {
 
 @media (max-width: 911px) {
   .body_main_page {
-    margin-top: 80px;
     padding-left: 20px;
     height: 100%;
     overflow: hidden;
@@ -151,7 +138,6 @@ body {
 
 @media (max-width: 506px) {
   .body_main_page {
-    margin-top: 80px;
     padding-left: 20px;
     height: 100%;
     overflow: hidden;
@@ -164,7 +150,6 @@ body {
 
 @media (max-width: 370px) {
   .body_main_page {
-    margin-top: 80px;
     padding-left: 20px;
     height: 100%;
     overflow: hidden;

@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, useLocation } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 
+import 'src/styles/global.css';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 

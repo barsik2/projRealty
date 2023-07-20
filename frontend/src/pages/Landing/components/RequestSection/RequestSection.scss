@@ -1,0 +1,59 @@
+.request {
+  background-image: url('/assets/images/landing/more_house_bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ffffff;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    width: 0;
+    height: 0;
+    border-bottom: 120px solid #112205;
+    border-left: 100vw solid transparent;
+    z-index: 1;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left_part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 48px;
+    color: #000000;
+    font-weight: 500;
+    line-height: 100%;
+    text-transform: uppercase;
+    white-space: break-spaces;
+  }
+
+  &__link {
+    width: fit-content;
+    padding: 16px 32px;
+    font-size: 32px;
+    text-align: center;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 24px;
+
+    &:hover {
+      color: #000000;
+    }
+  }
+
+  &__home_img {
+    position: relative;
+    object-fit: cover;
+  }
+}

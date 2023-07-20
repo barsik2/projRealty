@@ -1,13 +1,10 @@
 import React, {useState, useEffect} from "react";
-import Header from "../components/Header/Header";
-import '../components/Header/Header.css';
 import './CategoryPages.css';
-import Footer from "../components/Footer/Footer";
 import Carousel from 'react-bootstrap/Carousel';
 import { Link, useParams } from "react-router-dom";
 import { ABOUTE_ROUTE, CATEGORY_ROUTE, HOME_ROUTE } from "../constRoute/consts";
 import './CardPages.css';
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import axios from "axios";
 
 function ModalShow({houseId}) {
@@ -239,9 +236,6 @@ const CardPages = () => {
             )}
                 {/* <ModalShow houseId={cardData.id} /> */}
             </div>
-
-
-            <Footer />
         </div>
     </div>
     );

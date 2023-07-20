@@ -1,47 +1,86 @@
-import React from "react";
-import './Footer.css';
-import { Link } from "react-router-dom";
-import { HOME_ROUTE } from "../../constRoute/consts";
+import ContentLayout from '../layouts/ContentLayout';
+
+import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div className="main_footer">
-        <div className="content_footer">
-            <div>
-                <h2 className="txt_h2">Каталог</h2>
-                <p className="txt_inf">Дома и учатки</p>
-                <p className="txt_inf">Коттеджи</p>
-            </div>
+    <ContentLayout
+      className="footer__content"
+      rootClassName="footer"
+      as="footer"
+    >
+      <div className="footer__links">
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Каталог</p>
 
-            <div>
-                <h2 className="txt_h2">Наши проекты</h2>
-                <p className="txt_inf">Готовые планировки</p>
-                <p className="txt_inf">Работы</p>
-                <p className="txt_inf">Отзывы</p>
-            </div>
-
-            <div>
-                <h2 className="txt_h2">Контакты</h2>
-                <p className="txt_inf">+7-800-555-35-35</p>
-                <p className="txt_inf">terned@mail.ru</p>
-            </div>
-
-            <div>
-                <h2 className="txt_h2">Другое</h2>
-                <p className="txt_inf">Полезные решения</p>
-                <p className="txt_inf">Документы</p>
-            </div>
+          <a className="footer__links_item_link" href="">
+            Дома и участки
+          </a>
+          <a className="footer__links_item_link" href="">
+            Коттеджи
+          </a>
         </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Наши проекты</p>
 
-        <hr className="line_horizontal" />
-
-        <p className="addr">Санкт-Петербург, ул. Романова 327, 3 этаж</p>
-
-        <div className="img_logo">
-            <img className="img_lologo" src="/img-logo-site.svg" alt="logo" />
+          <a className="footer__links_item_link" href="">
+            Готовые планировки
+          </a>
+          <a className="footer__links_item_link" href="">
+            Работы
+          </a>
+          <a className="footer__links_item_link" href="">
+            Отзывы
+          </a>
         </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Контакты</p>
 
-    </div>
+          <a className="footer__links_item_link" href="tel:+7-800-555-35-35">
+            +7-800-555-35-35
+          </a>
+          <a className="footer__links_item_link" href="mailto:terned@mail.ru">
+            terned@mail.ru
+          </a>
+        </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Другое</p>
+
+          <a className="footer__links_item_link" href="">
+            Полезные решения
+          </a>
+          <a className="footer__links_item_link" href="">
+            Документы
+          </a>
+        </div>
+      </div>
+      <div className="footer__under_link">
+        <address className="footer__address">
+          Санкт-Петербург, ул. Романова 327, 3{'\n'}этаж
+        </address>
+        <div className="footer__logo">
+          <img
+            src="/images/logo.svg"
+            alt="logo"
+            width="66"
+            height="64"
+            loading="lazy"
+          />
+          <span>Территория{'\n'}недвижимости</span>
+        </div>
+      </div>
+      <div className="footer__socials">
+        <a className="footer__socials_item" href="">
+          <img src="/images/vk.webp" width="37" height="37" alt="vk" />
+        </a>
+        <a className="footer__socials_item" href="">
+          <img src="/images/vk.webp" width="37" height="37" alt="instagram" />
+        </a>
+        <a className="footer__socials_item" href="">
+          <img src="/images/vk.webp" width="37" height="37" alt="telegram" />
+        </a>
+      </div>
+    </ContentLayout>
   );
 };
 

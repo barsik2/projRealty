@@ -1,0 +1,44 @@
+.header {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  width: 100%;
+  padding: 7px 0;
+  background-color: rgba(31, 32, 28, 0.6);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 144px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 20px;
+      font-family: Montserrat Alternates, sans-serif;
+      white-space: break-spaces;
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 100%;
+    opacity: 0.5;
+    border-bottom: 2px solid;
+    border-color: transparent;
+    transition: opacity 0.3s, border-color 0.2s;
+
+    &.active {
+      opacity: 1;
+      border-color: #ffffff;
+    }
+  }
+}
+

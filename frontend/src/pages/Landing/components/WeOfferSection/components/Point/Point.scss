@@ -1,0 +1,12 @@
+.point {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  &__description {
+    font-size: 24px;
+    line-height: 100%;
+    text-align: left;
+    color: #FFFAFA;
+  }
+}

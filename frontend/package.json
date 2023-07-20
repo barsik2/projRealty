@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
+    "clsx": "^2.0.0",
     "mobx": "^6.9.0",
     "mobx-react-lite": "^3.4.3",
     "react": "^18.2.0",
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "sass": "^1.63.6",
     "webpack": "^5.86.0"
   }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import './About.css';
-import Footer from "../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import { ABOUTE_ROUTE, CATEGORY_ROUTE, HOME_ROUTE } from "../constRoute/consts";
 
@@ -67,7 +66,6 @@ const About = () => {
                       <button className="btn_sees">Смотреть каталог</button>
                   </div>
                 </Link>
-            <Footer />
         </div>
     );
 };
