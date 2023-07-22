@@ -27,9 +27,11 @@
   &__navigation {
     display: flex;
     gap: 144px;
+    align-items: center;
   }
 
   &__link {
+    height: fit-content;
     font-size: 20px;
     font-weight: 300;
     line-height: 100%;
