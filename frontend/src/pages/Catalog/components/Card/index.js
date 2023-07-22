@@ -1,5 +1,7 @@
 import { CATEGORY_ROUTE } from 'src/constRoute/consts';
 
+import { API_BREAKPOINT } from 'src/shared/config';
+
 import styles from './Card.module.scss';
 
 const Card = ({ id, img_title, short_description, size, name }) => {
@@ -11,7 +13,7 @@ const Card = ({ id, img_title, short_description, size, name }) => {
         height="200"
         loading="lazy"
         alt="name"
-        src={`http://195.24.67.222:5000/${img_title}`}
+        src={`${API_BREAKPOINT}${img_title}`}
       />
       <div className={styles.card__text}>
         <h3 className={styles.card__text_title}>

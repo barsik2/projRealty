@@ -1,0 +1,23 @@
+.plan {
+  padding: 40px 0 220px;
+
+  &__content {
+    display: flex;
+    gap: 51px;
+    justify-content: space-between;
+  }
+
+  &__img_wrapper {
+    max-width: 945px;
+    width: 100%;
+    max-height: 640px;
+    border-radius: 24px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
