@@ -24,6 +24,11 @@
     }
   }
 
+  &__navigation {
+    display: flex;
+    gap: 144px;
+  }
+
   &__link {
     font-size: 20px;
     font-weight: 300;

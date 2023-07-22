@@ -29,15 +29,17 @@ const Header = () => {
         <span>Stroy-Dom</span>
       </Link>
 
-      {LINKS.map((link) => (
-        <Link
-          className={clsx('header__link', pathname === link.href && 'active')}
-          to={link.href}
-          key={link.label}
-        >
-          {link.label}
-        </Link>
-      ))}
+      <nav className="header__navigation">
+        {LINKS.map((link) => (
+          <Link
+            className={clsx('header__link', pathname === link.href && 'active')}
+            to={link.href}
+            key={link.label}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
     </ContentLayout>
   );
 };

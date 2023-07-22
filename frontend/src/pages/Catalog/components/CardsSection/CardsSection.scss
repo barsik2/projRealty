@@ -1,0 +1,7 @@
+.cards__section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
+  column-gap: 13px;
+  row-gap: 50px;
+}

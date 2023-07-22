@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import "./CategoryPages.css";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import './CategoryPages.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -13,9 +13,13 @@ const fetchData = async (filter) => {
     axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
     axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
     axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
-    const response = await axios.get(`http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floors=${filter.floor}&tent=${filter.tent}&rooms=${filter.rooms}&price_min=${filter.priceFrom}&price_max=${filter.priceTo}&size_min=${filter.sizeFrom}&size_max=${filter.sizeTo}`);
+    const response = await axios.get(
+      `http://195.24.67.222:5000/api/house/filters?garage=${filter.garage}&floors=${filter.floor}&tent=${filter.tent}&rooms=${filter.rooms}&price_min=${filter.priceFrom}&price_max=${filter.priceTo}&size_min=${filter.sizeFrom}&size_max=${filter.sizeTo}`
+    );
 
-    const filteredData = response.data.rows.filter(item => item.style.includes(filter.style));
+    const filteredData = response.data.rows.filter((item) =>
+      item.style.includes(filter.style)
+    );
 
     return filteredData;
   } catch (error) {
@@ -24,7 +28,6 @@ const fetchData = async (filter) => {
 };
 
 const CategoryPages = () => {
-
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState({
     garage: '', // гараж
@@ -55,7 +58,7 @@ const CategoryPages = () => {
   const handleSearch = async () => {
     const newData = await fetchData(filter);
     setData(newData);
-  }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -64,7 +67,8 @@ const CategoryPages = () => {
         axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
         axios.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
         axios.defaults.headers.common['Access-Control-Allow-Methods'] = '*';
-        axios.defaults.headers.common['Content-Type'] = 'text/html; charset=utf-8';
+        axios.defaults.headers.common['Content-Type'] =
+          'text/html; charset=utf-8';
         const response = await axios.get('http://195.24.67.222:5000/api/house');
         setData(response.data.rows);
       } catch (error) {
@@ -76,39 +80,40 @@ const CategoryPages = () => {
 
   return (
     <div className="main_container_category">
-
       <h1 className="txt_catalog">КАТАЛОГ ПРОЕКТОВ</h1>
 
-      <div className="filter_container">
+      {/* <div className="filter_container">
+        <Form className="form_filter">
+          <Form.Group controlId="priceRange">
+            <Form.Label>Цена</Form.Label>
+            <Form.Control
+              type="text"
+              name="priceRange"
+              placeholder="Цена"
+              value={`${filter.priceFrom} - ${filter.priceTo}`}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form className="form_filter">
+          <Form.Group controlId="sizeRange">
+            <Form.Label>Площадь</Form.Label>
+            <Form.Control
+              type="text"
+              name="sizeRange"
+              placeholder="Площадь"
+              value={`${filter.sizeFrom} - ${filter.sizeTo}`}
+              onChange={handleChange}
+            />
+          </Form.Group>
 
-      <Form.Group controlId="priceRange">
-        <Form.Label>Цена</Form.Label>
-        <Form.Control
-          type="text"
-          name="priceRange"
-          placeholder="Цена"
-          value={`${filter.priceFrom} - ${filter.priceTo}`}
-          onChange={handleChange}
-        />
-      </Form.Group>
-
-      <Form.Group controlId="sizeRange">
-      <Form.Label>Площадь</Form.Label>
-        <Form.Control
-          type="text"
-          name="sizeRange"
-          placeholder="Площадь"
-          value={`${filter.sizeFrom} - ${filter.sizeTo}`}
-          onChange={handleChange}
-
-        />
-      </Form.Group>
-
-        <Form.Group controlId="garage">
+          <Form.Group controlId="garage">
             <Form.Label></Form.Label>
-            <Form.Control as="select" name="garage" value={filter.garage} onChange={handleChange}>
+            <Form.Control
+              as="select"
+              name="garage"
+              value={filter.garage}
+              onChange={handleChange}
+            >
               <option value="">Гараж</option>
               <option value="0">Нет</option>
               <option value="1">Один</option>
@@ -117,8 +122,13 @@ const CategoryPages = () => {
           </Form.Group>
 
           <Form.Group controlId="floor">
-          <Form.Label></Form.Label>
-            <Form.Control as="select" name="floor" value={filter.floor} onChange={handleChange}>
+            <Form.Label></Form.Label>
+            <Form.Control
+              as="select"
+              name="floor"
+              value={filter.floor}
+              onChange={handleChange}
+            >
               <option value="">Этажи</option>
               <option value="1">1 этаж</option>
               <option value="2">2 этажа</option>
@@ -126,7 +136,7 @@ const CategoryPages = () => {
           </Form.Group>
 
           <Form.Group controlId="tent">
-          <Form.Label></Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="tent"
@@ -140,7 +150,7 @@ const CategoryPages = () => {
           </Form.Group>
 
           <Form.Group controlId="style">
-          <Form.Label></Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="style"
@@ -159,7 +169,7 @@ const CategoryPages = () => {
           </Form.Group>
 
           <Form.Group controlId="rooms">
-          <Form.Label></Form.Label>
+            <Form.Label></Form.Label>
             <Form.Control
               as="select"
               name="rooms"
@@ -167,30 +177,37 @@ const CategoryPages = () => {
               onChange={handleChange}
             >
               <option value="">Комнаты</option>
-              <option value='4'>Четыре</option>
-              <option value='5'>Пять</option>
-              <option value='6'>Шесть</option>
-              <option value='7'>Семь</option>
+              <option value="4">Четыре</option>
+              <option value="5">Пять</option>
+              <option value="6">Шесть</option>
+              <option value="7">Семь</option>
             </Form.Control>
           </Form.Group>
 
-
           <Form.Group className="filter_btn">
-              <Button className="filter_one" variant="primary" onClick={handleSearch}>
-                Найти
-              </Button>
+            <Button
+              className="filter_one"
+              variant="primary"
+              onClick={handleSearch}
+            >
+              Найти
+            </Button>
           </Form.Group>
-
         </Form>
-      </div>
+      </div> */}
 
       <div className="m_c_container">
-          {data && data.map((item) => (
+        {data &&
+          data.map((item) => (
             <div className="container_card_category" key={item.id}>
               {item.img_title !== null && (
                 <Card className="img_img_title">
                   <Link to={`/category/${item.id}`}>
-                    <Card.Img variant="top" src={`http://195.24.67.222:5000/${item.img_title}`} alt="card" />
+                    <Card.Img
+                      variant="top"
+                      src={`http://195.24.67.222:5000/${item.img_title}`}
+                      alt="card"
+                    />
                   </Link>
                   <Card.Body className="background_card">
                     <Card.Title className="text_card">{item.name}</Card.Title>

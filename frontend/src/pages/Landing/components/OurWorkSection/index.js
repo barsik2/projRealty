@@ -53,7 +53,6 @@ const OurWorkSection = () => {
               stroke="white"
             />
             <path
-              transform="rotate(90deg)"
               opacity="0.5"
               d="M24 15.9474L57 35L24 54.0526L24 15.9474Z"
               fill="white"
