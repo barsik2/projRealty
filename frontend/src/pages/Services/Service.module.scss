@@ -1,0 +1,31 @@
+.service {
+  margin: 186px 0 75px;
+  background-image: url('/assets/images/more_house_about.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &__title {
+    margin-bottom: 45px;
+    padding: 12px 0;
+    background-color: #091203;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    margin-bottom: 65px;
+    padding: 9px 0;
+    background-color: rgba($color: #ffffff, $alpha: 0.3);
+    font-size: 24px;
+    line-height: 100%;
+  }
+
+  &__card_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(408px, 1fr));
+    column-gap: 46px;
+    row-gap: 50px;
+  }
+}

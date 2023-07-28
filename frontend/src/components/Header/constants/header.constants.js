@@ -1,20 +1,20 @@
-import {
-  ABOUTE_ROUTE,
-  CATEGORY_ROUTE,
-  HOME_ROUTE,
-} from 'src/constRoute/consts';
+import { ABOUT, CATEGORY, HOME, SERVICES } from 'src/shared/config/routes';
 
 export const LINKS = [
   {
     label: 'Главная',
-    href: HOME_ROUTE,
+    href: HOME,
   },
   {
     label: 'Каталог',
-    href: CATEGORY_ROUTE,
+    href: CATEGORY,
   },
   {
-    label: 'Оставить заявку',
-    href: ABOUTE_ROUTE,
+    label: 'Услуги',
+    href: SERVICES,
+  },
+  {
+    label: 'О нас',
+    href: ABOUT,
   },
 ];

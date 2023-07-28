@@ -2,12 +2,13 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 
-import { HOME_ROUTE } from 'src/constRoute/consts';
+import { HOME } from 'src/shared/config/routes';
 
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
-import './Header.scss';
 import { LINKS } from './constants/header.constants';
+
+import './Header.scss';
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -18,7 +19,7 @@ const Header = () => {
       rootClassName="header"
       className="header__content"
     >
-      <Link className="header__logo" to={HOME_ROUTE}>
+      <Link className="header__logo" to={HOME}>
         <img
           src="/images/logo.svg"
           alt="logo"

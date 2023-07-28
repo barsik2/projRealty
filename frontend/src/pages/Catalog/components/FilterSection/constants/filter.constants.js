@@ -1,15 +1,15 @@
 export const SIZE = [
   {
     value: '100',
-    name: 'sizeTo',
+    name: 'size_min',
   },
   {
     value: '100 - 250',
-    name: 'sizeTo',
+    name: 'size_min',
   },
   {
     value: 'от 250',
-    name: 'sizeFrom',
+    name: 'size_min',
   },
 ];
 

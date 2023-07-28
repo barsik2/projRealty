@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables.scss';
+
 .header {
   position: absolute;
   top: 26px;
@@ -10,6 +12,15 @@
     display: flex;
     align-items: center;
     gap: 144px;
+
+    @include w-1200 {
+      gap: 90px;
+    }
+
+    @include w-1024 {
+      gap: unset;
+      justify-content: space-between;
+    }
   }
 
   &__logo {
@@ -28,6 +39,14 @@
     display: flex;
     gap: 144px;
     align-items: center;
+
+    @include w-1200 {
+      gap: 90px;
+    }
+
+    @include w-1024 {
+      gap: 30px;
+    }
   }
 
   &__link {
@@ -40,10 +59,13 @@
     border-color: transparent;
     transition: opacity 0.3s, border-color 0.2s;
 
+    &:hover {
+      opacity: 1;
+    }
+
     &.active {
       opacity: 1;
       border-color: #ffffff;
     }
   }
 }
-

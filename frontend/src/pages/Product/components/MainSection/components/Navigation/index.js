@@ -1,6 +1,6 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
-import { CATEGORY_ROUTE } from 'src/constRoute/consts';
+import { CATEGORY } from 'src/shared/config/routes';
 
 import styles from './Navigation.module.scss';
 
@@ -11,7 +11,9 @@ const Navigation = ({ name }) => {
       rootClassName={styles.navigation}
       className={styles.navigation__content}
     >
-      <a href={CATEGORY_ROUTE} className={styles.navigation__catalog}>Каталог</a>
+      <a href={CATEGORY} className={styles.navigation__catalog}>
+        Каталог
+      </a>
       <span>{name}</span>
       <a href="#info_section">Характеристика</a>
       <a href="#plan_section">Планировка</a>

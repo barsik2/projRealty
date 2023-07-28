@@ -1,12 +1,11 @@
-import { CATEGORY_ROUTE } from 'src/constRoute/consts';
-
+import { CATEGORY } from 'src/shared/config/routes';
 import { API_BREAKPOINT } from 'src/shared/config';
 
 import styles from './Card.module.scss';
 
 const Card = ({ id, img_title, short_description, size, name }) => {
   return (
-    <a className={styles.card} href={`${CATEGORY_ROUTE}/${id}`}>
+    <a className={styles.card} href={`${CATEGORY}/${id}`}>
       <img
         className={styles.card__img}
         width="335"

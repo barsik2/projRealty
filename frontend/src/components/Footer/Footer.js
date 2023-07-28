@@ -1,8 +1,18 @@
+import { ABOUT, SERVICES } from 'src/shared/config/routes';
+
+import { useModal } from 'src/shared/lib/hooks';
+
 import ContentLayout from '../layouts/ContentLayout';
 
 import './Footer.scss';
 
 const Footer = () => {
+  const { open } = useModal()
+
+  const handleReview = () => {
+    open('review')
+  }
+
   return (
     <ContentLayout
       className="footer__content"
@@ -14,20 +24,17 @@ const Footer = () => {
           <p className="footer__links_item_title">Каталог</p>
 
           <a className="footer__links_item_link" href="">
-            Дома и участки
+            Проекты домов
           </a>
-          <a className="footer__links_item_link" href="">
-            Коттеджи
+          <a className="footer__links_item_link" href={SERVICES}>
+            Услуги
           </a>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Наши проекты</p>
 
           <a className="footer__links_item_link" href="">
-            Готовые планировки
-          </a>
-          <a className="footer__links_item_link" href="">
-            Работы
+            Готовые работы
           </a>
           <a className="footer__links_item_link" href="">
             Отзывы
@@ -46,12 +53,12 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Другое</p>
 
-          <a className="footer__links_item_link" href="">
-            Полезные решения
+          <a className="footer__links_item_link" href={ABOUT}>
+            О компании
           </a>
-          <a className="footer__links_item_link" href="">
-            Документы
-          </a>
+          <button className="footer__links_item_link" onClick={handleReview}>
+            Оставить отзыв
+          </button>
         </div>
       </div>
       <div className="footer__under_link">

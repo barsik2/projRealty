@@ -14,7 +14,7 @@ const MainSection = () => {
       </h1>
 
       <p className={styles.description}>
-        Найди себе место на все случаи жизни
+        построй дом своей мечты!
       </p>
 
       <a className={styles.catalogLink} href="#catalog_section">

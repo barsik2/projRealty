@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { CATEGORY_ROUTE } from 'src/constRoute/consts';
+import { CATEGORY } from 'src/shared/config/routes';
 
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
@@ -17,7 +17,7 @@ const RequestSection = () => {
         <h2 className="request__title">
           Выбери дом своей мечты{'\n'}и проснись в нем уже{'\n'}завтра
         </h2>
-        <Link className="request__link" to={CATEGORY_ROUTE}>
+        <Link className="request__link" to={CATEGORY}>
           Оставить заявку
         </Link>
       </div>

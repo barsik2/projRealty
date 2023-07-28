@@ -1,6 +1,6 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
-import { CATEGORY_ROUTE } from 'src/constRoute/consts';
+import { CATEGORY } from 'src/shared/config/routes';
 
 import { cards } from './constants/catalogSection.constants';
 
@@ -27,7 +27,7 @@ const CatalogSection = () => {
           />
         ))}
       </div>
-      <a className="catalog__link_more" href={CATEGORY_ROUTE}>
+      <a className="catalog__link_more" href={CATEGORY}>
         Смотреть ещё
       </a>
     </ContentLayout>

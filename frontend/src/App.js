@@ -1,8 +1,11 @@
-import React from "react";
-import { BrowserRouter, useLocation } from "react-router-dom";
-import AppRouter from "./components/AppRouter";
+import React from 'react';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 
-import 'src/styles/global.css';
+import { ModalProvider } from 'src/shared/lib/modals/model';
+
+import AppRouter from './components/AppRouter';
+
+import 'src/shared/styles/global.css';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -11,14 +14,16 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return null
+  return null;
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <AppRouter />
+      <ModalProvider>
+        <ScrollToTop />
+        <AppRouter />
+      </ModalProvider>
     </BrowserRouter>
   );
 }

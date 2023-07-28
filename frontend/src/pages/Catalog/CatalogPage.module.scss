@@ -22,4 +22,63 @@
   &__order {
     margin-bottom: 20px;
   }
+
+  &__tab {
+    margin-bottom: 25px;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    &_link {
+      padding: 0;
+      font-size: 16px;
+      color: #ffffff;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+
+      &.active {
+        opacity: 1;
+        color: #ffffff;
+      }
+
+      &:hover, &:focus {
+        color: #ffffff;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__dropdown {
+    margin-bottom: 25px;
+
+    &_btn {
+      padding: 0;
+      background-color: transparent !important;
+      border: none;
+
+      &::after {
+        content: unset,
+      }
+
+      &:hover, &:focus {
+        background-color: transparent;
+      }
+    }
+
+    &_wrapper {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    &_order {
+      width: 34px;
+      height: 26px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      color: transparent;
+      font-size: 0;
+      background-image: url('/assets/images/orderBy.svg');
+    }
+  }
 }
