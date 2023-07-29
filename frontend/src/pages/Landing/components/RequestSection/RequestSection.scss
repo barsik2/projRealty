@@ -1,3 +1,5 @@
+@import '../../../../shared/styles/variables.scss';
+
 .request {
   background-image: url('/assets/images/landing/more_house_bg.webp');
   background-repeat: no-repeat;
@@ -55,5 +57,9 @@
   &__home_img {
     position: relative;
     object-fit: cover;
+
+    @include w-800 {
+      display: none;
+    }
   }
 }

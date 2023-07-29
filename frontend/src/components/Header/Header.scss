@@ -26,11 +26,26 @@
   &__logo {
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 14px;
+
+    &_img_wrapper {
+      position: relative;
+      padding-right: 14px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1px;
+        height: 45px;
+        background-color: #ffffff;
+      }
+    }
 
     span {
-      font-size: 20px;
+      font-size: 23px;
       line-height: 100%;
+      font-weight: 800;
       text-transform: uppercase;
     }
   }

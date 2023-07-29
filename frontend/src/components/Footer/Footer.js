@@ -43,11 +43,11 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Контакты</p>
 
-          <a className="footer__links_item_link" href="tel:+7-800-555-35-35">
-            +7-800-555-35-35
+          <a className="footer__links_item_link" href="tel:+7-921-966-25-05">
+            +7-921-966-25-05
           </a>
-          <a className="footer__links_item_link" href="mailto:terned@mail.ru">
-            terned@mail.ru
+          <a className="footer__links_item_link" href="mailto:stroy.dom.saintp@gmail.com">
+            stroy.dom.saintp@gmail.com 
           </a>
         </div>
         <div className="footer__links_item">
@@ -63,17 +63,19 @@ const Footer = () => {
       </div>
       <div className="footer__under_link">
         <address className="footer__address">
-          Санкт-Петербург, ул. Романова 327, 3{'\n'}этаж
+          Санкт-Петербург, линия 26-я В.О., д.15, к. 2,
         </address>
         <div className="footer__logo">
-          <img
-            src="/images/logo.svg"
-            alt="logo"
-            width="66"
-            height="64"
-            loading="lazy"
-          />
-          <span>Stroy-Dom</span>
+          <span className="footer__logo_img_wrapper">
+            <img
+              src="/images/logo.svg"
+              alt="logo"
+              width="66"
+              height="64"
+              loading="lazy"
+            />
+          </span>
+          <span>Строй-дом</span>
         </div>
       </div>
       <div className="footer__socials">

@@ -1,0 +1,51 @@
+.reviews {
+  padding: 80px 0 160px;
+  background-image: url('/assets/images/reviews-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+
+  &__content {
+    position: relative;
+  }
+
+  &__title_container {
+    margin-bottom: 80px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__title {
+    font-size: 48px;
+    color: #000000;
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #112205;
+      border-radius: 24px 0 0 24px;
+    }
+
+    &::after {
+      right: 100%;
+      left: unset;
+      border-radius: 0 24px 24px 0;
+    }
+  }
+}

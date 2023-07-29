@@ -20,14 +20,16 @@ const Header = () => {
       className="header__content"
     >
       <Link className="header__logo" to={HOME}>
-        <img
-          src="/images/logo.svg"
-          alt="logo"
-          width="47"
-          height="45"
-          loading="lazy"
-        />
-        <span>Stroy-Dom</span>
+        <span className="header__logo_img_wrapper">
+          <img
+            src="/images/logo.svg"
+            alt="logo"
+            width="47"
+            height="45"
+            loading="lazy"
+          />
+        </span>
+        <span>Строй-дом</span>
       </Link>
 
       <nav className="header__navigation">

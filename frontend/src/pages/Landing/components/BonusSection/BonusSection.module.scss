@@ -1,0 +1,35 @@
+.bonus {
+  padding-bottom: 80px;
+
+  &__content {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    &_item {
+      text-align: right;
+      font-size: 32px;
+      line-height: 100%;
+      opacity: 0.6;
+
+      &:not(:last-of-type) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}

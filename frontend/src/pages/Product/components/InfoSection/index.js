@@ -1,5 +1,7 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
+import { useModal } from 'src/shared/lib/hooks';
+
 import styles from './InfoSection.module.scss';
 
 const InfoSection = ({
@@ -9,10 +11,22 @@ const InfoSection = ({
   size,
   rooms,
   garage,
+  name,
+  id,
   length,
   width,
   material,
 }) => {
+  const { open } = useModal();
+
+  const handleOpenModal = () => {
+
+    open('request', {
+      name,
+      id,
+    });
+  };
+
   return (
     <ContentLayout
       as="section"
@@ -31,10 +45,10 @@ const InfoSection = ({
         </div>
       </div>
       <div className={styles.info__right_section}>
-        <p className={styles.info__price}>
+        <p className={styles.info__price} onClick={handleOpenModal}>
           {price} р.
           <span>
-            В ипотеку от 5000 p.<sup>*</sup>
+            В ипотеку от 15000 p.<sup>*</sup>
           </span>
         </p>
         <div className={styles.info__additional}>
