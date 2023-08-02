@@ -1,6 +1,6 @@
 export const SIZE = [
   {
-    value: '100',
+    value: 'до 100',
     name: 'size_min',
   },
   {
@@ -38,7 +38,7 @@ export const SELECTS = [
     options: [
       {
         value: '',
-        label: 'Компанты',
+        label: 'Комнаты',
       },
       {
         value: '4',

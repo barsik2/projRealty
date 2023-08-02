@@ -1,0 +1,88 @@
+@import '../../../../shared/styles/variables.scss';
+
+.mainSectionWrapper {
+  height: 100vh;
+  background-image: url('/assets/images/landing/main_background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include w-1024 {
+    background-image: url('/assets/images/landing/main_background_tablet.webp');
+  }
+
+  @include w-600 {
+    background-image: url('/assets/images/landing/main_background_mobile.webp');
+  }
+}
+
+.mainSection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include w-600 {
+    align-items: center;
+  }
+}
+
+.title {
+  margin-bottom: 30px;
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 100%;
+  text-transform: uppercase;
+
+  @include w-1024 {
+    margin-bottom: 23px;
+    font-size: 78px;
+  }
+
+  @include w-600 {
+    margin-bottom: 10px;
+    font-size: 48px;
+  }
+}
+
+.description {
+  margin-bottom: 25px;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 100%;
+  color: #F9F9F9;
+
+  @include w-1024 {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
+  @include w-600 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+}
+
+.catalogLink {
+  width: fit-content;
+  padding: 24px 32px;
+  border-radius: 24px;
+  line-height: 100%;
+  font-weight: 300;
+  border: 3px solid #ffffff;
+
+  @include w-1024 {
+    padding: 19px 26px;
+    font-size: 19px;
+    font-weight: 400;
+    border-radius: 19px;
+    border: 2px solid #ffffff;
+  }
+
+  @include w-600 {
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 24px;
+    border: 1px solid #ffffff;
+  }
+}

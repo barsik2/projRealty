@@ -1,8 +1,10 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
 import { LIST_OF_SERVICES } from './constants/services.constants';
-import styles from './Service.module.scss';
+
 import ServiceCard from './components/ServiceCard';
+
+import styles from './Service.module.scss';
 
 const Services = () => {
   return (

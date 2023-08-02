@@ -8,6 +8,15 @@
   padding: 7px 0;
   background-color: rgba(31, 32, 28, 0.6);
 
+  @include w-1024 {
+    padding: 18px 0;
+  }
+  
+  @include w-600 {
+    top: 7px;
+    padding: 6px 0;
+  }
+
   &__content {
     display: flex;
     align-items: center;
@@ -18,6 +27,10 @@
     }
 
     @include w-1024 {
+      gap: 75px;
+    }
+
+    @include w-600 {
       gap: unset;
       justify-content: space-between;
     }
@@ -28,16 +41,36 @@
     align-items: center;
     gap: 14px;
 
+    @include w-1024 {
+      gap: 7px;
+    }
+
     &_img_wrapper {
       position: relative;
       padding-right: 14px;
+
+      @include w-1024 {
+        padding-right: 7px;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      @include w-600 {
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
 
       &::after {
         content: '';
         position: absolute;
         right: 0;
         width: 1px;
-        height: 45px;
+        height: 100%;
         background-color: #ffffff;
       }
     }
@@ -47,6 +80,14 @@
       line-height: 100%;
       font-weight: 800;
       text-transform: uppercase;
+
+      @include w-1024 {
+        font-size: 12px;
+      }
+
+      @include w-600 {
+        font-size: 23px;
+      }
     }
   }
 
@@ -60,11 +101,20 @@
     }
 
     @include w-1024 {
-      gap: 30px;
+      gap: 75px;
+    }
+
+    @include w-800 {
+      gap: 50px;
+    }
+
+    @include w-600 {
+      display: none;
     }
   }
 
   &__link {
+    width: fit-content;
     height: fit-content;
     font-size: 20px;
     font-weight: 300;
@@ -74,6 +124,11 @@
     border-color: transparent;
     transition: opacity 0.3s, border-color 0.2s;
 
+    @include w-1024 {
+      font-size: 14px;
+      font-weight: 400;
+    }
+
     &:hover {
       opacity: 1;
     }
@@ -81,6 +136,47 @@
     &.active {
       opacity: 1;
       border-color: #ffffff;
+    }
+
+    &_burger {
+      width: fit-content;
+      font-size: 20px;
+      opacity: 0.5;
+      border-bottom: 2px solid;
+      border-color: transparent;
+      transition: opacity 0.3s, border-color 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        opacity: 1;
+        border-color: #ffffff;
+      }
+    }
+  }
+
+  &__burger {
+    display: none;
+    font-size: 0;
+    color: transparent;
+    width: 24px;
+    height: 24px;
+
+    @include w-600 {
+      display: block;
+    }
+  }
+
+  &__menu {
+    background-color: #112205;
+    opacity: 0.8;
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      gap: 45px;
     }
   }
 }

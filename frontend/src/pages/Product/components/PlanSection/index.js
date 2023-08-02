@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import clsx from 'clsx';
+
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
 import { API_BREAKPOINT } from 'src/shared/config';
@@ -7,11 +10,17 @@ import { useModal } from 'src/shared/lib/hooks';
 import styles from './PlanSection.module.scss';
 
 const PlanSection = ({ img_plan1, size, length, width, name, id }) => {
+  const [isMirror, setIsMirror] = useState(false);
+
   const { open } = useModal();
+
+  const handleMirror = () => {
+    setIsMirror((prevState) => !prevState);
+  }
 
   const handleOpenModal = () => {
     open('request', {
-      name,
+      name: name.replace('T', 'SD'),
       id,
     });
   };
@@ -27,7 +36,7 @@ const PlanSection = ({ img_plan1, size, length, width, name, id }) => {
             width="948"
             alt="plan"
             loading="lazy"
-            className={styles.plan__img}
+            className={clsx(styles.plan__img, isMirror && styles.plan__img_mirror)}
             src={`${API_BREAKPOINT}${img_plan1}`}
           />
         </div>
@@ -42,7 +51,7 @@ const PlanSection = ({ img_plan1, size, length, width, name, id }) => {
             </span>
             <span>Площадь кровли: {size} м2</span>
           </div>
-          <button className={styles.plan__mirror}>Отзеркалить</button>
+          <button className={styles.plan__mirror} onClick={handleMirror}>Отзеркалить</button>
           <button className={styles.plan__send_btn} onClick={handleOpenModal}>
             Оставиь заявку
           </button>

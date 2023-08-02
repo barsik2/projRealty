@@ -1,19 +1,54 @@
+@import '../../../../shared/styles/variables.scss';
+
 .bonus {
   padding-bottom: 80px;
+
+  @include w-1024 {
+    padding-top: 40px;
+  }
+
+  @include w-600 {
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
 
   &__content {
     display: flex;
     justify-content: flex-end;
-    gap: 30px;
+    gap: 32px;
+
+    @include w-1024 {
+      img {
+        width: 47px;
+        height: 47px;
+      }
+    }
+
+    @include w-600 {
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
   }
 
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: 37px;
     font-size: 48px;
     font-weight: 600;
     line-height: 100%;
     text-transform: uppercase;
     text-align: right;
+
+    @include w-1024 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    @include w-600 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
   }
 
   &__list {
@@ -28,7 +63,19 @@
       opacity: 0.6;
 
       &:not(:last-of-type) {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+
+        @include w-600 {
+          margin-bottom: 14px;
+        }
+      }
+
+      @include w-1024 {
+        font-size: 24px;
+      }
+
+      @include w-600 {
+        font-size: 14px;
       }
     }
   }

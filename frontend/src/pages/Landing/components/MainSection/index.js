@@ -1,6 +1,6 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
-import styles from './MainSection.module.css';
+import styles from './MainSection.module.scss';
 
 const MainSection = () => {
   return (

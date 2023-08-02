@@ -100,9 +100,11 @@ const RequestModal = () => {
               placeholder="Введите адрес электронной почты"
             />
           </label>
-          <p className={styles.modal__project_name}>
-            Проект: {modalProps?.name}
-          </p>
+          {modalProps?.name && (
+            <p className={styles.modal__project_name}>
+              Проект: {modalProps.name}
+            </p>
+          )}
           <button className={styles.modal__send_btn} type="submit">
             Отправить заявку
           </button>

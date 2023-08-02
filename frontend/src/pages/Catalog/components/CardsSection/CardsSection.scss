@@ -1,7 +1,14 @@
+@import '../../../../shared/styles/variables.scss';
+
 .cards__section {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
   column-gap: 13px;
   row-gap: 50px;
+
+  @media (max-width: 730px) {
+    row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+  }
 }

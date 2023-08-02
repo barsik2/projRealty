@@ -1,12 +1,38 @@
+@import '../../../../../../shared/styles/variables.scss';
+
 .point {
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @include w-1024 {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  @include w-600 {
+    flex-direction: column;
+
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
 
   &__description {
     font-size: 24px;
     line-height: 100%;
     text-align: left;
     color: #FFFAFA;
+
+    @include w-1024 {
+      font-size: 20px;
+    }
+
+    @include w-600 {
+      font-size: 16px;
+    }
   }
 }

@@ -1,6 +1,16 @@
+@import '../../../../shared/styles/variables.scss';
+
 .workingProcess {
   position: relative;
   height: 557px;
+
+  @include w-1024 {
+    height: 403px;
+  }
+
+  @include w-600 {
+    height: 211px;
+  }
 
   &__img {
     position: absolute;
@@ -12,9 +22,17 @@
   }
 
   &__text {
-    padding-top: 140px;
+    padding-top: 112px;
     position: relative;
     z-index: 1;
+
+    @include w-1024 {
+      padding-top: 53px;
+    }
+
+    @include w-600 {
+      padding-top: 35px;
+    }
 
     &_title {
       margin-bottom: 25px;
@@ -23,11 +41,29 @@
       font-weight: 700;
       line-height: 100%;
       text-transform: uppercase;
+
+      @include w-1024 {
+        margin-bottom: 38px;
+        font-size: 36px;
+      }
+
+      @include w-600 {
+        margin-bottom: 18px;
+        font-size: 20px;
+      }
     }
 
     &_description {
       font-size: 48px;
       line-height: 100%;
+
+      @include w-1024 {
+        font-size: 36px;
+      }
+
+      @include w-600 {
+        font-size: 20px;
+      }
     }
   }
 }

@@ -113,19 +113,17 @@ const CatalogPage = () => {
             <div>
               <Tab.Content>
                 <Tab.Pane eventKey="house" title="Дома">
-                  <div className={styles.catalog__order}>
-                    <CardsSection cards={data} />
-                  </div>
+                  <CardsSection cards={data} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="garage" title="Гаражи">
-                  <div className={styles.catalog__left_part}>Гаражи</div>
+                  <div className={styles.catalog__left_part}><CardsSection cards={data} /></div>
                 </Tab.Pane>
                 <Tab.Pane
                   eventKey="individual"
                   title="Индивидуальные постройки"
                 >
                   <div className={styles.catalog__left_part}>
-                    Индивидуальные постройки
+                    <CardsSection cards={data} />
                   </div>
                 </Tab.Pane>
               </Tab.Content>
