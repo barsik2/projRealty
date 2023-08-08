@@ -20,7 +20,7 @@ const PlanSection = ({ img_plan1, size, length, width, name, id }) => {
 
   const handleOpenModal = () => {
     open('request', {
-      name: name.replace('T', 'SD'),
+      name: name?.replace('T', 'SD'),
       id,
     });
   };

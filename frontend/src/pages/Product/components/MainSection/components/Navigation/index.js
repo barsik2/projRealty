@@ -14,7 +14,7 @@ const Navigation = ({ name }) => {
       <a href={CATEGORY} className={styles.navigation__catalog}>
         Каталог
       </a>
-      <span>{name.replace('T', 'SD')}</span>
+      <span>{name?.replace('T', 'SD')}</span>
       <a href="#info_section">Характеристика</a>
       <a href="#plan_section">Планировка</a>
     </ContentLayout>

@@ -13,12 +13,12 @@ const MainSection = ({ img_title, name, size }) => {
         className={styles.bg_img}
         width="100%"
         height="653"
-        alt={name.replace('T', 'SD')}
+        alt={name?.replace('T', 'SD')}
         src={`${API_BREAKPOINT}${img_title}`}
       />
       <ContentLayout rootClassName={styles.name} className={styles.name__content}>
         <h2 className={styles.name__title}>
-          <span className={styles.name__title_first}>{name.replace('T', 'SD')}</span>
+          <span className={styles.name__title_first}>{name?.replace('T', 'SD')}</span>
           <span>
             {size}м2
           </span>

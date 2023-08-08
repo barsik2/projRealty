@@ -22,7 +22,7 @@ const InfoSection = ({
   const handleOpenModal = () => {
 
     open('request', {
-      name: name.replace('T', 'SD'),
+      name: name?.replace('T', 'SD'),
       id,
     });
   };
