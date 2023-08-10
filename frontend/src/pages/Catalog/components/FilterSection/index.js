@@ -8,7 +8,6 @@ import styles from './FilterSection.module.scss';
 const FiltersSection = ({
   filters,
   updateFilters,
-  isLoading,
   handleReset,
   handleSearch,
 }) => {
@@ -43,14 +42,14 @@ const FiltersSection = ({
     updateFilters({ ...filters, [event.target.name]: value });
   };
 
-  const handleFloors = (event) => {
+  const handleFloors = (event, queryParam) => {
     let value = event.target.textContent;
 
-    if (value === filters.floors) {
+    if (value === filters[queryParam]) {
       value = '';
     }
 
-    updateFilters({ ...filters, floors: value });
+    updateFilters({ ...filters, [queryParam]: value });
   };
 
   return (
@@ -103,10 +102,11 @@ const FiltersSection = ({
             <div className={styles.filter__btn_container}>
               {FLOORS.map((floor) => (
                 <button
+                
                   className={clsx(
-                    filters.floors === floor.value && styles.active
+                    filters[floor.name] === floor.value && styles.active
                   )}
-                  onClick={handleFloors}
+                  onClick={(event) => handleFloors(event, floor.name)}
                   name={floor.value}
                   key={floor.value}
                 >

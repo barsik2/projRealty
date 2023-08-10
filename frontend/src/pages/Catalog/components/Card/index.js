@@ -2,10 +2,11 @@ import { CATEGORY } from 'src/shared/config/routes';
 import { API_BREAKPOINT } from 'src/shared/config';
 
 import styles from './Card.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const Card = ({ id, img_title, short_description, size, name }) => {
   return (
-    <a className={styles.card} href={`${CATEGORY}/${id}`}>
+    <NavLink className={styles.card} to={`${CATEGORY}/${id}`}>
       <img
         className={styles.card__img}
         width="335"
@@ -21,7 +22,7 @@ const Card = ({ id, img_title, short_description, size, name }) => {
         </h3>
         <p className={styles.card__text_description}>{short_description}</p>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

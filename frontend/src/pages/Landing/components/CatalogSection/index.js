@@ -7,8 +7,15 @@ import { cards } from './constants/catalogSection.constants';
 import CatalogCard from './components/CatalogCard';
 
 import './CatalogSection.scss';
+import { useContext, useEffect } from 'react';
+import { Context } from 'src';
+import { DEFAULT_FILTERS } from 'src/pages/Catalog/components/FilterSection/constants/filter.constants';
 
 const CatalogSection = () => {
+  const {filter} = useContext(Context)
+  useEffect(() => {
+    filter.setFilters(DEFAULT_FILTERS)
+  },[])
   return (
     <ContentLayout
       id="catalog_section"
@@ -24,6 +31,9 @@ const CatalogSection = () => {
             key={card.label}
             label={card.label}
             withSup={card.withSup}
+            link={card.link}
+            param={card.filter}
+            queryParam={card.queryParam}
           />
         ))}
       </div>

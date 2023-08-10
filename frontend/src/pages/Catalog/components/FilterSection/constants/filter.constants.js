@@ -15,19 +15,19 @@ export const SIZE = [
 
 export const FLOORS = [
   {
-    name: 'floor',
+    name: 'floors',
     value: '1',
   },
   {
-    name: 'floor',
+    name: 'floors',
     value: '2',
   },
   {
-    name: 'floor',
+    name: 'floors',
     value: '3',
   },
   {
-    name: 'floor',
+    name: 'additional',
     value: 'мансарда',
   },
 ];
@@ -39,6 +39,14 @@ export const SELECTS = [
       {
         value: '',
         label: 'Комнаты',
+      },
+      {
+        value: '2',
+        label: 'Две',
+      },
+      {
+        value: '3',
+        label: 'Три',
       },
       {
         value: '4',
@@ -117,3 +125,18 @@ export const SELECTS = [
     ],
   },
 ];
+
+export const DEFAULT_FILTERS = {
+  order: 'desc',
+  orderBy: '',
+  garage: '',
+  floors: '',
+  tent: '',
+  style: '',
+  rooms: '',
+  price_min: '',
+  price_max: '',
+  size_min: '',
+  size_max: '',
+  name: '',
+};
