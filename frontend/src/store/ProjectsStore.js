@@ -14,6 +14,7 @@ export default class ProjectStore {
             size_min: '',
             size_max: '',
             name: '',
+            additional:'',
           };
         makeAutoObservable(this)
     }

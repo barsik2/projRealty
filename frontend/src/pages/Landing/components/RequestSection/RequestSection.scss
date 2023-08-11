@@ -93,6 +93,9 @@
       padding: 8px 16px;
       font-size: 16px;
     }
+    @include w-600 {
+      z-index: 2;
+    }
   }
 
   &__home_img {

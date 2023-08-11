@@ -1,10 +1,15 @@
+@import '../../../../shared/styles/variables.scss';
+
 .plan {
-  padding: 40px 0 220px;
+  padding: 40px 0;
 
   &__content {
     display: flex;
     gap: 51px;
     justify-content: space-between;
+    @include w-800 {
+      flex-direction: column;
+    }
   }
 
   &__right_part {
@@ -63,6 +68,9 @@
 
   &__img {
     width: 100%;
+    object-fit: contain;
+    display: block;
+    height: auto;
 
     &_mirror {
       transform: scaleX(-1);

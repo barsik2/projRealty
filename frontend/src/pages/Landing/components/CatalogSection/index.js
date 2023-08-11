@@ -10,6 +10,7 @@ import './CatalogSection.scss';
 import { useContext, useEffect } from 'react';
 import { Context } from 'src';
 import { DEFAULT_FILTERS } from 'src/pages/Catalog/components/FilterSection/constants/filter.constants';
+import { NavLink } from 'react-router-dom';
 
 const CatalogSection = () => {
   const {filter} = useContext(Context)
@@ -37,9 +38,9 @@ const CatalogSection = () => {
           />
         ))}
       </div>
-      <a className="catalog__link_more" href={CATEGORY}>
+      <NavLink className="catalog__link_more" to={CATEGORY}>
         Смотреть ещё
-      </a>
+      </NavLink>
     </ContentLayout>
   );
 };

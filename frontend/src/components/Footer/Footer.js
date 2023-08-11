@@ -1,10 +1,11 @@
-import { ABOUT, SERVICES } from 'src/shared/config/routes';
+import { ABOUT, CATEGORY, SERVICES } from 'src/shared/config/routes';
 
 import { useModal } from 'src/shared/lib/hooks';
 
 import ContentLayout from '../layouts/ContentLayout';
 
 import './Footer.scss';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   const { open } = useModal()
@@ -23,22 +24,22 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Каталог</p>
 
-          <a className="footer__links_item_link" href="">
+          <NavLink className="footer__links_item_link" to={CATEGORY}>
             Проекты домов
-          </a>
-          <a className="footer__links_item_link" href={SERVICES}>
+          </NavLink>
+          <NavLink className="footer__links_item_link" to={SERVICES}>
             Услуги
-          </a>
+          </NavLink>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Наши проекты</p>
 
-          <a className="footer__links_item_link" href="">
+          <NavLink className="footer__links_item_link" href="">
             Готовые работы
-          </a>
-          <a className="footer__links_item_link" href="">
+          </NavLink>
+          <NavLink className="footer__links_item_link" href="">
             Отзывы
-          </a>
+          </NavLink>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Контакты</p>
@@ -53,9 +54,9 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Другое</p>
 
-          <a className="footer__links_item_link" href={ABOUT}>
+          <NavLink className="footer__links_item_link" to={ABOUT}>
             О компании
-          </a>
+          </NavLink>
           <button className="footer__links_item_link" onClick={handleReview}>
             Оставить отзыв
           </button>

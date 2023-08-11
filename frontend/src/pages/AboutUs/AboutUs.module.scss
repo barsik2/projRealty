@@ -1,6 +1,18 @@
 .aboutUs {
   padding-top: 186px;
 
+    &__send_btn {
+      margin: 20px auto;
+    padding: 16px 32px;
+    display: block;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 100%;
+    border: 1px solid #ffffff;
+    border-radius: 24px;
+  }
+
   &__title_wrapper {
     padding: 12px 0;
     background-color: #091203;

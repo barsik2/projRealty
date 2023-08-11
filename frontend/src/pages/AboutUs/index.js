@@ -1,8 +1,16 @@
 import ContentLayout from 'src/components/layouts/ContentLayout';
 
 import styles from './AboutUs.module.scss';
+import { useModal } from 'src/shared/lib/hooks';
 
 const AboutUs = () => {
+  const { open } = useModal();
+
+  const handleOpenModal = () => {
+    open('request', {
+      id: 'request from about us',
+    });
+  };
   return (
     <div className={styles.aboutUs}>
       <ContentLayout
@@ -170,7 +178,12 @@ const AboutUs = () => {
           наши проекты для защиты своих ученых степеней.
         </p>
       </ContentLayout>
-
+      <ContentLayout>
+      <button className={styles.aboutUs__send_btn} onClick={handleOpenModal}>
+        Оставиь заявку
+      </button>
+      </ContentLayout>
+      
       <ContentLayout
         rootClassName={styles.aboutUs__title_wrapper}
         className={styles.aboutUs__title_content}
@@ -179,17 +192,33 @@ const AboutUs = () => {
         Сертификаты и документы
       </ContentLayout>
 
-      <ContentLayout as="section" rootClassName={styles.aboutUs__text} className={styles.aboutUs__text_content_fourth}>
+      <ContentLayout
+        as="section"
+        rootClassName={styles.aboutUs__text}
+        className={styles.aboutUs__text_content_fourth}
+      >
         <div className={styles.aboutUs__certificate_wrapper}>Сертификат</div>
         <div className={styles.aboutUs__requisites}>
           <p>РЕКВИЗИТЫ:</p>
           <span>ООО “НОВЫЙ ГОРОД”</span>
-          <p>ОГРН (рег.номер): <span>1107847157329</span></p>
-          <p>ИНН/КПП: <span>7810589362/780101001</span></p>
-          <p>Р/С: <span>00000000000000000</span></p>
-          <p>Банк: <span>АО «АЛЬФА-БАНК», г. Санкт-Петербург</span></p>
-          <p>БИК: <span>0000000</span></p>
-          <p>К/С: <span>000000000000000</span></p>
+          <p>
+            ОГРН (рег.номер): <span>1107847157329</span>
+          </p>
+          <p>
+            ИНН/КПП: <span>7810589362/780101001</span>
+          </p>
+          <p>
+            Р/С: <span>00000000000000000</span>
+          </p>
+          <p>
+            Банк: <span>АО «АЛЬФА-БАНК», г. Санкт-Петербург</span>
+          </p>
+          <p>
+            БИК: <span>0000000</span>
+          </p>
+          <p>
+            К/С: <span>000000000000000</span>
+          </p>
         </div>
       </ContentLayout>
     </div>
