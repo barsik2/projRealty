@@ -53,7 +53,7 @@ const PlanSection = ({ img_plan1, size, length, width, name, id }) => {
           </div>
           <button className={styles.plan__mirror} onClick={handleMirror}>Отзеркалить</button>
           <button className={styles.plan__send_btn} onClick={handleOpenModal}>
-            Оставиь заявку
+            Оставить заявку
           </button>
         </div>
       </div>

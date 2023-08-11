@@ -2,23 +2,12 @@
 
 .catalog__card {
   position: relative;
+  height: 200px;
   display: flex;
+  align-items: flex-end;
   border-radius: 24px;
-  outline: 4px solid rgba($color: #ffffff, $alpha: 0.9);
-  outline-offset: -4px;
-  background-color: #000000;
   overflow: hidden;
-
-  @include w-1024 {
-    height: 235px;
-    outline: 2px solid rgba($color: #ffffff, $alpha: 0.9);
-    outline-offset: -2px;
-  }
-
-  @include w-800 {
-    outline: 4px solid rgba($color: #ffffff, $alpha: 0.9);
-    outline-offset: -4px;
-  }
+  background-color: #f7efef;
 }
 
 .catalog__img {

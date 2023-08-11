@@ -31,7 +31,6 @@ const CatalogPage = () => {
         });
         setIsLoading(false);
         setData(data.rows);
-        console.log(data.rows[1].style)
       }
     } catch (error) {
       setIsLoading(false);
