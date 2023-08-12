@@ -24,7 +24,7 @@ const FiltersSection = observer(({
 
   const handleSizeBtn = (event, size) => {
     setSelectedSize(size)
-    const value = event.target.textContent.replaceAll(' ', '');
+    let value = event.target.textContent.replaceAll(' ', '');
 
     let size_min = '';
     let size_max = '';

@@ -8,7 +8,7 @@ import styles from './Service.module.scss';
 
 const Services = () => {
   return (
-    <div className={styles.service}>
+    <div>
       <ContentLayout rootClassName={styles.service__title} as="h2">
         Каталог услуг
       </ContentLayout>

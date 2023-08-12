@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 
-import { RequestModal, ReviewModal } from './ui';
+import { RequestModal, ReviewModal, ServiceModal } from './ui';
 
 const initialState = {
   open: (type, options) => {},
@@ -34,6 +34,7 @@ const ModalProvider = ({ children }) => {
       {children}
       <RequestModal />
       <ReviewModal />
+      <ServiceModal/>
     </ModalContext.Provider>
   );
 };

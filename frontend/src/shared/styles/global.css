@@ -31,3 +31,12 @@ a {
 a:hover {
   color: inherit;
 }
+
+#root::-webkit-scrollbar {
+  width: 5px;
+  background-color: aqua;
+}
+#root::-webkit-scrollbar-thumb {
+ border-radius: 30%;
+ background-color: azure;
+}
