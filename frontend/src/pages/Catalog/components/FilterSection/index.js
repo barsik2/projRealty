@@ -32,10 +32,10 @@ const FiltersSection = ({
     } else {
       newFilters[event.target.name] = value.replace(/[^0-9]/gi, '');
     }
-    console.log(value.replace(/[^0-9]/gi, ''), sizeName);
+  
 
     updateFilters(newFilters);
-    console.log(filters[event.target.name], )
+
   };
 
   const handleInput = (event) => {
