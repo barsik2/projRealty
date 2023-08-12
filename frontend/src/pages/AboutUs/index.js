@@ -184,7 +184,7 @@ const AboutUs = () => {
       </button>
       </ContentLayout>
       
-      <ContentLayout
+      {/* <ContentLayout
         rootClassName={styles.aboutUs__title_wrapper}
         className={styles.aboutUs__title_content}
         as="h2"
@@ -220,7 +220,7 @@ const AboutUs = () => {
             К/С: <span>000000000000000</span>
           </p>
         </div>
-      </ContentLayout>
+      </ContentLayout> */}
     </div>
   );
 };

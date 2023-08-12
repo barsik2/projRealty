@@ -10,24 +10,25 @@ import FiltersSection from './components/FilterSection';
 import styles from './CatalogPage.module.scss';
 import { Context } from 'src';
 import { DEFAULT_FILTERS } from './components/FilterSection/constants/filter.constants';
+import { observer } from 'mobx-react-lite';
 
 const ORDER_KEYS = {
   '': 'По умолчанию',
   price: 'По цене',
 };
 
-const CatalogPage = () => {
+const CatalogPage = observer(() => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const { filter } = useContext(Context);
-  const [filters, setFilters] = useState(filter.filters);
+  // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true)
       if (!isLoading) {
         const { data } = await api.get('house/filters', {
-          params: filters,
+          params: filter.filters,
         });
         setIsLoading(false);
         setData(data.rows);
@@ -36,18 +37,33 @@ const CatalogPage = () => {
       setIsLoading(false);
       console.error(error);
     }
-  }, [filters, isLoading]);
+  }, [filter.filters, isLoading]);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const reset = async () => {
-    setFilters(DEFAULT_FILTERS);
+    filter.setFilters(DEFAULT_FILTERS);
+    try {
+      setIsLoading(true)
+      if (!isLoading) {
+        const { data } = await api.get('house/filters', {
+          params: filter.filters,
+        });
+        setIsLoading(false);
+        setData(data.rows);
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error(error);
+    }
+    
   };
 
   const updateFilters = (newFilter) => {
-    setFilters((prevState) => ({ ...prevState, ...newFilter }));
+    // setFilters((prevState) => ({ ...prevState, ...newFilter }));
+    filter.setFilters(newFilter)
   };
 
   return (
@@ -87,7 +103,7 @@ const CatalogPage = () => {
                       order by
                     </button>
                     <Dropdown.Toggle className={styles.catalog__dropdown_btn}>
-                      <span>{ORDER_KEYS[filters.orderBy]}</span>
+                      <span>{ORDER_KEYS[filter.filters.orderBy]}</span>
                     </Dropdown.Toggle>
                   </div>
                   <Dropdown.Menu>
@@ -130,7 +146,7 @@ const CatalogPage = () => {
           </Tab.Container>
         </div>
         <FiltersSection
-          filters={filters}
+          // filters={filters}
           updateFilters={updateFilters}
           handleSearch={fetchData}
           handleReset={reset}
@@ -138,6 +154,6 @@ const CatalogPage = () => {
       </div>
     </ContentLayout>
   );
-};
+});
 
 export default CatalogPage;

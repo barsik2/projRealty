@@ -4,25 +4,32 @@ import clsx from 'clsx';
 import { FLOORS, SELECTS, SIZE } from './constants/filter.constants';
 
 import styles from './FilterSection.module.scss';
+import { useContext, useState } from 'react';
+import { Context } from 'src';
+import { observer } from 'mobx-react-lite';
 
-const FiltersSection = ({
-  filters,
-  updateFilters,
+const FiltersSection = observer(({
+  // filters,
+  // updateFilters,
   handleReset,
   handleSearch,
 }) => {
+  const {filter} = useContext(Context)
+  const [selectedSize, setSelectedSize] = useState({})
   const handleSelect = (event) => {
     const { value, name } = event.target;
-    updateFilters({ ...filters, [name]: value });
+    filter.setFilters({...filter.filters, [name]:value})
+    // updateFilters({ filter.filters, [name]: value });
   };
 
-  const handleSizeBtn = (event, sizeName) => {
+  const handleSizeBtn = (event, size) => {
+    setSelectedSize(size)
     const value = event.target.textContent.replaceAll(' ', '');
 
     let size_min = '';
     let size_max = '';
 
-    const newFilters = { ...filters, size_min, size_max };
+    const newFilters = { ...filter.filters, size_min, size_max };
 
     if (value.includes('-')) {
       const [from, to] = value.split('-');
@@ -32,26 +39,28 @@ const FiltersSection = ({
     } else {
       newFilters[event.target.name] = value.replace(/[^0-9]/gi, '');
     }
-  
-
-    updateFilters(newFilters);
+    if (value === filter.filters[size_max]) {
+      value = '';
+    }
+    // updateFilters(newFilters);
+    filter.setFilters(newFilters)
 
   };
 
   const handleInput = (event) => {
     const value = event.target.value.trim();
-
-    updateFilters({ ...filters, [event.target.name]: value });
+    filter.setFilters({...filter.filters, [event.target.name]: value})
+    // updateFilters({ ...filters, [event.target.name]: value });
   };
 
   const handleFloors = (event, queryParam) => {
     let value = event.target.textContent;
 
-    if (value === filters[queryParam]) {
+    if (value === filter.filters[queryParam]) {
       value = '';
     }
-
-    updateFilters({ ...filters, [queryParam]: value });
+    filter.setFilters({...filter.filters, [queryParam]: value})
+    // updateFilters({ ...filters, [queryParam]: value });
   };
 
   return (
@@ -62,7 +71,7 @@ const FiltersSection = ({
           type="text"
           name="name"
           placeholder="По названию..."
-          value={filters.name}
+          value={filter.filters.name}
           onChange={handleInput}
         />
         <div className={styles.filter__filters}>
@@ -72,10 +81,9 @@ const FiltersSection = ({
             <div className={styles.filter__btn_container}>
               {SIZE.map((size) => (
                 <button
-                  className={clsx(
-                    filters[size.name] === size.value && styles.active
-                  )}
-                  onClick={(event) => handleSizeBtn(event, size.value)}
+                  id={size.id}
+                  className={clsx(selectedSize.id === size.id && styles.active)}
+                  onClick={(event) => handleSizeBtn(event, size)}
                   name={size.name}
                   key={size.value}
                 >
@@ -108,7 +116,7 @@ const FiltersSection = ({
               {FLOORS.map((floor) => (
                 <button
                   className={clsx(
-                    filters[floor.name] === floor.value && styles.active
+                    filter.filters[floor.name] === floor.value && styles.active
                   )}
                   onClick={(event) => handleFloors(event, floor.name)}
                   name={floor.value}
@@ -123,7 +131,7 @@ const FiltersSection = ({
             <Form.Select
               key={select.name}
               name={select.name}
-              value={filters[select.name]}
+              value={filter.filters[select.name]}
               onChange={handleSelect}
             >
               {select.options.map((option) => (
@@ -167,6 +175,6 @@ const FiltersSection = ({
       </form>
     </div>
   );
-};
+});
 
 export default FiltersSection;

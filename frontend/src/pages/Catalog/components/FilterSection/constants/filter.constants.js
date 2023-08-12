@@ -2,14 +2,17 @@ export const SIZE = [
   {
     value: 'до 100',
     name: 'size_max',
+    id:'100',
   },
   {
     value: '100 - 250',
     name: 'size_min',
+    id:'100250'
   },
   {
     value: 'от 250',
     name: 'size_min',
+    id:'250'
   },
 ];
 
