@@ -37,7 +37,7 @@ const InfoSection = ({
       <div className={styles.info__left_section}>
         <h4 className={styles.info__title}>{short_description}</h4>
         <p className={styles.info__sup_title}>
-          Задайте вопрос об этом проекте +7-800-35-35 или отправьте заявку
+          Задайте вопрос об этом проекте <a className={styles.info__send_btn} href="tel:+7-921-966-25-05">+7-921-966-25-05</a> или отправьте заявку
         </p>
         <div>
           <p className={styles.info__title_info}>Описание</p>

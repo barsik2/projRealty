@@ -1,7 +1,7 @@
 export const SIZE = [
   {
     value: 'до 100',
-    name: 'size_min',
+    name: 'size_max',
   },
   {
     value: '100 - 250',

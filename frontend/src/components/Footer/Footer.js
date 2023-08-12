@@ -1,4 +1,4 @@
-import { ABOUT, CATEGORY, SERVICES } from 'src/shared/config/routes';
+import { ABOUT, CATEGORY, HOME, SERVICES } from 'src/shared/config/routes';
 
 import { useModal } from 'src/shared/lib/hooks';
 
@@ -37,7 +37,7 @@ const Footer = () => {
           <NavLink className="footer__links_item_link" href="">
             Готовые работы
           </NavLink>
-          <NavLink className="footer__links_item_link" href="">
+          <NavLink className="footer__links_item_link" to={HOME}>
             Отзывы
           </NavLink>
         </div>

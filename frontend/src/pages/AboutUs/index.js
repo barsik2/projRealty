@@ -180,7 +180,7 @@ const AboutUs = () => {
       </ContentLayout>
       <ContentLayout>
       <button className={styles.aboutUs__send_btn} onClick={handleOpenModal}>
-        Оставиь заявку
+        Оставить заявку
       </button>
       </ContentLayout>
       
