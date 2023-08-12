@@ -1,6 +1,11 @@
+@import '../../styles/variables.scss';
 .modal {
-  max-width: 1300px;
+  max-width: 700px;
   color: #000000;
+
+  &__radius {
+    border-radius: 24px;
+  }
 
   &__close_btn {
     position: absolute;
@@ -20,10 +25,13 @@
   }
 
   &__title {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 40px;
+    @include w-480 {
+      font-size: 28px;
+    }
   }
 
   &__form {
@@ -32,20 +40,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
 
     label {
-      width: 100%;
+      width: 80%;
       display: flex;
       flex-direction: column;
       text-align: center;
-      gap: 20px;
+      gap: 10px;
       font-size: 36px;
       font-weight: 400;
+      @include w-800 {
+        width: 80%;
+        font-size: 28px;
+      }
     }
 
     input, textarea {
-      padding: 30px 33px;
+      padding: 15px 33px;
       border: none;
       border-radius: 24px;
       font-size: 24px;
@@ -69,6 +81,7 @@
   }
 
   &__send_btn {
+    margin-top: 10px;
     max-width: 362px;
     padding: 16px 32px;
     color: #ffffff;
@@ -76,5 +89,8 @@
     font-size: 32px;
     line-height: 100%;
     border-radius: 24px;
+    @include w-800 {
+      font-size: 24px;
+    }
   }
 }
