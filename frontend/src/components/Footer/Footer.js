@@ -80,13 +80,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__socials">
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://vk.com/public222018152" target='blank'>
           <img src="/images/vk.webp" width="37" height="37" alt="vk" />
         </a>
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://instagram.com/stroi_dom.rus?igshid=MzRlODBiNWFlZA==" target="blank">
           <img src="/images/instagram.webp" width="37" height="37" alt="instagram" />
         </a>
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://t.me/stroi_dom_russia" target='blank'>
           <img src="/images/telegram.webp" width="37" height="37" alt="telegram" />
         </a>
       </div>

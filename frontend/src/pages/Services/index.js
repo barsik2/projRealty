@@ -5,8 +5,10 @@ import { LIST_OF_SERVICES } from './constants/services.constants';
 import ServiceCard from './components/ServiceCard';
 
 import styles from './Service.module.scss';
+import { useState } from 'react';
 
 const Services = () => {
+  const [service, setService] = useState({})
   return (
     <div>
       <ContentLayout rootClassName={styles.service__title} as="h2">
