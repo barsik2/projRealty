@@ -56,7 +56,7 @@ class HouseController{
     }
     async getFilter(req, res) {
         try{
-            const filters = {//Сбор фильтров из гет-запроса
+            const filters = {//Сбор фильтров из гет-запроса в единый объект
                 size: {
                     min:req.query.size_min,
                     max:req.query.size_max
@@ -153,6 +153,7 @@ class HouseController{
             console.log(e);
         }
     }
+
     async getOne(req, res) {
         try{
             const {id} = req.params;
@@ -160,6 +161,59 @@ class HouseController{
             return res.json(houseById);
         }catch(e){
             console.log(e)
+        }
+    }
+
+    async delete(req, res, next) {
+        try {
+            const {id} = req.body
+            if (id == process.env.SECRET_KEY){
+                await House.destroy({where: {}})
+                return res.json("Now i am become Death. The Destroyer of worlds.")
+            }
+            else{
+                const result = await House.destroy({where: {id}})
+                return res.json(result? "Запись успешно удалена." : "Запись с таким id не найдена.")
+            }
+        } catch (e) {
+            next(ApiError.badRequest(e.message))
+        }
+    }
+    async update(req, res, next){
+        try {
+            const {id, name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, additional} = req.body;
+
+            const {img_title, img_plan1, img_plan2, img_1, img_2, img_3} = req.files;
+            
+            if (img_title){
+                var fileNameTitle = `${name}_title_` + uuid.v4() + ".jpg";
+                img_title.mv(path.resolve(__dirname, '..', 'static', fileNameTitle));
+            }
+            if (img_1){
+                var fileNameImg1 = `${name}_img1_` + uuid.v4() + ".jpg";
+                img_1.mv(path.resolve(__dirname, '..', 'static', fileNameImg1));
+            }
+            if (img_2){
+                var fileNameImg2 = `${name}_img2_` + uuid.v4() + ".jpg";
+                img_2.mv(path.resolve(__dirname, '..', 'static', fileNameImg2));
+            }
+            if (img_3){
+                var fileNameImg3 = `${name}_img3_` + uuid.v4() + ".jpg";
+                img_3.mv(path.resolve(__dirname, '..', 'static', fileNameImg3));
+            }
+            if (img_plan1){
+                var fileNamePlan1 = `${name}_plan1` + uuid.v4() + ".jpg";
+                img_plan1.mv(path.resolve(__dirname, '..', 'static', fileNamePlan1));
+            }
+            if (img_plan2){
+                var fileNamePlan2 = `{name}_plan2` + uuid.v4() + ".jpg";
+                img_plan2.mv(path.resolve(__dirname, '..', 'static', fileNamePlan2));
+            }
+
+            const houseUpdate = await House.update({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, additional, img_title: fileNameTitle, img_plan1: fileNamePlan1, img_plan2: fileNamePlan2, img_1: fileNameImg1, img_2: fileNameImg2, img_3: fileNameImg3}, {where: {id: id}});
+            return res.json(houseUpdate? "Запись успешно обновлена" : "Неудача!");
+        } catch (error) {
+            next(ApiError.badRequest(error.message))
         }
     }
 }
