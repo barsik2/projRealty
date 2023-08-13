@@ -16,6 +16,7 @@ const CatalogSection = () => {
   const {filter} = useContext(Context)
   useEffect(() => {
     filter.setFilters(DEFAULT_FILTERS)
+    filter.setSelectedSize({})
   },[])
   return (
     <ContentLayout

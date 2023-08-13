@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useContext } from 'react';
-import { ButtonGroup, Dropdown, Nav, Tab } from 'react-bootstrap';
+import { ButtonGroup, Dropdown, Nav, Tab} from 'react-bootstrap';
 
 import api from 'src/shared/api';
 
@@ -11,6 +11,7 @@ import styles from './CatalogPage.module.scss';
 import { Context } from 'src';
 import { DEFAULT_FILTERS } from './components/FilterSection/constants/filter.constants';
 import { observer } from 'mobx-react-lite';
+import _ from 'lodash';
 
 const ORDER_KEYS = {
   '': 'По умолчанию',
@@ -21,11 +22,12 @@ const CatalogPage = observer(() => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const { filter } = useContext(Context);
+  const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' });
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       if (!isLoading) {
         const { data } = await api.get('house/filters', {
           params: filter.filters,
@@ -45,8 +47,9 @@ const CatalogPage = observer(() => {
 
   const reset = async () => {
     filter.setFilters(DEFAULT_FILTERS);
+    filter.setSelectedSize({});
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       if (!isLoading) {
         const { data } = await api.get('house/filters', {
           params: filter.filters,
@@ -58,13 +61,16 @@ const CatalogPage = observer(() => {
       setIsLoading(false);
       console.error(error);
     }
-    
   };
 
   const updateFilters = (newFilter) => {
     // setFilters((prevState) => ({ ...prevState, ...newFilter }));
-    filter.setFilters(newFilter)
+    filter.setFilters(newFilter);
   };
+  const onSort = (item) => {
+    setSortBy({ iter: item, order: 'asc' });
+  };
+  const sortedData = _.orderBy(data, [sortBy.iter], [sortBy.order]);
 
   return (
     <ContentLayout rootClassName={styles.catalog}>
@@ -107,9 +113,27 @@ const CatalogPage = observer(() => {
                     </Dropdown.Toggle>
                   </div>
                   <Dropdown.Menu>
-                    <Dropdown.ItemText>По рейтингу</Dropdown.ItemText>
-                    <Dropdown.ItemText>По цене</Dropdown.ItemText>
-                    <Dropdown.ItemText>По площади</Dropdown.ItemText>
+                    <span
+                      style={{cursor:'pointer'}}
+                      className="dropdown-item pointer"
+                      onClick={() => onSort('rate')}
+                    >
+                      По рейтингу
+                    </span>
+                    <span
+                      style={{cursor:'pointer'}}
+                      className="dropdown-item"
+                      onClick={() => onSort('price')}
+                    >
+                      По цене
+                    </span>
+                    <span
+                      style={{cursor:'pointer'}}
+                      className="dropdown-item"
+                      onClick={() => onSort('size')}
+                    >
+                      По площади
+                    </span>
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
@@ -121,12 +145,12 @@ const CatalogPage = observer(() => {
                   {!data.length ? (
                     <h1>Проекты в разработке...</h1>
                   ) : (
-                    <CardsSection cards={data} />
+                    <CardsSection cards={sortedData} />
                   )}
                 </Tab.Pane>
                 <Tab.Pane eventKey="garage" title="Гаражи">
                   <div className={styles.catalog__left_part}>
-                    <CardsSection cards={data} />
+                    <CardsSection cards={sortedData} />
                   </div>
                 </Tab.Pane>
                 <Tab.Pane
@@ -137,7 +161,7 @@ const CatalogPage = observer(() => {
                     {!data.length ? (
                       <h1>Проекты в разработке...</h1>
                     ) : (
-                      <CardsSection cards={data} />
+                      <CardsSection cards={sortedData} />
                     )}
                   </div>
                 </Tab.Pane>

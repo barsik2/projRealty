@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { FLOORS, SELECTS, SIZE } from './constants/filter.constants';
 
 import styles from './FilterSection.module.scss';
-import { useContext, useState } from 'react';
+import { useContext} from 'react';
 import { Context } from 'src';
 import { observer } from 'mobx-react-lite';
 
@@ -15,7 +15,6 @@ const FiltersSection = observer(({
   handleSearch,
 }) => {
   const {filter} = useContext(Context)
-  const [selectedSize, setSelectedSize] = useState({})
   const handleSelect = (event) => {
     const { value, name } = event.target;
     filter.setFilters({...filter.filters, [name]:value})
@@ -23,7 +22,7 @@ const FiltersSection = observer(({
   };
 
   const handleSizeBtn = (event, size) => {
-    setSelectedSize(size)
+    filter.setSelectedSize(size)
     let value = event.target.textContent.replaceAll(' ', '');
 
     let size_min = '';
@@ -82,7 +81,7 @@ const FiltersSection = observer(({
               {SIZE.map((size) => (
                 <button
                   id={size.id}
-                  className={clsx(selectedSize.id === size.id && styles.active)}
+                  className={clsx(filter.selectedSize.id === size.id && styles.active)}
                   onClick={(event) => handleSizeBtn(event, size)}
                   name={size.name}
                   key={size.value}
