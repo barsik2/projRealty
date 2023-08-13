@@ -9,7 +9,7 @@
   height: 593px;
 
   @include w-600 {
-    height: 337px;
+    height: 260px;
   }
 
   &::before {
@@ -23,7 +23,10 @@
     z-index: 1;
 
     @include w-600 {
-      border-bottom: 155px solid #112205;
+      border-bottom: 80px solid #112205;
+    }
+    @include w-480 {
+      border-bottom: 50px solid #112205;
     }
   }
 

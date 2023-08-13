@@ -78,6 +78,10 @@
 
   &__project_name {
     font-size: 36px;
+    @include w-800 {
+      font-size: 24;
+      text-align: center;
+    }
   }
 
   &__send_btn {

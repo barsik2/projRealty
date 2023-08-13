@@ -2,7 +2,7 @@ import {makeAutoObservable} from 'mobx'
 export default class ProjectStore {
     constructor() {
         this._filters = {
-            order: 'desc',
+            order: '',
             orderBy: '',
             garage: '',
             floors: '',
@@ -16,12 +16,23 @@ export default class ProjectStore {
             name: '',
             additional:'',
           };
+
+          this._selectedSize = {}
         makeAutoObservable(this)
     }
     setFilters (filters) {
         this._filters = filters
     }
+    setSelectedSize(selectedSize) {
+        this._selectedSize = selectedSize
+    }
+
     get filters() {
         return this._filters
     }
+
+    get selectedSize() {
+        return this._selectedSize
+    }
+
 }

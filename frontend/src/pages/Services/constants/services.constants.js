@@ -5,27 +5,27 @@ export const LIST_OF_SERVICES = [
     price: 'От 14 000 руб.',
   },
   {
-    title: 'ФАСАД',
+    title: 'Фасад',
     description: 'Конструкция фасада',
     price: 'От 17 000 руб.',
   },
   {
-    title: 'КРЫША',
+    title: 'Крыша',
     description: 'Кровля\nКонструкция кровли',
     price: 'От 10 000 руб.',
   },
   {
-    title: 'ОТДЕЛКА',
+    title: 'Отделка',
     description: '',
     price: 'От 14 000 руб.',
   },
   {
-    title: 'ИНЖЕНЕРНЫЕ РАБОТЫ',
+    title: 'Инженерные работы',
     description: '',
     price: 'От 17 000 руб.',
   },
   {
-    title: 'СТЕНЫ',
+    title: 'Стены',
     description: '',
     price: 'От 10 000 руб.',
   },
