@@ -22,7 +22,8 @@ function ScrollToTop() {
           // Прокручиваем страницу до нужного блока
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }  } else {
+      }  
+    } else {
         // Если нет якоря, прокручиваем страницу вверх
         window.scrollTo({ top: 0, behavior: "smooth" });
 }

@@ -88,8 +88,8 @@ const Footer = () => {
           <a className="footer__links_item_link" href="tel:+7-921-966-25-05">
             +7-921-966-25-05
           </a>
-          <a className="footer__links_item_link" href="mailto:stroy.dom.saintp@gmail.com">
-            stroy.dom.saintp@gmail.com 
+          <a className="footer__links_item_link" href="mailto: stroi_dom.rus@bk.ru">
+            stroi_dom.rus@bk.ru 
           </a>
         </div>
         <div className="footer__links_item">
