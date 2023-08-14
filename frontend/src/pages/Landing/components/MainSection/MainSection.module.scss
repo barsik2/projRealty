@@ -68,8 +68,9 @@
   padding: 24px 32px;
   border-radius: 24px;
   line-height: 100%;
-  font-weight: 300;
+  font-weight: 500;
   border: 3px solid #ffffff;
+  background-color:rgba(31, 32, 28, 0.8) ;
 
   @include w-1024 {
     padding: 19px 26px;
@@ -80,7 +81,8 @@
   }
 
   @include w-600 {
-    padding: 8px 16px;
+    margin-top: 50px;
+    padding: 20px;
     font-size: 16px;
     border-radius: 24px;
     border: 1px solid #ffffff;

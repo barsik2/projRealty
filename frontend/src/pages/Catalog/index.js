@@ -12,6 +12,8 @@ import { Context } from 'src';
 import { DEFAULT_FILTERS } from './components/FilterSection/constants/filter.constants';
 import { observer } from 'mobx-react-lite';
 import _ from 'lodash';
+import clsx from 'clsx';
+import './CatalogPage.module.scss';
 
 const CatalogPage = observer(() => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,6 +21,7 @@ const CatalogPage = observer(() => {
   const { filter } = useContext(Context);
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' });
   const [orderBy, setOrderBy] = useState({order:'По умолчанию'})
+  const [showMenu, setShowMenu] = useState(false)
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
@@ -65,6 +68,7 @@ const CatalogPage = observer(() => {
   };
   const onSort = (item) => {
     setSortBy((prevState) => ({...prevState, iter: item}));
+    setShowMenu(false)
     if(item==='rate') {
       setOrderBy({order:'По рейтингу'})
     }
@@ -123,40 +127,40 @@ const CatalogPage = observer(() => {
                           : styles.catalog__dropdown_order_desc
                       }
                     ></button>
-                    <Dropdown.Toggle className={styles.catalog__dropdown_btn}>
+                    <div className={`${styles.catalog__dropdown_toggler}`} onClick={()=> setShowMenu((prevState) => prevState === true?false:true)}>
                       <span>{orderBy.order}</span>
-                    </Dropdown.Toggle>
+                    </div>
                   </div>
-                  <Dropdown.Menu>
+                  <div className={`${styles.catalog__dropdown_menu} ${showMenu?styles.show:''}`}>
                     <span
                       style={{ cursor: 'pointer' }}
-                      className="dropdown-item pointer"
+                      className={clsx(orderBy.order === 'По рейтингу'?`${styles.catalog__dropdown_item} ${styles.selected}`:styles.catalog__dropdown_item)}
                       onClick={() => onSort('rate')}
                     >
                       По рейтингу
                     </span>
                     <span
                       style={{ cursor: 'pointer' }}
-                      className="dropdown-item"
+                      className={clsx(orderBy.order === 'По цене'?`${styles.catalog__dropdown_item} ${styles.selected}`:styles.catalog__dropdown_item)}
                       onClick={() => onSort('price')}
                     >
                       По цене
                     </span>
                     <span
                       style={{ cursor: 'pointer' }}
-                      className="dropdown-item"
+                      className={clsx(orderBy.order === 'По площади'?`${styles.catalog__dropdown_item} ${styles.selected}`:styles.catalog__dropdown_item)}
                       onClick={() => onSort('size')}
                     >
                       По площади
                     </span>
                     <span
                       style={{ cursor: 'pointer' }}
-                      className="dropdown-item"
+                      className={clsx(orderBy.order === 'По умолчанию'?`${styles.catalog__dropdown_item} ${styles.selected}`:styles.catalog__dropdown_item)}
                       onClick={() => onSort('id')}
                     >
                       По умолчанию
                     </span>
-                  </Dropdown.Menu>
+                  </div>
                 </Dropdown>
               </div>
             )}

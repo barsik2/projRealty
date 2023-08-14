@@ -63,7 +63,8 @@
         color: #ffffff;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: #ffffff;
         opacity: 1;
       }
@@ -72,6 +73,48 @@
 
   &__dropdown {
     margin-bottom: 25px;
+    &_toggler {
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &_item {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      background-color: transparent;
+      padding: 10px;
+      &:last-child{
+        border-radius: 0 0 20px 20px;
+      }
+      &:hover {
+        background-color: #112205;
+      }
+      &.active {
+        background-color: #112205;
+      }
+    }
+
+    &_menu {
+      border-radius: 0 0 20px 20px;
+      padding: 5px;
+      position: absolute;
+      width: 160px;
+      height: auto;
+      background-color: rgb(60, 96, 84);
+      z-index: 2;
+      top: 40px;
+      left: 40px;
+      display: none;
+      span {
+        padding: 8px 10px;
+        :hover {
+          background-color: #112205;
+          opacity: .8;
+        }
+      }
+    }
 
     &_btn {
       padding: 0;
@@ -83,10 +126,11 @@
       }
 
       &::after {
-        content: unset,
+        content: unset;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: transparent;
       }
     }
@@ -135,4 +179,13 @@
 
 .custom {
   cursor: pointer !important;
+}
+.selected {
+  background-color: #112205;
+  color: #ffffff;
+}
+
+.show {
+  display: block;
+  cursor: pointer;
 }

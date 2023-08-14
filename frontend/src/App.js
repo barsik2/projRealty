@@ -25,7 +25,7 @@ function ScrollToTop() {
       }  
     } else {
         // Если нет якоря, прокручиваем страницу вверх
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo(0,0);
 }
 
     prevPathRef.current = pathname;

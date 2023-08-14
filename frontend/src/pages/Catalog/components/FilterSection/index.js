@@ -23,6 +23,10 @@ const FiltersSection = observer(({
 
   const handleSizeBtn = (event, size) => {
     filter.setSelectedSize(size)
+    console.log(size,'size', size.value,'size value', filter.filters.size_max, 'filters')
+    if(size.value === filter.filters.size_max){
+      filter.setSelectedSize({})
+    }
     let value = event.target.textContent.replaceAll(' ', '');
 
     let size_min = '';
@@ -49,7 +53,6 @@ const FiltersSection = observer(({
   const handleInput = (event) => {
     const value = event.target.value.trim();
     filter.setFilters({...filter.filters, [event.target.name]: value})
-    console.log(value)
     // updateFilters({ ...filters, [event.target.name]: value });
   };
 
