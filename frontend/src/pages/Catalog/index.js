@@ -75,10 +75,11 @@ const CatalogPage = observer(() => {
   return (
     <ContentLayout rootClassName={styles.catalog}>
       <h1 className={styles.catalog__title}>Каталог проектов</h1>
+      
       <div className={styles.catalog__main_content}>
         <div className={styles.catalog__left_part}>
           <Tab.Container defaultActiveKey="house">
-            <Nav className={styles.catalog__tab}>
+          <Nav className={styles.catalog__tab}>
               <Nav.Item>
                 <Nav.Link className={styles.catalog__tab_link} eventKey="house">
                   Дома
@@ -101,6 +102,7 @@ const CatalogPage = observer(() => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
+            
             {!data.length ? null : (
               <div className={styles.catalog__dropdown}>
                 <Dropdown as={ButtonGroup}>

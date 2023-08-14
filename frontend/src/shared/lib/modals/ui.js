@@ -278,7 +278,7 @@ const ServiceModal = () => {
         </svg>
       </button>
       <div className={styles.modal__content}>
-        <h1 className={styles.modal__title}>ОСТАВИТЬ Отзыв</h1>
+        <h1 className={styles.modal__title}>ОСТАВИТЬ Заявку</h1>
         <form className={styles.modal__form} onSubmit={handleSendService}>
           <label>
             ФИО:

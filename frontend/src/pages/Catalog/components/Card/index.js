@@ -20,7 +20,7 @@ const Card = ({ id, img_title, short_description, size, name }) => {
           <span className={styles.card__text_title_first}>{name.replace('T', 'SD')}</span>
           <span className={styles.card__text_title_second}>{size} м2</span>
         </h3>
-        <p className={styles.card__text_description}>{short_description}</p>
+        {/* <p className={styles.card__text_description}>{short_description}</p> */}
       </div>
     </NavLink>
   );

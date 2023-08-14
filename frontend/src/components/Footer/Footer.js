@@ -34,9 +34,9 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Наши проекты</p>
 
-          <NavLink className="footer__links_item_link" to={HOME + '#our_work'}>
+          <a className="footer__links_item_link" href={HOME + '#our_work'}>
             Готовые работы
-          </NavLink>
+          </a>
           <NavLink className="footer__links_item_link" to={HOME}>
             Отзывы
           </NavLink>

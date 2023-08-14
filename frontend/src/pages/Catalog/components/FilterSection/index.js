@@ -49,6 +49,7 @@ const FiltersSection = observer(({
   const handleInput = (event) => {
     const value = event.target.value.trim();
     filter.setFilters({...filter.filters, [event.target.name]: value})
+    console.log(value)
     // updateFilters({ ...filters, [event.target.name]: value });
   };
 

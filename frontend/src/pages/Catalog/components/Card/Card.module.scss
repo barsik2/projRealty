@@ -37,18 +37,18 @@
     z-index: 1;
 
     @include w-600 {
-      padding: 5px 6px 11px;
+      padding: 5px;
     }
 
     &_title {
       margin-bottom: 5px;
-      font-size: 15px;
+      font-size: 24px;
       font-weight: 700;
       line-height: 100%;
 
       @include w-600 {
         margin-bottom: 3px;
-        font-size: 7px;
+        font-size: 14px;
       }
 
       &_first {

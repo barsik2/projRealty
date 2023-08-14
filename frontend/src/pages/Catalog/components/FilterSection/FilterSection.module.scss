@@ -1,6 +1,7 @@
 @import '../../../../shared/styles/variables.scss';
 
 .filter {
+  margin-top: 100px;
   position: sticky;
   top: 0;
   width: 100%;
@@ -8,6 +9,13 @@
   padding: 40px 30px;
   border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.31);
+ 
+  @include w-800 {
+    margin-top: 168px;
+  }
+  @include w-480 {
+    margin-top: 150px;
+  }
 
   @include w-1440 {
     height: fit-content;
@@ -84,7 +92,6 @@
     font-size: 20px;
     font-weight: 300;
     line-height: 100%;
-    text-align: center;
 
     @include w-600 {
       margin-bottom: 10px;
