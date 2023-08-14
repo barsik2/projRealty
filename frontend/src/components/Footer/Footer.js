@@ -5,11 +5,11 @@ import { useModal } from 'src/shared/lib/hooks';
 import ContentLayout from '../layouts/ContentLayout';
 
 import './Footer.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const {pathname} = useLocation()
   const { open } = useModal()
-
   const handleReview = () => {
     open('review')
   }
@@ -20,7 +20,7 @@ const Footer = () => {
       rootClassName="footer"
       as="footer"
     >
-      <div className="footer__links">
+      {pathname==='/'? (<div className="footer__links">
         <div className="footer__links_item">
           <p className="footer__links_item_title">Каталог</p>
 
@@ -37,7 +37,48 @@ const Footer = () => {
           <a className="footer__links_item_link" href={HOME + '#our_work'}>
             Готовые работы
           </a>
-          <NavLink className="footer__links_item_link" to={HOME}>
+          <a className="footer__links_item_link" href={HOME + '#reviews'}>
+            Отзывы
+          </a>
+        </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Контакты</p>
+
+          <a className="footer__links_item_link" href="tel:+7-921-966-25-05">
+            +7-921-966-25-05
+          </a>
+          <a className="footer__links_item_link" href="mailto:stroy.dom.saintp@gmail.com">
+            stroy.dom.saintp@gmail.com 
+          </a>
+        </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Другое</p>
+
+          <NavLink className="footer__links_item_link" to={ABOUT}>
+            О компании
+          </NavLink>
+          <button className="footer__links_item_link" onClick={handleReview}>
+            Оставить отзыв
+          </button>
+        </div>
+      </div>): (<div className="footer__links">
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Каталог</p>
+
+          <NavLink className="footer__links_item_link" to={CATEGORY}>
+            Проекты домов
+          </NavLink>
+          <NavLink className="footer__links_item_link" to={SERVICES}>
+            Услуги
+          </NavLink>
+        </div>
+        <div className="footer__links_item">
+          <p className="footer__links_item_title">Наши проекты</p>
+
+          <NavLink className="footer__links_item_link" to={HOME + '#our_work'}>
+            Готовые работы
+          </NavLink>
+          <NavLink className="footer__links_item_link" to={HOME + '#reviews'}>
             Отзывы
           </NavLink>
         </div>
@@ -61,7 +102,7 @@ const Footer = () => {
             Оставить отзыв
           </button>
         </div>
-      </div>
+      </div>)}
       <div className="footer__under_link">
         <address className="footer__address">
           Санкт-Петербург, линия 26-я В.О., д.15, к. 2,

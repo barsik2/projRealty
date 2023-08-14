@@ -63,7 +63,7 @@ const OurWorkSection = () => {
       
       >
         {slides.map(slide =>
-          <Carousel.Item>
+          <Carousel.Item key={slide.path}>
             <img src={slide.path} alt={slide.alternative} className='d-block w-200'/>
             <Carousel.Caption>
               <ContentLayout
