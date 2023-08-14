@@ -97,15 +97,32 @@
       gap: 13px;
     }
 
-    &_order {
+    &_order_asc {
       width: 34px;
-      height: 26px;
+      height: 34px;
       padding: 0;
       border: none;
       background-color: transparent;
       color: transparent;
       font-size: 0;
-      background-image: url('/assets/images/orderBy.svg');
+      background-image: url('/assets/images/asc.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include w-600 {
+        width: 16px;
+        height: 12px;
+      }
+    }
+    &_order_desc {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      color: transparent;
+      font-size: 0;
+      background-image: url('/assets/images/desc.png');
       background-size: cover;
 
       @include w-600 {

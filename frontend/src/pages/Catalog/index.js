@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useContext } from 'react';
-import { ButtonGroup, Dropdown, Nav, Tab} from 'react-bootstrap';
+import { ButtonGroup, Dropdown, Nav, Tab } from 'react-bootstrap';
 
 import api from 'src/shared/api';
 
@@ -75,11 +75,11 @@ const CatalogPage = observer(() => {
   return (
     <ContentLayout rootClassName={styles.catalog}>
       <h1 className={styles.catalog__title}>Каталог проектов</h1>
-      
+
       <div className={styles.catalog__main_content}>
         <div className={styles.catalog__left_part}>
           <Tab.Container defaultActiveKey="house">
-          <Nav className={styles.catalog__tab}>
+            <Nav className={styles.catalog__tab}>
               <Nav.Item>
                 <Nav.Link className={styles.catalog__tab_link} eventKey="house">
                   Дома
@@ -102,35 +102,40 @@ const CatalogPage = observer(() => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-            
+
             {!data.length ? null : (
               <div className={styles.catalog__dropdown}>
                 <Dropdown as={ButtonGroup}>
                   <div className={styles.catalog__dropdown_wrapper}>
-                    <button className={styles.catalog__dropdown_order}>
-                      order by
-                    </button>
+                    <button
+                      onClick={()=>setSortBy((prevState)=>({...prevState, order:prevState.order ==='asc'?'desc':'asc' } ))}
+                      className={
+                        sortBy.order === 'asc'
+                          ? styles.catalog__dropdown_order_asc
+                          : styles.catalog__dropdown_order_desc
+                      }
+                    ></button>
                     <Dropdown.Toggle className={styles.catalog__dropdown_btn}>
                       <span>{ORDER_KEYS[filter.filters.orderBy]}</span>
                     </Dropdown.Toggle>
                   </div>
                   <Dropdown.Menu>
                     <span
-                      style={{cursor:'pointer'}}
+                      style={{ cursor: 'pointer' }}
                       className="dropdown-item pointer"
                       onClick={() => onSort('rate')}
                     >
                       По рейтингу
                     </span>
                     <span
-                      style={{cursor:'pointer'}}
+                      style={{ cursor: 'pointer' }}
                       className="dropdown-item"
                       onClick={() => onSort('price')}
                     >
                       По цене
                     </span>
                     <span
-                      style={{cursor:'pointer'}}
+                      style={{ cursor: 'pointer' }}
                       className="dropdown-item"
                       onClick={() => onSort('size')}
                     >
