@@ -13,16 +13,12 @@ import { DEFAULT_FILTERS } from './components/FilterSection/constants/filter.con
 import { observer } from 'mobx-react-lite';
 import _ from 'lodash';
 
-const ORDER_KEYS = {
-  '': 'По умолчанию',
-  price: 'По цене',
-};
-
 const CatalogPage = observer(() => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const { filter } = useContext(Context);
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' });
+  const [orderBy, setOrderBy] = useState({order:'По умолчанию'})
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
@@ -68,7 +64,19 @@ const CatalogPage = observer(() => {
     filter.setFilters(newFilter);
   };
   const onSort = (item) => {
-    setSortBy({ iter: item, order: 'asc' });
+    setSortBy((prevState) => ({...prevState, iter: item}));
+    if(item==='rate') {
+      setOrderBy({order:'По рейтингу'})
+    }
+    if(item==='price') {
+      setOrderBy({order:'По цене'})
+    }
+    if(item==='size') {
+      setOrderBy({order:'По площади'})
+    }
+    if(item==='id') {
+      setOrderBy({order:'По умолчанию'})
+    }
   };
   const sortedData = _.orderBy(data, [sortBy.iter], [sortBy.order]);
 
@@ -116,7 +124,7 @@ const CatalogPage = observer(() => {
                       }
                     ></button>
                     <Dropdown.Toggle className={styles.catalog__dropdown_btn}>
-                      <span>{ORDER_KEYS[filter.filters.orderBy]}</span>
+                      <span>{orderBy.order}</span>
                     </Dropdown.Toggle>
                   </div>
                   <Dropdown.Menu>
@@ -140,6 +148,13 @@ const CatalogPage = observer(() => {
                       onClick={() => onSort('size')}
                     >
                       По площади
+                    </span>
+                    <span
+                      style={{ cursor: 'pointer' }}
+                      className="dropdown-item"
+                      onClick={() => onSort('id')}
+                    >
+                      По умолчанию
                     </span>
                   </Dropdown.Menu>
                 </Dropdown>
