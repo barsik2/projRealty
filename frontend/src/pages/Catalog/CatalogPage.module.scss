@@ -110,8 +110,8 @@
       background-repeat: no-repeat;
 
       @include w-600 {
-        width: 16px;
-        height: 12px;
+        width: 20px;
+        height: 20px;
       }
     }
     &_order_desc {
@@ -126,8 +126,8 @@
       background-size: cover;
 
       @include w-600 {
-        width: 16px;
-        height: 12px;
+        width: 20px;
+        height: 20px;
       }
     }
   }
