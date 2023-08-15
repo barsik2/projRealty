@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import { HOME, CARD, CATEGORY, ABOUT, SERVICES } from 'src/shared/config/routes';
+import ScrollToTop from './ScrollToTop/ScrollToTop';
 
 const Landing = lazy(() => import('src/pages/Landing'));
 const NotFound = lazy(() => import('src/pages/NotFound'));

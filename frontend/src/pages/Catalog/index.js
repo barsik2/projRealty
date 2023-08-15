@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useContext } from 'react';
+import { useState, useEffect, useCallback, useContext, useRef} from 'react';
 import { ButtonGroup, Dropdown, Nav, Tab } from 'react-bootstrap';
 
 import api from 'src/shared/api';
@@ -22,6 +22,7 @@ const CatalogPage = observer(() => {
   const [sortBy, setSortBy] = useState({ iter: 'name', order: 'asc' });
   const [orderBy, setOrderBy] = useState({order:'По умолчанию'})
   const [showMenu, setShowMenu] = useState(false)
+  const menuRef = useRef(false)
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
@@ -39,6 +40,25 @@ const CatalogPage = observer(() => {
       console.error(error);
     }
   }, [filter.filters, isLoading]);
+
+  useEffect(() => {
+    // Добавление обработчика события клика вне меню
+    const handleOutsideClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    // Добавление обработчика события клика только при отображении меню
+    if (showMenu) {
+      document.addEventListener("click", handleOutsideClick);
+    }
+
+    // Удаление обработчика события клика при скрытии меню
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [showMenu]);
 
   useEffect(() => {
     fetchData();
@@ -127,7 +147,7 @@ const CatalogPage = observer(() => {
                           : styles.catalog__dropdown_order_desc
                       }
                     ></button>
-                    <div className={`${styles.catalog__dropdown_toggler}`} onClick={()=> setShowMenu((prevState) => prevState === true?false:true)}>
+                    <div className={`${styles.catalog__dropdown_toggler}`} ref={menuRef} onClick={()=> setShowMenu((prevState) => prevState === true?false:true)}>
                       <span>{orderBy.order}</span>
                     </div>
                   </div>

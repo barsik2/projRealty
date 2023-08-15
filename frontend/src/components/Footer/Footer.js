@@ -20,16 +20,16 @@ const Footer = () => {
       rootClassName="footer"
       as="footer"
     >
-      {pathname==='/'? (<div className="footer__links">
+      <div className="footer__links">
         <div className="footer__links_item">
           <p className="footer__links_item_title">Каталог</p>
 
-          <NavLink className="footer__links_item_link" to={CATEGORY}>
+          <a className="footer__links_item_link" href={CATEGORY}>
             Проекты домов
-          </NavLink>
-          <NavLink className="footer__links_item_link" to={SERVICES}>
+          </a>
+          <a className="footer__links_item_link" href={SERVICES}>
             Услуги
-          </NavLink>
+          </a>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Наши проекты</p>
@@ -54,55 +54,14 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Другое</p>
 
-          <NavLink className="footer__links_item_link" to={ABOUT}>
+          <a className="footer__links_item_link" href={ABOUT}>
             О компании
-          </NavLink>
+          </a>
           <button className="footer__links_item_link" onClick={handleReview}>
             Оставить отзыв
           </button>
         </div>
-      </div>): (<div className="footer__links">
-        <div className="footer__links_item">
-          <p className="footer__links_item_title">Каталог</p>
-
-          <NavLink className="footer__links_item_link" to={CATEGORY}>
-            Проекты домов
-          </NavLink>
-          <NavLink className="footer__links_item_link" to={SERVICES}>
-            Услуги
-          </NavLink>
-        </div>
-        <div className="footer__links_item">
-          <p className="footer__links_item_title">Наши проекты</p>
-
-          <NavLink className="footer__links_item_link" to={HOME + '#our_work'}>
-            Готовые работы
-          </NavLink>
-          <NavLink className="footer__links_item_link" to={HOME + '#reviews'}>
-            Отзывы
-          </NavLink>
-        </div>
-        <div className="footer__links_item">
-          <p className="footer__links_item_title">Контакты</p>
-
-          <a className="footer__links_item_link" href="tel:+7-921-966-25-05">
-            +7-921-966-25-05
-          </a>
-          <a className="footer__links_item_link" href="mailto: stroi_dom.rus@bk.ru">
-            stroi_dom.rus@bk.ru 
-          </a>
-        </div>
-        <div className="footer__links_item">
-          <p className="footer__links_item_title">Другое</p>
-
-          <NavLink className="footer__links_item_link" to={ABOUT}>
-            О компании
-          </NavLink>
-          <button className="footer__links_item_link" onClick={handleReview}>
-            Оставить отзыв
-          </button>
-        </div>
-      </div>)}
+      </div>
       <div className="footer__under_link">
         <address className="footer__address">
           Санкт-Петербург, линия 26-я В.О., д.15, к. 2,
