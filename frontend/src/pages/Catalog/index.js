@@ -145,8 +145,6 @@ const CatalogPage = observer(() => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-
-            {!data.length ? null : (
               <div className={styles.catalog__dropdown}>
                 <Dropdown as={ButtonGroup}>
                   <div className={styles.catalog__dropdown_wrapper}>
@@ -241,16 +239,11 @@ const CatalogPage = observer(() => {
                     </svg>
                   </button>
               </div>
-            )}
 
             <div>
               <Tab.Content>
                 <Tab.Pane eventKey="house" title="Дома">
-                  {!data.length ? (
-                    <h1>Проекты в разработке...</h1>
-                  ) : (
                     <CardsSection cards={sortedData} />
-                  )}
                 </Tab.Pane>
                 <Tab.Pane eventKey="garage" title="Гаражи">
                   <div className={styles.catalog__left_part}>
@@ -262,11 +255,7 @@ const CatalogPage = observer(() => {
                   title="Индивидуальные постройки"
                 >
                   <div className={styles.catalog__left_part}>
-                    {!data.length ? (
-                      <h1>Проекты в разработке...</h1>
-                    ) : (
                       <CardsSection cards={sortedData} />
-                    )}
                   </div>
                 </Tab.Pane>
               </Tab.Content>

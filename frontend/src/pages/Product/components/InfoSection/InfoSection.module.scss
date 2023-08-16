@@ -17,6 +17,9 @@
     font-size: 32px;
     line-height: 100%;
     font-weight: 700;
+    @include w-600 {
+      font-size: 24px;
+    }
   }
 
   &__sup_title {
