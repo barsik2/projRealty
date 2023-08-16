@@ -11,6 +11,9 @@ import { observer } from 'mobx-react-lite';
 const FiltersSection = observer(({
   // filters,
   // updateFilters,
+  closeFilter,
+  filterRef,
+  showFilter,
   handleReset,
   handleSearch,
 }) => {
@@ -70,8 +73,9 @@ const FiltersSection = observer(({
   };
 
   return (
-    <div className={styles.filter}>
-      <form className={styles.filter__form} onClick={(e) => e.preventDefault()}>
+    <div className={showFilter?`${styles.filter} ${styles.show_filter}`: `${styles.filter}`}>
+      <button className={styles.close__button} onClick={closeFilter}>X</button>
+      <form className={styles.filter__form} onClick={(e) => e.preventDefault()} ref={filterRef}>
         <input
           className={styles.filter__input_name}
           type="text"

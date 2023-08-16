@@ -9,9 +9,21 @@
   padding: 40px 30px;
   border-radius: 25px;
   background-color: rgba(0, 0, 0, 0.31);
- 
+
   @include w-800 {
     margin-top: 168px;
+  }
+  @include w-600 {
+    top: -100px;
+    width: 70%;
+    right:-100%;
+    padding: 26px 10px;
+    position: fixed;
+    background-color: #0a1307;
+    z-index: 2;
+    height: 100%;
+    overflow-y: scroll;
+    transition: right .5s linear;
   }
   @include w-480 {
     margin-top: 150px;
@@ -22,13 +34,14 @@
   }
 
   @include w-800 {
-    padding: 26px 10px;
+    padding: 36px 10px;
   }
 
   &__form {
     width: 100%;
 
-    input, select {
+    input,
+    select {
       width: 100%;
       padding: 12px 24px;
       background-color: transparent;
@@ -47,7 +60,7 @@
 
       @include w-600 {
         padding: 6px 12px;
-        font-size: 9px;
+        font-size: 10px;
       }
     }
 
@@ -65,19 +78,23 @@
       transition: background-color 0.3s;
 
       &.active {
-        background-color: #3D7716;
+        background-color: #3d7716;
       }
 
       @include w-600 {
         border-radius: 12px;
         padding: 6px 10px;
-        font-size: 8px;
+        font-size: 10px;
+        background-color: #0a1307;
       }
     }
   }
 
   &__input_name {
     margin-bottom: 30px;
+    @include w-600 {
+      margin-bottom: 15px;
+    }
   }
 
   &__btn_container {
@@ -95,7 +112,7 @@
 
     @include w-600 {
       margin-bottom: 10px;
-      font-size: 10px;
+      font-size: 15px;
     }
   }
 
@@ -104,7 +121,11 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @include w-600 {
+      gap: 20px;
+    }
   }
+
 
   &__input_size_container {
     margin-top: 20px;
@@ -117,7 +138,7 @@
       width: 110px;
 
       @include w-600 {
-        width: 57px;
+        width: 60px;
       }
     }
   }
@@ -138,5 +159,29 @@
       border: none;
       opacity: 0.5;
     }
+  }
+}
+
+.show_filter {
+  right: 1%;
+  transition: right .5s linear;
+}
+
+.close__button {
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 3px;
+  left: 5px;
+  background-color: #4d643e;
+  border-radius: 50%;
+  // display: block;
+  @include w-600 {
+    display: flex;
   }
 }

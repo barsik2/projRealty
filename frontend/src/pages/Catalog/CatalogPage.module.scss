@@ -23,6 +23,19 @@
       font-size: 20px;
     }
   }
+  &__filter_btn {
+    display: none;
+    @include w-600 {
+      display: block;
+      float: right;
+      margin-right: 20px;
+  }
+  }
+ 
+  
+  &__search_field {
+    margin-left: 20px;
+  }
 
   &__main_content {
     display: flex;
@@ -117,6 +130,8 @@
           opacity: .8;
         }
       }
+    
+
     }
 
     &_btn {
