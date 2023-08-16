@@ -1,4 +1,5 @@
 const {House} = require('../models/models');
+const {Image} = require('../models/models');
 const ApiError = require('../error/ApiError');
 const uuid = require('uuid');
 const path = require('path');
@@ -8,8 +9,8 @@ class HouseController{
     async create(req, res, next) {
         try{
             const {name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, additional} = req.body;
-            const {img_title, img_plan1, img_plan2, img_1, img_2, img_3} = req.files;
-
+            const [img_title, img_plan1, img_plan2, img_1, img_2, img_3] = req.files;
+            
             if (img_title){
                 var fileNameTitle = `${name}_title_` + uuid.v4() + ".jpg";
                 img_title.mv(path.resolve(__dirname, '..', 'static', fileNameTitle));
@@ -34,7 +35,7 @@ class HouseController{
                 var fileNamePlan2 = `{name}_plan2` + uuid.v4() + ".jpg";
                 img_plan2.mv(path.resolve(__dirname, '..', 'static', fileNamePlan2));
             }
-
+            
         const house = await House.create({name, short_description, full_description, size, floors, rooms, garage, length, width, material, price, style, tent, type, additional, img_title: fileNameTitle, img_plan1: fileNamePlan1, img_plan2: fileNamePlan2, img_1: fileNameImg1, img_2: fileNameImg2, img_3: fileNameImg3});
             return res.json(house);
         } catch(e){
