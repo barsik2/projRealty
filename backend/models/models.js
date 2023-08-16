@@ -31,8 +31,14 @@ const House = sequelize.define('house', {
     style: {type: DataTypes.STRING},
     type: {type: DataTypes.STRING},
     additional: {type: DataTypes.STRING, defaultValue: null},
-})/*
-const Image = sequelize.define('img', {
+    img_title: {type: DataTypes.STRING, defaultValue: null},
+    img_plan1: {type: DataTypes.STRING, defaultValue: null},
+    img_plan2: {type: DataTypes.STRING, defaultValue: null},
+    img_1: {type: DataTypes.STRING, defaultValue: null},
+    img_2: {type: DataTypes.STRING, defaultValue: null},
+    img_3: {type: DataTypes.STRING, defaultValue: null},
+})
+/*const Image = sequelize.define('img', {
     id: {type: DataTypes.BIGINT, primaryKey: true, autoIncrement: true},
     house_id: {type: DataTypes.INTEGER},
     img: {type: DataTypes.STRING, defaultValue: null},
