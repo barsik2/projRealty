@@ -72,6 +72,7 @@ class HouseController{
                 type:req.query.type,
                 material:req.query.material,
                 rooms:req.query.rooms,
+                name: req.query.name
             }
 
             const where = {};//Собираем объект фильтра
@@ -128,7 +129,7 @@ class HouseController{
             }
         
             if (filters.style){//Фильтр стилистики
-                where.style = filters.style;
+                where.style = {[Op.substring]: filters.style}
             }
 
             if (filters.type){//Фильтр назначения
@@ -141,6 +142,9 @@ class HouseController{
 
             if (filters.rooms){//Фильтр комнат
                 where.rooms = filters.rooms;
+            }
+            if (filters.name){//Фильтр комнат
+                where.name = {[Op.like]: filters.name}
             }
 
 
