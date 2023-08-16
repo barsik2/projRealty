@@ -1,14 +1,26 @@
+@import '../../../../shared/styles/variables.scss';
 .wrapper {
   position: relative;
   height: 653px;
   margin-top: 120px;
   overflow: hidden;
+  @include w-800 {
+    height: auto;
+  }
+  @include w-600 {
+    margin-top: 80px;
+  }
 }
 
 .bg_img {
   width: 100%;
   display: block;
   object-fit: cover;
+  @include w-600 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
 }
 
 .name {
@@ -18,11 +30,17 @@
   width: 100%;
   padding: 10px 0;
   background-color: rgba($color: #000000, $alpha: 0.5);
+  @include w-600 {
+    bottom: 0;
+  }
 
   &__title {
     font-size: 64px;
     font-weight: 700;
     line-height: 100%;
+    @include w-800 {
+      font-size: 24px;
+    }
 
     &_first {
       position: relative;

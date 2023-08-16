@@ -12,7 +12,6 @@ const MainSection = ({ img_title, name, size }) => {
       <img
         className={styles.bg_img}
         width="100%"
-        height="653"
         alt={name?.replace('T', 'SD')}
         src={`${API_BREAKPOINT}${img_title}`}
       />

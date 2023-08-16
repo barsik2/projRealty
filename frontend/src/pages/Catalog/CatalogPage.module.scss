@@ -23,6 +23,19 @@
       font-size: 20px;
     }
   }
+  &__filter_btn {
+    display: none;
+    @include w-600 {
+      display: block;
+      float: right;
+      margin-right: 20px;
+  }
+  }
+ 
+  
+  &__search_field {
+    margin-left: 20px;
+  }
 
   &__main_content {
     display: flex;
@@ -63,7 +76,8 @@
         color: #ffffff;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: #ffffff;
         opacity: 1;
       }
@@ -72,6 +86,53 @@
 
   &__dropdown {
     margin-bottom: 25px;
+    &_toggler {
+      display: block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    &_item {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      background-color: transparent;
+      padding: 10px;
+      &:last-child{
+        border-radius: 0 0 10px 10px;
+      }
+      &:first-child{
+        border-radius: 10px 10px 0 0;
+      }
+      &:hover {
+        background-color: #112205;
+      }
+      &.active {
+        background-color: #112205;
+      }
+    }
+
+    &_menu {
+      border-radius: 10px;
+      padding: 5px;
+      position: absolute;
+      width: 160px;
+      height: auto;
+      background-color: rgb(60, 96, 84);
+      z-index: 2;
+      top: 40px;
+      left: 40px;
+      display: none;
+      span {
+        padding: 8px 10px;
+        :hover {
+          background-color: #112205;
+          opacity: .8;
+        }
+      }
+    
+
+    }
 
     &_btn {
       padding: 0;
@@ -83,10 +144,11 @@
       }
 
       &::after {
-        content: unset,
+        content: unset;
       }
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: transparent;
       }
     }
@@ -97,20 +159,37 @@
       gap: 13px;
     }
 
-    &_order {
+    &_order_asc {
       width: 34px;
-      height: 26px;
+      height: 34px;
       padding: 0;
       border: none;
       background-color: transparent;
       color: transparent;
       font-size: 0;
-      background-image: url('/assets/images/orderBy.svg');
+      background-image: url('/assets/images/asc.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      @include w-600 {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &_order_desc {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      color: transparent;
+      font-size: 0;
+      background-image: url('/assets/images/desc.png');
       background-size: cover;
 
       @include w-600 {
-        width: 16px;
-        height: 12px;
+        width: 20px;
+        height: 20px;
       }
     }
   }
@@ -118,4 +197,13 @@
 
 .custom {
   cursor: pointer !important;
+}
+.selected {
+  background-color: #112205;
+  color: #ffffff;
+}
+
+.show {
+  display: block;
+  cursor: pointer;
 }

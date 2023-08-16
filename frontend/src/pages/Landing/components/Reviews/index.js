@@ -10,7 +10,7 @@ const Reviews = () => {
       rootClassName={styles.reviews}
       className={styles.reviews__content}
     >
-      <div className={styles.reviews__title_container}>
+      <div className={styles.reviews__title_container} id='reviews'>
         <h4 className={styles.reviews__title}>Что говорят клиенты</h4>
         <img src="/images/stars.webp" alt="stars" width="225" height="41" />
       </div>

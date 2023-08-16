@@ -138,7 +138,7 @@ const AboutUs = () => {
         className={styles.aboutUs__title_content}
         as="h2"
       >
-        Возраст и истроия компании
+        Возраст и история компании
       </ContentLayout>
 
       <ContentLayout

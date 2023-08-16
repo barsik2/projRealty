@@ -21,7 +21,7 @@ const RequestSection = () => {
     >
       <div className="request__left_part">
         <h2 className="request__title">
-          Выбери дом своей мечты{'\n'}и проснись в нем уже{'\n'}завтра
+          Выбери дом своей мечты
         </h2>
         <button className="request__link" onClick={handleOpenModal}>
           Оставить заявку

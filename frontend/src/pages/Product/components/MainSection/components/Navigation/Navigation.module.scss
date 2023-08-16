@@ -7,6 +7,9 @@
   width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 7px 0;
+  @include w-600 {
+    position: initial;
+  }
 
   &__content {
     display: flex;
@@ -17,6 +20,7 @@
     font-weight: 500;
     @include w-600 {
       gap: 10px;
+      
     }
     @include w-480 {
       flex-direction: column;

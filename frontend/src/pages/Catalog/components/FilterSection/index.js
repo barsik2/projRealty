@@ -11,6 +11,9 @@ import { observer } from 'mobx-react-lite';
 const FiltersSection = observer(({
   // filters,
   // updateFilters,
+  closeFilter,
+  filterRef,
+  showFilter,
   handleReset,
   handleSearch,
 }) => {
@@ -22,13 +25,13 @@ const FiltersSection = observer(({
   };
 
   const handleSizeBtn = (event, size) => {
-    filter.setSelectedSize(size)
+    
     let value = event.target.textContent.replaceAll(' ', '');
 
     let size_min = '';
     let size_max = '';
 
-    const newFilters = { ...filter.filters, size_min, size_max };
+    let newFilters = { ...filter.filters, size_min, size_max };
 
     if (value.includes('-')) {
       const [from, to] = value.split('-');
@@ -41,7 +44,14 @@ const FiltersSection = observer(({
     if (value === filter.filters[size_max]) {
       value = '';
     }
+    if(size.id === filter.selectedSize.id) {
+      filter.setSelectedSize({})
+      newFilters = {...newFilters, [size.name]:'', size_max:''}
+    } else {
+      filter.setSelectedSize(size)
+    }
     // updateFilters(newFilters);
+
     filter.setFilters(newFilters)
 
   };
@@ -63,8 +73,9 @@ const FiltersSection = observer(({
   };
 
   return (
-    <div className={styles.filter}>
-      <form className={styles.filter__form} onClick={(e) => e.preventDefault()}>
+    <div className={showFilter?`${styles.filter} ${styles.show_filter}`: `${styles.filter}`}>
+      <button className={styles.close__button} onClick={closeFilter}>X</button>
+      <form className={styles.filter__form} onClick={(e) => e.preventDefault()} ref={filterRef}>
         <input
           className={styles.filter__input_name}
           type="text"
@@ -81,7 +92,7 @@ const FiltersSection = observer(({
               {SIZE.map((size) => (
                 <button
                   id={size.id}
-                  className={clsx(filter.selectedSize.id === size.id && styles.active)}
+                  className={clsx(filter.selectedSize.id === size.id?styles.active:'')}
                   onClick={(event) => handleSizeBtn(event, size)}
                   name={size.name}
                   key={size.value}
@@ -92,7 +103,8 @@ const FiltersSection = observer(({
             </div>
             <div className={styles.filter__input_size_container}>
               <input
-                name="size_from"
+                name="size_min"
+                value={filter.filters.size_min}
                 placeholder="от"
                 type="text"
                 inputMode="numeric"
@@ -100,7 +112,8 @@ const FiltersSection = observer(({
               />{' '}
               -
               <input
-                name="size_to"
+                name="size_max"
+                value={filter.filters.size_max}
                 placeholder="до"
                 type="text"
                 inputMode="numeric"
@@ -148,6 +161,7 @@ const FiltersSection = observer(({
                 placeholder="от"
                 type="text"
                 inputMode="numeric"
+                value={filter.filters.price_min}
                 onChange={handleInput}
               />{' '}
               -
@@ -156,6 +170,7 @@ const FiltersSection = observer(({
                 placeholder="до"
                 type="text"
                 inputMode="numeric"
+                value={filter.filters.price_max}
                 onChange={handleInput}
               />
             </div>

@@ -17,6 +17,9 @@
     font-size: 32px;
     line-height: 100%;
     font-weight: 700;
+    @include w-600 {
+      font-size: 24px;
+    }
   }
 
   &__sup_title {
@@ -24,7 +27,6 @@
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
-    line-height: 100%;
   }
 
   &__title_info {
@@ -37,7 +39,6 @@
   &__description {
     font-size: 20px;
     font-weight: 300;
-    line-height: 100%;
   }
   &__send_btn {
     margin: 5px 0;

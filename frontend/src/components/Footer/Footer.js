@@ -5,11 +5,11 @@ import { useModal } from 'src/shared/lib/hooks';
 import ContentLayout from '../layouts/ContentLayout';
 
 import './Footer.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const {pathname} = useLocation()
   const { open } = useModal()
-
   const handleReview = () => {
     open('review')
   }
@@ -24,22 +24,22 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Каталог</p>
 
-          <NavLink className="footer__links_item_link" to={CATEGORY}>
+          <a className="footer__links_item_link" href={CATEGORY}>
             Проекты домов
-          </NavLink>
-          <NavLink className="footer__links_item_link" to={SERVICES}>
+          </a>
+          <a className="footer__links_item_link" href={SERVICES}>
             Услуги
-          </NavLink>
+          </a>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Наши проекты</p>
 
-          <NavLink className="footer__links_item_link" to={HOME + '#our_work'}>
+          <a className="footer__links_item_link" href={HOME + '#our_work'}>
             Готовые работы
-          </NavLink>
-          <NavLink className="footer__links_item_link" to={HOME}>
+          </a>
+          <a className="footer__links_item_link" href={HOME + '#reviews'}>
             Отзывы
-          </NavLink>
+          </a>
         </div>
         <div className="footer__links_item">
           <p className="footer__links_item_title">Контакты</p>
@@ -54,9 +54,9 @@ const Footer = () => {
         <div className="footer__links_item">
           <p className="footer__links_item_title">Другое</p>
 
-          <NavLink className="footer__links_item_link" to={ABOUT}>
+          <a className="footer__links_item_link" href={ABOUT}>
             О компании
-          </NavLink>
+          </a>
           <button className="footer__links_item_link" onClick={handleReview}>
             Оставить отзыв
           </button>
@@ -80,13 +80,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__socials">
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://vk.com/public222018152" target='blank'>
           <img src="/images/vk.webp" width="37" height="37" alt="vk" />
         </a>
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://instagram.com/stroi_dom.rus?igshid=MzRlODBiNWFlZA==" target="blank">
           <img src="/images/instagram.webp" width="37" height="37" alt="instagram" />
         </a>
-        <a className="footer__socials_item" href="">
+        <a className="footer__socials_item" href="https://t.me/stroi_dom_russia" target='blank'>
           <img src="/images/telegram.webp" width="37" height="37" alt="telegram" />
         </a>
       </div>
