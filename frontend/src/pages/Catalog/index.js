@@ -24,7 +24,7 @@ const CatalogPage = observer(() => {
   const [showMenu, setShowMenu] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const menuRef = useRef(false);
-  const filterRef = useRef(false)
+  const filterRef = useRef(false);
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
@@ -41,7 +41,7 @@ const CatalogPage = observer(() => {
       setIsLoading(false);
       console.error(error);
     }
-    setShowFilter(false)
+    setShowFilter(false);
   }, [filter.filters, isLoading]);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const CatalogPage = observer(() => {
   const reset = async () => {
     filter.setFilters(DEFAULT_FILTERS);
     filter.setSelectedSize({});
-    setShowFilter(false)
+    setShowFilter(false);
     try {
       setIsLoading(true);
       if (!isLoading) {
@@ -88,9 +88,9 @@ const CatalogPage = observer(() => {
       console.error(error);
     }
   };
-  const handleCloseFilter =() => {
-    setShowFilter(false)
-  }
+  const handleCloseFilter = () => {
+    setShowFilter(false);
+  };
 
   const updateFilters = (newFilter) => {
     // setFilters((prevState) => ({ ...prevState, ...newFilter }));
@@ -145,105 +145,110 @@ const CatalogPage = observer(() => {
                 </Nav.Link>
               </Nav.Item>
             </Nav>
-              <div className={styles.catalog__dropdown}>
-                <Dropdown as={ButtonGroup}>
-                  <div className={styles.catalog__dropdown_wrapper}>
-                    <button
-                      onClick={() =>
-                        setSortBy((prevState) => ({
-                          ...prevState,
-                          order: prevState.order === 'asc' ? 'desc' : 'asc',
-                        }))
-                      }
-                      className={
-                        sortBy.order === 'asc'
-                          ? styles.catalog__dropdown_order_asc
-                          : styles.catalog__dropdown_order_desc
-                      }
-                    ></button>
-                    <div
-                      className={`${styles.catalog__dropdown_toggler}`}
-                      ref={menuRef}
-                      onClick={() =>
-                        setShowMenu((prevState) =>
-                          prevState === true ? false : true
-                        )
-                      }
-                    >
-                      <span>{orderBy.order}</span>
-                    </div>
-                  </div>
+            <div className={styles.catalog__dropdown}>
+              <Dropdown as={ButtonGroup}>
+                <div className={styles.catalog__dropdown_wrapper}>
+                  <button
+                    onClick={() =>
+                      setSortBy((prevState) => ({
+                        ...prevState,
+                        order: prevState.order === 'asc' ? 'desc' : 'asc',
+                      }))
+                    }
+                    className={
+                      sortBy.order === 'asc'
+                        ? styles.catalog__dropdown_order_asc
+                        : styles.catalog__dropdown_order_desc
+                    }
+                  ></button>
                   <div
-                    className={`${styles.catalog__dropdown_menu} ${
-                      showMenu ? styles.show : ''
-                    }`}
+                    className={`${styles.catalog__dropdown_toggler}`}
+                    ref={menuRef}
+                    onClick={() =>
+                      setShowMenu((prevState) =>
+                        prevState === true ? false : true
+                      )
+                    }
                   >
-                    <span
-                      style={{ cursor: 'pointer' }}
-                      className={clsx(
-                        orderBy.order === 'По рейтингу'
-                          ? `${styles.catalog__dropdown_item} ${styles.selected}`
-                          : styles.catalog__dropdown_item
-                      )}
-                      onClick={() => onSort('rate')}
-                    >
-                      По рейтингу
-                    </span>
-                    <span
-                      style={{ cursor: 'pointer' }}
-                      className={clsx(
-                        orderBy.order === 'По цене'
-                          ? `${styles.catalog__dropdown_item} ${styles.selected}`
-                          : styles.catalog__dropdown_item
-                      )}
-                      onClick={() => onSort('price')}
-                    >
-                      По цене
-                    </span>
-                    <span
-                      style={{ cursor: 'pointer' }}
-                      className={clsx(
-                        orderBy.order === 'По площади'
-                          ? `${styles.catalog__dropdown_item} ${styles.selected}`
-                          : styles.catalog__dropdown_item
-                      )}
-                      onClick={() => onSort('size')}
-                    >
-                      По площади
-                    </span>
-                    <span
-                      style={{ cursor: 'pointer' }}
-                      className={clsx(
-                        orderBy.order === 'По умолчанию'
-                          ? `${styles.catalog__dropdown_item} ${styles.selected}`
-                          : styles.catalog__dropdown_item
-                      )}
-                      onClick={() => onSort('id')}
-                    >
-                      По умолчанию
-                    </span>
+                    <span>{orderBy.order}</span>
                   </div>
-                </Dropdown>
-                <button className={styles.catalog__filter_btn} onClick={() => setShowFilter(true)} filterRef={filterRef}>
-                    <svg
-                      width="22"
-                      height="20"
-                      viewBox="0 0 22 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M21.0002 0.666504H1.00016C0.823352 0.666504 0.653782 0.736742 0.528758 0.861766C0.403734 0.98679 0.333496 1.15636 0.333496 1.33317V2.4465C0.333621 2.60396 0.364905 2.75984 0.425547 2.90515C0.486189 3.05046 0.574989 3.18233 0.686829 3.29317L8.3335 11.0532V17.8532L9.66683 18.3598V10.6665C9.66734 10.5788 9.65052 10.4918 9.61734 10.4106C9.58417 10.3293 9.53528 10.2555 9.4735 10.1932L1.66683 2.39317V1.99984H20.3335V2.4065L12.5535 10.1932C12.4869 10.2532 12.433 10.3261 12.3952 10.4074C12.3574 10.4887 12.3364 10.5769 12.3335 10.6665V19.4732L13.6668 19.9998V10.9998L21.3135 3.33317C21.4271 3.21952 21.5169 3.08432 21.5776 2.93549C21.6383 2.78666 21.6686 2.62721 21.6668 2.4665V1.33317C21.6668 1.15636 21.5966 0.98679 21.4716 0.861766C21.3465 0.736742 21.177 0.666504 21.0002 0.666504Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-              </div>
+                </div>
+                <div
+                  className={`${styles.catalog__dropdown_menu} ${
+                    showMenu ? styles.show : ''
+                  }`}
+                >
+                  <span
+                    style={{ cursor: 'pointer' }}
+                    className={clsx(
+                      orderBy.order === 'По рейтингу'
+                        ? `${styles.catalog__dropdown_item} ${styles.selected}`
+                        : styles.catalog__dropdown_item
+                    )}
+                    onClick={() => onSort('rate')}
+                  >
+                    По рейтингу
+                  </span>
+                  <span
+                    style={{ cursor: 'pointer' }}
+                    className={clsx(
+                      orderBy.order === 'По цене'
+                        ? `${styles.catalog__dropdown_item} ${styles.selected}`
+                        : styles.catalog__dropdown_item
+                    )}
+                    onClick={() => onSort('price')}
+                  >
+                    По цене
+                  </span>
+                  <span
+                    style={{ cursor: 'pointer' }}
+                    className={clsx(
+                      orderBy.order === 'По площади'
+                        ? `${styles.catalog__dropdown_item} ${styles.selected}`
+                        : styles.catalog__dropdown_item
+                    )}
+                    onClick={() => onSort('size')}
+                  >
+                    По площади
+                  </span>
+                  <span
+                    style={{ cursor: 'pointer' }}
+                    className={clsx(
+                      orderBy.order === 'По умолчанию'
+                        ? `${styles.catalog__dropdown_item} ${styles.selected}`
+                        : styles.catalog__dropdown_item
+                    )}
+                    onClick={() => onSort('id')}
+                  >
+                    По умолчанию
+                  </span>
+                </div>
+              </Dropdown>
+              <button
+                className={styles.catalog__filter_btn}
+                ref={filterRef}
+                onClick={() => setShowFilter(true)}
+                
+              >
+                <svg
+                  width="22"
+                  height="20"
+                  viewBox="0 0 22 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.0002 0.666504H1.00016C0.823352 0.666504 0.653782 0.736742 0.528758 0.861766C0.403734 0.98679 0.333496 1.15636 0.333496 1.33317V2.4465C0.333621 2.60396 0.364905 2.75984 0.425547 2.90515C0.486189 3.05046 0.574989 3.18233 0.686829 3.29317L8.3335 11.0532V17.8532L9.66683 18.3598V10.6665C9.66734 10.5788 9.65052 10.4918 9.61734 10.4106C9.58417 10.3293 9.53528 10.2555 9.4735 10.1932L1.66683 2.39317V1.99984H20.3335V2.4065L12.5535 10.1932C12.4869 10.2532 12.433 10.3261 12.3952 10.4074C12.3574 10.4887 12.3364 10.5769 12.3335 10.6665V19.4732L13.6668 19.9998V10.9998L21.3135 3.33317C21.4271 3.21952 21.5169 3.08432 21.5776 2.93549C21.6383 2.78666 21.6686 2.62721 21.6668 2.4665V1.33317C21.6668 1.15636 21.5966 0.98679 21.4716 0.861766C21.3465 0.736742 21.177 0.666504 21.0002 0.666504Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+            </div>
 
             <div>
               <Tab.Content>
                 <Tab.Pane eventKey="house" title="Дома">
-                    <CardsSection cards={sortedData} />
+                  <CardsSection cards={sortedData} />
                 </Tab.Pane>
                 <Tab.Pane eventKey="garage" title="Гаражи">
                   <div className={styles.catalog__left_part}>
@@ -255,7 +260,7 @@ const CatalogPage = observer(() => {
                   title="Индивидуальные постройки"
                 >
                   <div className={styles.catalog__left_part}>
-                      <CardsSection cards={sortedData} />
+                    <CardsSection cards={sortedData} />
                   </div>
                 </Tab.Pane>
               </Tab.Content>

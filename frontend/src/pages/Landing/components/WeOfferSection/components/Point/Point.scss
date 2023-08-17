@@ -12,12 +12,16 @@
     }
   }
 
-  @include w-600 {
+  @include w-800 {
     flex-direction: column;
 
     img {
       width: 75px;
       height: 75px;
+      @include w-800 {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 
@@ -30,8 +34,8 @@
     @include w-1024 {
       font-size: 20px;
     }
-
-    @include w-600 {
+    @include w-800 {
+      text-align: center;
       font-size: 16px;
     }
   }

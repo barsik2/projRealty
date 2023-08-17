@@ -62,11 +62,15 @@
       column-gap: 20px;
       row-gap: 40px;
     }
+    @include w-800 {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 20px;
+    }
 
     @include w-600 {
       padding: 0;
       justify-content: center;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       row-gap: 30px;
       border: none;
     }
