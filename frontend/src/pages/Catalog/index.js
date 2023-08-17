@@ -24,7 +24,6 @@ const CatalogPage = observer(() => {
   const [showMenu, setShowMenu] = useState(false);
   const [showFilter, setShowFilter] = useState(false);
   const menuRef = useRef(false);
-  const filterRef = useRef(false);
   // const [filters, setFilters] = useState(filter.filters);
 
   const fetchData = useCallback(async () => {
@@ -50,13 +49,10 @@ const CatalogPage = observer(() => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setShowMenu(false);
       }
-      if (filterRef.current && !filterRef.current.contains(event.target)) {
-        setShowFilter(false);
-      }
     };
 
     // Добавление обработчика события клика только при отображении меню
-    if (showMenu || showFilter) {
+    if (showMenu) {
       document.addEventListener('click', handleOutsideClick);
     }
 
@@ -64,7 +60,7 @@ const CatalogPage = observer(() => {
     return () => {
       document.removeEventListener('click', handleOutsideClick);
     };
-  }, [showMenu, showFilter]);
+  }, [showMenu]);
 
   useEffect(() => {
     fetchData();
@@ -226,7 +222,6 @@ const CatalogPage = observer(() => {
               </Dropdown>
               <button
                 className={styles.catalog__filter_btn}
-                ref={filterRef}
                 onClick={() => setShowFilter(true)}
                 
               >
